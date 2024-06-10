@@ -1,6 +1,6 @@
 body {
     font-family: "BPG Nateli", sans-serif;
-    background-image: url(../images1/vashlovani2.jpg);
+    background-color: #94949446;
 }
   
   .header {
@@ -41,16 +41,10 @@ body {
   }
   
   .container {
-    max-width: 1146px;
+    max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding-top: 57px;
-  }
-  
-  .contact1 {
-    color: #5863e3;
-    font-size: 17px;
-    font-weight: bold;
   }
   
   .contact2 {
@@ -117,6 +111,10 @@ body {
     color: #f8f8f8;
     cursor: pointer;
   }
+
+  .send:hover {
+    color: #ff0000;
+  }
   
   .main-section {
     width: 100%;
@@ -138,16 +136,15 @@ body {
   }
   
   .container3 {
-    width: 188px;
+    width: 272px;
     height: 157px;
   }
   
   .div5,
   .div10,
   .div14 {
-    font-size: 15px;
     font-weight: 700px;
-    color: #99999a;
+    color: rgb(131, 131, 131);
     margin-bottom: 8px;
     display: flex;
     justify-content: center;
@@ -177,7 +174,7 @@ body {
   .div4,
   .div9,
   .div13 {
-    color: #4e4d54;
+    color: rgb(0, 0, 0);
     font-size: 20px;
     font-weight: 700px;
     margin-bottom: 8px;
@@ -186,14 +183,14 @@ body {
   }
   
   .header1, .header2 {
-    margin-top: 74px;
+    margin-top: 70px;
     max-width: 1146px;
     width: 90%;
     margin: 0 auto;
   }
   
   .header1 {
-    padding-top: 57px;
+    padding-top: 70px;
   }
   
   .header2 {
@@ -204,6 +201,7 @@ body {
     max-width: 1319px;
     width: 90%;
     margin: 0 auto;
+    padding-bottom: 100px;
   }
   
   .photos {
@@ -212,3 +210,18 @@ body {
     justify-content: space-between;
     width: 100%;
   }
+
+  .img1 {
+    width: 400px;
+    height: 350px;
+  }
+
+  .img2 {
+    width: 400px;
+    height: 350px;
+  }
+
+ .img3 {
+    width: 400px;
+    height: 350px;
+ }
