@@ -1,5 +1,6 @@
 body {
     font-family: "BPG Nateli", sans-serif;
+    background-image: url(../images1/vashlovani2.jpg);
 }
   
   .header {
@@ -39,3 +40,175 @@ body {
     display: none !important;
   }
   
+  .container {
+    max-width: 1146px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 57px;
+  }
+  
+  .contact1 {
+    color: #5863e3;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .contact2 {
+    color: #000000;
+    font-size: 49px;
+    font-weight: 400px;
+    line-height: 56.35px;
+    margin-top: 7px;
+    text-transform: capitalize;
+    width: 600px;
+  }
+  
+  .input {
+    width: 100%;
+    display: flex;
+    margin-top: 57px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div2 {
+    height: 298px;
+  }
+  
+  .text {
+    width: 756px;
+    height: 298px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    font-weight: 700px;
+    border: solid 1px;
+    border-color: rgb(165, 165, 165);
+  }
+  
+  input {
+    padding-left: 19px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  textarea {
+    padding-top: 23px;
+    padding-left: 21px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .text1 {
+    height: 59px;
+    width: 370px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-color: #f8f8f8;
+    border: solid 1px;
+    border-color: rgb(165, 165, 165);
+  }
+  
+  .send {
+    background-color: hsl(234, 88%, 65%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #f8f8f8;
+    cursor: pointer;
+  }
+  
+  .main-section {
+    width: 100%;
+    height: 157px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 51px;
+    gap: 50px;
+  }
+  
+  .container1 {
+    width: 226px;
+    height: 157px;
+  }
+  
+  .container2 {
+    height: 157px;
+    width: 122px;
+  }
+  
+  .container3 {
+    width: 188px;
+    height: 157px;
+  }
+  
+  .div5,
+  .div10,
+  .div14 {
+    font-size: 15px;
+    font-weight: 700px;
+    color: #99999a;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .div6,
+  .div7,
+  .div11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div3,
+  .div8,
+  .div12 {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #5968f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .div4,
+  .div9,
+  .div13 {
+    color: #4e4d54;
+    font-size: 20px;
+    font-weight: 700px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header1, .header2 {
+    margin-top: 74px;
+    max-width: 1146px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .header1 {
+    padding-top: 57px;
+  }
+  
+  .header2 {
+    padding-top: 74px;
+  }
+  
+  .photo {
+    max-width: 1319px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .photos {
+    margin-top: 53px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
