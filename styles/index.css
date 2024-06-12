@@ -2,6 +2,10 @@ body {
   font-family: "BPG Nostalgia", sans-serif;
 }
 
+.background {
+  background-color: rgba(222, 184, 135, 0.315);
+}
+
 header {
   position: relative;
 }
@@ -22,6 +26,8 @@ header {
   display: flex;
   gap: 25px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .div1 a {
@@ -39,7 +45,7 @@ header {
   height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,6 +69,11 @@ header {
   display: none !important;
 }
 
+.flag {
+  width: 100px;
+  height: 60px;
+}
+
 
 
 
@@ -71,7 +82,6 @@ header {
 
 .section {
   display: flex;
-  padding-top: 100px;
   justify-content: center;
 }
 
@@ -131,13 +141,17 @@ header {
   height: 1000px;
 }
 
+.d-block {
+  height: 900px;
+  width: 100%;
+}
 
 .carousel {
   width: 88%;
 }
 
-.carousel-item {
-  
+.carousel-control-next, .carousel-control-prev {
+  margin-bottom: 200px;
 }
 
 $carousel-control-color:             $white;
@@ -247,6 +261,38 @@ footer {
   display: flex;
   justify-content: space-around;
   font-size: 20px;
-  padding: 106px 0;
   color: rgba(186, 255, 82, 0.664);
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.row1 p {
+  display: inline;
+}
+
+.row1 div {
+  padding-top: 30px;
+}
+
+.row1 a {
+  color: rgba(186, 255, 82, 0.664);
+}
+
+.row1 div :hover {
+  cursor: pointer;
+  color: rgba(165, 42, 42, 0.5);
+}
+
+.row1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row1 h2 {
+  margin-left: 50px;
 }

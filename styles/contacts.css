@@ -3,6 +3,10 @@ body {
     background-color: #94949446;
 }
   
+.section {
+  background-color: rgba(222, 184, 135, 0.315);
+}
+
   .header {
     display: flex;
     position: absolute;
@@ -48,7 +52,7 @@ body {
   }
   
   .contact2 {
-    color: #000000;
+    color: rgb(1 110 1);
     font-size: 49px;
     font-weight: 400px;
     line-height: 56.35px;
@@ -75,8 +79,8 @@ body {
     background-color: #f8f8f8;
     font-size: 14px;
     font-weight: 700px;
-    border: solid 1px;
-    border-color: rgb(165, 165, 165);
+    border: solid 2px;
+    border-color: #9d6338;
   }
   
   input {
@@ -100,20 +104,20 @@ body {
     margin-bottom: 20px;
     margin-left: 20px;
     background-color: #f8f8f8;
-    border: solid 1px;
-    border-color: rgb(165, 165, 165);
+    border: solid 2px;
+    border-color: #9d6338;
   }
   
   .send {
-    background-color: hsl(234, 88%, 65%);
+    background-color: green;
     font-size: 14px;
     font-weight: bold;
-    color: #f8f8f8;
+    color: #08ff2993;
     cursor: pointer;
   }
 
   .send:hover {
-    color: #ff0000;
+    color: #ffbb00;
   }
   
   .main-section {
@@ -132,7 +136,7 @@ body {
   
   .container2 {
     height: 157px;
-    width: 122px;
+    width: 135px;
   }
   
   .container3 {
@@ -164,7 +168,7 @@ body {
     width: 68px;
     height: 68px;
     border-radius: 50%;
-    background-color: #5968f4;
+    background-color: green;
     display: flex;
     justify-content: center;
     align-items: center;
