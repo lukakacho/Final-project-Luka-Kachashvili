@@ -1,5 +1,5 @@
 body {
-  font-family: "BPG Nateli", sans-serif;
+  font-family: "BPG Glaho", sans-serif;
 }
 
 .header {
@@ -70,12 +70,11 @@ body {
 
 .contact2 {
   color: rgb(1 110 1);
-  font-size: 49px;
+  font-size: 37px;
   font-weight: 400px;
   line-height: 56.35px;
-  margin-top: 7px;
   text-transform: capitalize;
-  width: 600px;
+  width: 800px;
 }
 
 .input {
@@ -139,7 +138,7 @@ textarea {
 
 .main-section {
   width: 100%;
-  height: 157px;
+  height: 180px;
   display: flex;
   justify-content: space-around;
   margin-top: 51px;
@@ -152,8 +151,8 @@ textarea {
 }
 
 .container2 {
-  height: 157px;
-  width: 135px;
+  height: 180px;
+  width: 138px;
 }
 
 .container3 {

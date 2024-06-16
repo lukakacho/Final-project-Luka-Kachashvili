@@ -1,0 +1,698 @@
+function maxZ() {
+    var maxZ = Math.max.apply(null, $.map($('body *'), function (e, n) {
+        if ($(e).css('position') == 'absolute' || $(e).css('position') == 'relative' || $(e).css('position') == 'fixed')
+            return parseInt($(e).css('z-index')) || 1;
+    }));
+    return maxZ;
+}
+
+function isEmail(email) {
+    var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (email.search(emailRegEx) == -1) {
+        return (false);
+    }
+    return (true);
+}
+
+function Subscribe(obj) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var errors = 0;
+    var email = $('#Email').val();
+
+    if (!re.test(String(email).toLowerCase())) {
+        $('#Email').parent('.form-group').addClass("error");
+        errors++;
+    }
+
+    if (errors > 0) {
+        return false;
+    }
+
+    $.post(CONFIG.URL + CONFIG.LANG + "/main/saveemail", $(obj).serialize(), function (data) {
+
+        if (data.StatusCode == 1) {
+            jAlert(data.StatusMessage, null, function () {
+                window.location.href = CONFIG.URL + CONFIG.LANG + "/main";
+            });
+        }
+    });
+
+    return false;
+}
+
+function isInt(input) {
+    return !isNaN(input) && parseInt(input) == input;
+}
+
+function isFloat(input) {
+    return !isNaN(input) && parseFloat(input) == input;
+}
+
+function isPos(input) {
+    return input * -1 <= 0;
+}
+
+function renderTemplate(template, data) {
+    for (let i in data) {
+        if (template.indexOf('%s') === -1) break;
+        template = template.replace('%s', data[i]);
+    }
+    return template;
+}
+
+function uniqueID() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+function validate(e, type) {
+    switch (type) {
+        case 'int':
+            return validateDouble(e);
+            break;
+
+        case 'double':
+            return validateDouble(e, 1);
+            break;
+
+        case 'alpha':
+            return validateAlpha(e);
+            break;
+    }
+}
+
+function validateDouble(e, _double) {
+    if (!validateKeys(e, _double)) {
+        return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+}
+
+function validateAlpha(e) {
+    if (!validateKeys(e)) {
+        return;
+    }
+    // Ensure that it is a alpha and stop the keypress
+    if (!(e.keyCode > 64 && e.keyCode < 91)) {
+        e.preventDefault();
+    }
+}
+
+function validateKeys(e, _double) {
+    // Allow: backspace, delete, tab, escape and enter
+    var keyCodes = [46, 8, 9, 27, 13];
+    if (_double) {
+        keyCodes.push(110);
+        keyCodes.push(190);
+    }
+    if ($.inArray(e.keyCode, keyCodes) !== -1 ||
+        // Allow: Ctrl+A
+        (e.keyCode == 65 && e.ctrlKey === true) ||
+        // Allow: Ctrl+C
+        (e.keyCode == 67 && e.ctrlKey === true) ||
+        // Allow: Ctrl+X
+        (e.keyCode == 88 && e.ctrlKey === true) ||
+        // Allow: home, end, left, right
+        (e.keyCode >= 35 && e.keyCode <= 39)) {
+        // let it happen, don't do anything
+        return false;
+    }
+    return true;
+}
+
+function goToLink(url, where) {
+    var popup = true;
+    while (url.substr(-1) == "#") {
+        url = url.substr(0, url.length - 1);
+    }
+    if (where) {
+        if (url.substr(0, 7) == "http://" || url.substr(0, 8) == "https://") {
+            popup = window.open(url, where);
+        } else {
+            popup = window.open("//" + url, where);
+        }
+    } else {
+        location.href = url;
+    }
+    if (!popup || popup.closed || typeof popup.closed == 'undefined') {
+        popup = false;
+    }
+    return popup;
+}
+
+//JQUERY FUNCTIONS
+$.fn.serializeObject = function () {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$.fn.addLoader = function () {
+    if ($(this).css('position') == 'static') {
+        $(this).css('position', 'relative');
+    }
+    $(this).append('<div class="plugin-loader" id="" style="z-index: ' + maxZ() + ';"><i></i></div>');
+};
+
+$.fn.removeLoader = function () {
+    $(this).find('.plugin-loader').fadeOut(150, function () {
+        $(this).remove();
+    });
+};
+
+$.fn.uCase = function () {
+    var s = {
+        'ა': 'A',
+        'ბ': 'B',
+        'ც': 'C',
+        'ჩ': 'C',
+        'დ': 'D',
+        'ე': 'E',
+        'ფ': 'F',
+        'გ': 'G',
+        'ჰ': 'H',
+        'ი': 'I',
+        'ჯ': 'J',
+        'ჟ': 'J',
+        'კ': 'K',
+        'ლ': 'L',
+        'მ': 'M',
+        'ნ': 'N',
+        'ო': 'O',
+        'პ': 'P',
+        'ქ': 'Q',
+        'რ': 'R',
+        'ღ': 'R',
+        'ს': 'S',
+        'შ': 'S',
+        'ტ': 'T',
+        'თ': 'T',
+        'უ': 'U',
+        'ყ': 'Y',
+        'ვ': 'V',
+        'წ': 'W',
+        'ჭ': 'W',
+        'ხ': 'X',
+        'ზ': 'Z',
+        'ძ': 'Z'
+    };
+
+    function t(c) {
+        for (var i in s)
+            if (i == c) return s[i];
+        return c;
+    }
+
+    function p(f) {
+        f.focus();
+        f.value += this;
+    }
+    $(this).keypress(function (e) {
+        var c = String.fromCharCode(e.which),
+            n;
+        n = t(c).toUpperCase();
+        if (c != n) {
+            if (navigator.appName.indexOf("Internet Explorer") != -1) {
+                window.event.keyCode = n.charCodeAt(0);
+            } else {
+                p.call(n, e.target);
+                e.preventDefault();
+            }
+        }
+    });
+}
+
+$.fn.geoInput = function () {
+    var s = {
+        'a': 'ა',
+        'A': 'ა',
+        'b': 'ბ',
+        'B': 'ბ',
+        'c': 'ც',
+        'C': 'ჩ',
+        'd': 'დ',
+        'D': 'დ',
+        'e': 'ე',
+        'E': 'ე',
+        'f': 'ფ',
+        'F': 'ფ',
+        'g': 'გ',
+        'G': 'გ',
+        'h': 'ჰ',
+        'H': 'ჰ',
+        'i': 'ი',
+        'I': 'ი',
+        'j': 'ჯ',
+        'J': 'ჟ',
+        'k': 'კ',
+        'K': 'კ',
+        'l': 'ლ',
+        'L': 'ლ',
+        'm': 'მ',
+        'M': 'მ',
+        'n': 'ნ',
+        'N': 'ნ',
+        'o': 'ო',
+        'O': 'ო',
+        'p': 'პ',
+        'P': 'პ',
+        'q': 'ქ',
+        'Q': 'ქ',
+        'r': 'რ',
+        'R': 'ღ',
+        's': 'ს',
+        'S': 'შ',
+        't': 'ტ',
+        'T': 'თ',
+        'u': 'უ',
+        'U': 'უ',
+        'v': 'ვ',
+        'V': 'ვ',
+        'w': 'წ',
+        'W': 'ჭ',
+        'x': 'ხ',
+        'X': 'ხ',
+        'z': 'ზ',
+        'Z': 'ძ',
+        'y': 'ყ',
+        'Y': 'ყ'
+    };
+
+    function p(f) {
+        f.focus();
+        f.value += this;
+    }
+    $(this).keypress(function (e) {
+        var c = String.fromCharCode(e.which ),
+            n = ((Object.keys(s).indexOf(c) > -1) ? s[c] : c);
+        if (c == n) return;
+        if (navigator.appName.indexOf("Internet Explorer") != -1) {
+            window.event.keyCode = n.charCodeAt(0);
+            return;
+        }
+        p.call(n, e.target);
+        e.preventDefault();
+    });
+}
+
+$.fn.toTop = function () {
+    var self = $(this);
+    var height = function () {
+        return $(window).height() - 80;
+    }
+    var positions = function () {
+        var width = $('.width').last(),
+            left = 'auto',
+            right = 'auto';
+        if ($(window).width() > width.offset().left + width.width() + 100) {
+            left = width.offset().left + width.width() + 30;
+        } else {
+            right = '25px';
+        }
+        return {
+            'left': left,
+            'top': height(),
+            'right': right
+        }
+    }
+    var func = function (self) {
+        if ($(window).scrollTop() > 200) {
+            self.addClass('active');
+        } else {
+            self.removeClass('active');
+        }
+    }
+    func(self);
+    self.css(positions());
+    self.click(function (e) {
+        $('body, html').scrollTop(0);
+    });
+    $(window).scroll(function () {
+        func(self);
+    }).resize(function () {
+        self.css(positions());
+    });
+}
+
+var _form = {
+    response: {},
+    data: {
+        files: [],
+    },
+    fields: {
+        captchaVal: '#CaptchaVal',
+        files: '.files-list',
+    },
+    tags: {
+        filesList: 'li.files-list-uploaded-files',
+    },
+    /*validateFormInputs : function(f){
+        var errors = [];
+         // var email = f.attr('id');
+        //alert($(f).find('#LoginEmail').attr('id'));
+          //  alert($(f).find('#LoginEmail').attr('id') == 'LoginEmail'); 
+
+            $(f).find('.input-error').remove();
+            $(f).find('[data-error]').each(function(){
+                if($(this).val().trim() == '') {
+                    $(this).parent().append('<p class="input-error">' + $(this).data('error') + '</p>');
+                    errors.push($(this));
+                    $(this).css('border-color','#e74c3c');
+                }
+            });
+            if(errors.length == 0) {
+                $(f).find('[data-equals]').each(function(){
+                    if($(this).val() != $(this).parents('form').find('[name="' + $(this).data('equals') + '"]').val()) {
+                        $(this).parent().append('<p class="input-error">' + $(this).data('equals-error') + '</p>');
+                        errors.push($(this));
+                    }
+                });
+            }
+            if(errors.length > 0) {
+                errors[0].focus();
+                return false;
+            }
+        return true;
+    },*/
+
+    changeSingleInputError: function (input, error) {
+        input.parent().find('.input-error2').remove();
+        input.parent().find('.input-error-box').remove();
+        input.parent().append('<div class="input-error input-error2"></div>');
+        input.parent().append(`<div class="input-error-box">${error}</div>`);
+    },
+    clearInputErrors: function (form) {
+        $(form).find('.border-color-red').removeClass('border-color-red');
+        $(form).find('.input-error2').remove();
+        $(form).find('.input-error-box').remove();
+    },
+    checkImputEmptiness: function (form) {
+        let errors = 0;
+        $(form).find('[data-error]').each(function () {
+            if ($(this).val().trim() == '') {
+                $(this).closest('.input-form').addClass(`error`);
+                $(this).parent().append('<p class="input-error input-error2"></p>');
+                $(this).parent().append('<div class="input-error-box">' + $(this).data('error') + '</div>');
+                errors++;
+            }
+        });
+        return errors;
+    },
+    validateFormInputs: function (f) {
+        let errors = [];
+        let email = $(f).find('input[Name="Email"]');
+        let emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let phone = $(f).find('input[Name="Mobile"]');
+        let password = $(f).find('.passwordRegexCheck');
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+        let repeatPassword = $(f).find('input[Name="RepeatPassword"]');
+
+        _form.clearInputErrors(f);
+        if (_form.checkImputEmptiness(f)) {
+            errors.push(f);
+        }
+
+        if (phone.length > 0) {
+            let phoneVal = phone.val();
+            let phoneNumLength = phoneVal.replace(/ /g, '');
+            if (phoneNumLength.length < 9 || phoneNumLength.length > 14) {
+                _form.changeSingleInputError(phone, phone.data('error'));
+                errors.push(phone);
+            }
+        }
+
+        if (email.length > 0) {
+            let emailVal = email.val();
+
+            if (!emailRegEx.test(String(emailVal).toLowerCase())) {
+                _form.changeSingleInputError(email, email.data('error'));
+                errors.push(email);
+            }
+        }
+
+        if (password.length > 0) {
+            let passwordVal = password.val();
+
+            if (!passwordRegex.test(passwordVal)) {
+                _form.changeSingleInputError(password, password.data('error2'));
+                errors.push(password);
+            }
+            if (repeatPassword.length > 0) {
+                if (password.val() !== repeatPassword.val()) {
+                    _form.changeSingleInputError(repeatPassword, repeatPassword.data('equals-error'));
+                    errors.push(repeatPassword);
+                }
+            }
+        }
+
+
+        if (errors.length == 0) {
+            $(f).find('[data-equals]').each(function () {
+                if ($(this).val() != $(this).parents('form').find('[name="' + $(this).data('equals') + '"]').val()) {
+                    $(this).parent().append('<p class="input-error input-error2"></p>');
+                    $(this).parent().append('<p class="input-error-box">' + $(this).data('equals-error') + '</p>');
+
+                    errors.push($(this));
+                }
+            });
+        }
+
+        if (errors.length > 0) {
+            errors[0].focus();
+            return false;
+        }
+
+        return true;
+    },
+    validateFormInputs2: function (f) {
+        var errors = [];
+
+        _form.clearInputErrors(f);
+        if (_form.checkImputEmptiness(f)) {
+            errors.push(f);
+        }
+        if (errors.length == 0) {
+            $(f).find('[data-equals]').each(function () {
+                if ($(this).val() != $(this).parents('form').find('[name="' + $(this).data('equals') + '"]').val()) {
+                    /*$(this).parent().append('<p class="input-error">' + $(this).data('equals-error') + '</p>');*/
+                    $(this).parent().append('<div class="input-error input-error2"></div>');
+                    $(this).parent().append('<div class="input-error-box">' + $(this).data('equals-error') + '</div>');
+                    errors.push($(this));
+                }
+            });
+        }
+        if (errors.length > 0) {
+            errors[0].focus();
+            return false;
+        }
+        return true;
+    },
+    validatePasswordChange: function (form) {
+        let errors = [];
+        let oldPassword = $(form).find('#OldPassword');
+        let newPassword = $(form).find('#newPassword');
+        let repeatNewPassword = $(form).find('#repeatNewPassword');
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+        let passwordVal = newPassword.val();
+
+
+        _form.clearInputErrors(form);
+        if (_form.checkImputEmptiness(form)) {
+            errors.push(form);
+        }
+
+
+        if (!passwordRegex.test(passwordVal)) {
+            _form.changeSingleInputError(newPassword, newPassword.data('error2'));
+            errors.push(newPassword);
+        }
+
+        if (newPassword.val() !== repeatNewPassword.val()) {
+            _form.changeSingleInputError(repeatNewPassword, repeatNewPassword.data('equals-error'));
+            errors.push(repeatNewPassword);
+        }
+
+        if (newPassword.val() == oldPassword.val()) {
+            _form.changeSingleInputError(newPassword, newPassword.data('same-password'));
+            errors.push(newPassword);
+        }
+
+        if (errors.length > 0) {
+            errors[0].focus();
+            return false;
+        }
+        return true;
+    },
+    validateTour: function (form) {
+        let errors = [];
+        let imgList = $(form).find('.small-images');
+
+        _form.clearInputErrors(form);
+        if (_form.checkImputEmptiness(form)) {
+            errors.push(form);
+        }
+        if (errors.length > 0) {
+            /*$(form).find('.input-error').parent().find('input').focus();*/
+            $(window).scrollTop(0);
+            return false;
+        }
+
+        if (imgList.length) {
+            if (imgList.find('ul li').length < 2) {
+                jAlert(imgList.data('jalert'));
+                errors.push(form);
+            }
+        }
+
+        if (errors.length > 0) {
+            /*$(form).find('.input-error').parent().find('input').focus();*/
+            return false;
+        }
+        return true;
+    },
+    hasFiles: function (f) {
+        return (($(f).find(this.fields.files).length && $(f).find(this.fields.files).length > 1) || ($(f).find(this.tags.filesList).length > 0));
+    },
+    initFiles: function (f) {
+        if ($(f).find(this.fields.files).length) {
+            if ($(f).find(this.fields.files).length > 1) {
+                $(f).find(this.fields.files).each(function () {
+                    _form.data.files = [];
+                    $.each($(this).find(_form.tags.filesList), function () {
+                        _form.data.files.push($(this).data('file'));
+                    });
+                    $(this).append('<input type="hidden" name="' + $(this).data('name') + '" value="' + _form.data.files.join() + '"/>');
+                })
+            } else {
+                this.data.files = [];
+                $.each($(f).find(this.tags.filesList), function () {
+                    _form.data.files.push($(this).data('file'));
+                });
+                $(f).append('<input type="hidden" name="' + $(f).find(this.fields.files).data('name') + '" value="' + this.data.files.join() + '"/>');
+            }
+        }
+    },
+    updateEditors: function (o) {
+        if ($(o).find('[data-ckeditor="true"]').length > 0) {
+            $(o).find('[data-ckeditor="true"]').each(function () {
+                CKEDITOR.instances[$(this).attr('id')].updateElement();
+            })
+        }
+    },
+    checkFields: function (obj, callback) {
+        var error = false;
+        var field = false;
+        var name = '';
+        var parent;
+        $.each($(obj).find('[data-error]'), function () {
+            parent = $(this).parent('p').length ? $(this).parent('p') : $(this).parents('div').first();
+            if (($(this).is(':checkbox') && !$(this).is(':checked')) ||
+                ($(this).data('error') && $.trim($(this).val()) == '' && !$(this).data('multiple')) ||
+                ($(this).data('type') == 'email' && !isEmail($(this).val())) ||
+                ($(this).data('type') == 'int' && !isInt($(this).val())) ||
+                ($(this).data('type') == 'double' && !isFloat($(this).val())) ||
+                ($(this).data('multiple') && !$('[name="' + $(this).data('multiple') + '"]:checked').length) ||
+                ($(this).data('minlength') && $.trim($(this).val()).length < $(this).data('minlength')) ||
+                ($(this).data('min') != undefined && parseFloat($(this).val()) <= $(this).data('min')) ||
+                (isInt($(this).data('gt')) && parseInt($(this).val()) <= $(this).data('gt')) ||
+                (isInt($(this).data('lt')) && parseInt($(this).val()) >= $(this).data('lt')) ||
+                ($(this).data('lengths') && $(this).data('lengths').indexOf($.trim($(this).val()).length) == -1) ||
+                ($(this).data('equals') && $(this).val() != $(obj).find('[name="' + $(this).data('equals') + '"]').val())
+            ) {
+                $(this).closest('.input-form').addClass('error');
+                name = $(this).attr('name') != undefined ? $(this).attr('name').replace('[]', '') : '';
+                parent.next('#input-error-' + name).remove();
+                parent.after('<p class="input-error" id="input-error-' + name + '">' + $(this).data('error') + '</p>');
+                error = true;
+                field = field == false ? $(this) : field;
+            } else {
+                name = $(this).attr('name') != undefined ? $(this).attr('name').replace('[]', '') : '';
+                parent.next('#input-error-' + name).remove();
+                $(this).closest('.input-form').removeClass('error');
+            }
+        });
+        if (field) {
+            field.focus();
+        }
+        if (!error) {
+            if ($(obj).data('confirm')) {
+                jConfirm($(obj).data('confirm'), null, function (e) {
+                    if (!e) {
+                        return false;
+                    }
+                    _form.post(obj, callback);
+                });
+            } else {
+                _form.post(obj, callback);
+            }
+        }
+        return error;
+    },
+    post: function (obj, callback) {
+        $.each($(obj).find('textarea[data-ckeditor="true"]'), function () {
+            CKEDITOR.instances[$(this).attr('name')].updateElement();
+        });
+        if ($(obj).find(this.fields.files).length) {
+            this.data.files = [];
+            $.each($(obj).find(this.tags.filesList), function () {
+                _form.data.files.push($(this).data('file'));
+            });
+            $(obj).append('<input type="hidden" name="' + $(obj).find(this.fields.files).data('name') + '" value="' + this.data.files.join() + '"/>');
+        }
+        $(obj).find('*:focus').blur();
+        if ($(obj).data('popup')) {
+            popup($(obj).attr('action'), $(obj).serializeArray());
+        } else {
+            $(obj).addLoader();
+            $.post($(obj).attr('action'), $(obj).serializeArray(), function (data) {
+                $(obj).removeLoader();
+                if ((data = _form.parseJSON(data)) === false) {
+                    return false;
+                }
+                if (data.StatusCode == -1) {
+                    jAlert(data.StatusMessage, null, function () {
+                        $(obj).find(_form.fields.captchaVal).focus();
+                    });
+                    return false;
+                }
+                _form.response = data;
+                if (typeof callback == 'function') {
+                    callback();
+                } else {
+                    jAlert(data.StatusMessage);
+                }
+            });
+        }
+    },
+    removeInputErrors: function (obj) {
+        $(obj).find('.input-error').remove();
+    },
+    parseJSON: function (data) {
+        try {
+            data = $.parseJSON(data);
+        } catch (e) {}
+        if (['boolean', 'number', 'string', 'symbol', 'function'].indexOf(typeof data) == -1) {
+            return data;
+        } else {
+            jAlert(lang.Error);
+            return false;
+        }
+    },
+    focus: function () {
+        var text = $('form').last().find(':text').first();
+        var val = text.val();
+        text.val('').val(val).focus();
+    }
+}

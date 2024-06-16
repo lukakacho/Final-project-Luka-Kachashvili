@@ -1,5 +1,5 @@
 body {
-    font-family: "BPG Nostalgia", sans-serif;
+  font-family: "BPG Arial Caps", sans-serif;
   }
   
   .background {
@@ -80,6 +80,62 @@ body {
 
 
 
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.photos {
+ display: flex;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  width: 500px;
+}
+
+.img img {
+  width: 500px;
+  height: 500px;
+}
+
+.section1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.section1 h1 {
+  font-size: 50px;
+}
+
+.section2 {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  color: #455A64;
+  line-height: 20px;
+}
+
+.div {
+  font-size: 16px;
+}
+
+.line1 h2 {
+  font-size: 20px;
+}
+
+.line1 h3 {
+  font-size: 16px;
+}
 
 
 
@@ -104,21 +160,15 @@ body {
 
 
 
+.div1 {
+  display: flex;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 
 
 

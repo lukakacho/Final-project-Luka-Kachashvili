@@ -1,0 +1,1193 @@
+function manageClass(o, c, m) {
+    if (m) $(o).addClass(c);
+    else $(o).removeClass(c);
+}
+
+var additionalData = [];
+var lastOption;
+
+$(document).ready(function () {
+    $('.column-mob .text a').attr('target','_blank');
+    // mob menu open close 
+    $('.burger-btn').click(function () {
+        $(this).toggleClass('close');
+        $('.mob-menu').toggleClass('active');
+    });
+    $(document).mouseup(function (e) {
+        if ($(".mob-menu").hasClass('active')) {
+            var container = $(".mob-menu .list, .burger-btn.close");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.parents('.mob-menu').removeClass('active');
+                $('.burger-btn').removeClass('close');
+            }
+        }
+    });
+    $('.main-slider .owl-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1.2
+            },
+            576: {
+                items: 1.6
+            },
+            991: {
+                items: 2.6
+            }
+        }
+    })
+    $('.prev-owl').click(function () {
+        $(this).closest('.find-owl').find('.owl-carousel').trigger('prev.owl.carousel');
+    })
+    $('.next-owl').click(function () {
+        $(this).closest('.find-owl').find('.owl-carousel').trigger('next.owl.carousel');
+    })
+    $('.list-view button').click(function () {
+        var o = $(this);
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.change').fadeOut(300, function () {
+            setTimeout(() => {
+                $('.search-page').attr('data-id', o.data('id'));
+                $('.change').fadeIn(300)
+            }, 100);
+        });
+    });
+    $('.filter-btn').click(function () {
+        $('.filter-form').fadeIn(300);
+    });
+    $('.filter-form .close-btn').click(function () {
+        $('.filter-form').fadeOut(300);
+    });
+    $('.weekend-tours .prev-slide').click(function () {
+        $('.weekend-tours .owl-carousel').trigger('prev.owl.carousel');
+    });
+    $('.weekend-tours .next-slide').click(function () {
+        $('.weekend-tours .owl-carousel').trigger('next.owl.carousel');
+    });
+    // if (CONFIG.SERVERPAGE == '') {
+    if ($('.main-search').length == 1) {
+        $(window).scroll(function () {
+            manageClass('header', 'scrolled', ($(window).scrollTop() > 150));
+        });
+        $('.main-input').keyup(function (e) {
+            setTimeout(() => {
+                if ($('.by-loc li').length) {
+                    if (e.which == 40 || e.which == 38 || e.which === 13) {
+
+                    } else {
+                        $('.by-loc li').first().addClass('focus');
+                    }
+                }
+            }, 100);
+        });
+        $('.main-search form').on('keyup keypress', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                if ($('.by-loc li').length) {
+                    location.href = $('.by-loc li.focus a').attr('href');
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        });
+        $(document).on('keyup', function (e) {
+            //down key
+            if (e.which == 40) {
+                setTimeout(() => {
+                    if ($('.by-loc li').length) {
+                        if ($('.by-loc .focus').is(':last-child')) {
+
+                        } else {
+                            var o = $('.by-loc .focus');
+                            $('.by-loc li').removeClass('focus');
+                            $(o).next().addClass('focus');
+                        }
+                    }
+                }, 100);
+            } else if (e.keyCode == 38) {
+                setTimeout(() => {
+                    if ($('.by-loc li').length) {
+                        if ($('.by-loc .focus').is(':first-child')) {
+
+                        } else {
+                            var o = $('.by-loc .focus');
+                            $('.by-loc li').removeClass('focus');
+                            $(o).prev().addClass('focus');
+                        }
+                    }
+                }, 100);
+            } else if (e.keyCode == 13) {
+                console.log(1);
+            }
+        });
+    }
+
+    // dropdown 
+    $('.dropdown:not(.filter) .selected').click(function () {
+        var dropdown = $(this).closest('.dropdown');
+        dropdown.toggleClass('active');
+        dropdown.attr('tabinex', 1).focus();
+        if ($(this).hasClass('multisearch')) {
+            $(this).find('.filter').focus();
+        }
+    });
+    $('.dropdown.classic:not(.filter) .selected').click(function () {
+        $(this).closest('.dropdown').find('.result').css('overflow-y', 'hidden');
+        setTimeout(() => {
+            $(this).closest('.dropdown').find('.result').css('overflow-y', 'scroll');
+        }, 150);
+    });
+    $('.dropdown .result .item:not(.not)').click(function () {
+        var dropdown = $(this).closest('.dropdown');
+        if (!$(this).hasClass('close')) {
+            $(dropdown).find('.selected .sel-text').text($(this).text());
+            $(dropdown).find('.selected .search-input').val($(this).text());
+        }
+        $(dropdown).removeClass('active');
+        $(dropdown).find('input[type="hidden"]').val($(this).data('id'));
+        $(dropdown).find('.sel-text.filter').val($(this).text());
+    });
+    $('.inner-dropdown .inner-selected').click(function () {
+        $(this).parent().toggleClass('active');
+    });
+    $('.inner-dropdown .inner-item').click(function () {
+        $(this).parents('.inner-dropdown').removeClass('active');
+        $(this).parents('.inner-dropdown').find('.inner-selected span img').attr('src', $(this).find('img').attr('src'));
+    });
+    $(document).mouseup(function (e) {
+        if ($(".dropdown").hasClass('active')) {
+            var container = $(".dropdown.active");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.removeClass('active');
+                if (container.hasClass('filter')) {
+                    container.find('.search-input').val('');
+                };
+            }
+        }
+    });
+    $(".dropdown.filter .search-input").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $(this).parents('.dropdown').find('.item').filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+    $('.dropdown.filter .selected').click(function () {
+        $(this).parents('.dropdown').addClass('active');
+        $(this).parents('.dropdown').find('.item').show();
+        $(this).find('.search-input').focus();
+    });
+    $('.dropdown.filter .selected .arr').click(function () {
+        $(this).parents('.dropdown').removeClass('active');
+    });
+
+    $(document).on('click', '.def-dropdown .selected', function () {
+        $(this).parents('.def-dropdown').siblings().removeClass('active');
+        $(this).parents('.def-dropdown').toggleClass('active');
+        $(this).parents('.def-dropdown').siblings().find('.result').fadeOut(0);
+        $(this).parents('.def-dropdown').find('.result').fadeToggle(200);
+        $(this).parents('.def-dropdown').find('.result').attr('tabinex', 1).focus();
+    })
+    $(document).on('click', '.input-form .def-dropdown .result li', function () {
+        $(this).parents('.def-dropdown').removeClass('active');
+        $(this).parents('.def-dropdown').find('.result').fadeOut(100);
+        $(this).parents('.def-dropdown').find('.selected .title').text($(this).text());
+    });
+    $(document).mouseup(function (e) {
+        if ($(".input-form .def-dropdown").hasClass('active')) {
+            var container = $(".input-form .def-dropdown.active");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.find('.result').fadeOut(100);
+                container.removeClass('active')
+            }
+        }
+    });
+    $('.dropdown .filter').on('keydown', function () {
+        setTimeout(() => {
+            var value = $(this).val().toLowerCase();
+            $(this).closest('.dropdown').find(".result .item").filter(function () {
+                $(this).toggle($(this).text().startsWith(value))
+            });
+        }, 10);
+    });
+    // dropdown 
+
+    $('.more-menu').click(function () {
+        $(this).toggleClass('active');
+    });
+    if ($('.gallery-slider').length) {
+        $('.gallery-slider .owl-carousel').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                }
+            }
+        })
+        var gallerySlider = $('.gallery-slider .owl-carousel');
+        $('.gallery-slider .next').click(function () {
+            $(gallerySlider).trigger('next.owl.carousel');
+        });
+        $('.gallery-slider .prev').click(function () {
+            $(gallerySlider).trigger('prev.owl.carousel');
+        });
+        $('.gallery .img-container').click(function () {
+            $('.gallery-slider').addClass('active');
+            var thisID = $(this).data('id');
+            $('.gallery-slider .owl-stage').trigger('to.owl.carousel', thisID - 1);
+        });
+
+        $(document).mousedown(function (e) {
+            if ($(".gallery-slider").hasClass('active')) {
+                var container = $(".mouseup");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.parents('.gallery-slider').removeClass('active');
+                }
+            }
+        });
+        if ($(window).width() < 576) {
+            $(document).mouseup(function (e) {
+                if ($(".gallery-slider").hasClass('active')) {
+                    var container = $(".gallery-slider .item img, .gallery-slider .arrows");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        container.parents('.gallery-slider').removeClass('active');
+                    }
+                }
+            });
+        }
+        $('.gallery-slider .close-btn').click(function () {
+            $('.gallery-slider').removeClass('active');
+        });
+        $(document).on('keyup', function (e) {
+            if (e.which == 27) {
+                $(".gallery-slider").removeClass('active');
+            } else if (e.keyCode == 37) {
+                $('.gallery-slider .owl-carousel:visible').trigger('prev.owl.carousel');
+            } else if (e.keyCode == 39) {
+                $('.gallery-slider .owl-carousel:visible').trigger('next.owl.carousel');
+            }
+        });
+        $('.gallery-slider .count .all').text($('.gallery-slider .owl-item:not(.cloned)').length);
+        $('.gallery-slider .owl-carousel').on('changed.owl.carousel', function () {
+            setTimeout(() => {
+                $('.gallery-slider .count .current').text($('.gallery-slider .owl-item.active .item').data('id'));
+            }, 10);
+        });
+    }
+    if ($('.images-frame .owl-carousel').length) {
+        $('.images-frame .owl-carousel').owlCarousel({
+            loop: false,
+            margin: 5,
+            nav: false,
+            dots: false,
+            mouseDrag: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 1
+                }
+            }
+        })
+    }
+    if ($('.weekend-tours').length) {
+        $('.weekend-tours .owl-carousel').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 2.1
+                }
+            }
+        })
+        $('.weekend-tours .prev-slide').click(function () {
+            $('.weekend-tours .owl-carousel').trigger('prev.owl.carousel');
+        });
+        $('.weekend-tours .next-slide').click(function () {
+            $('.weekend-tours .owl-carousel').trigger('next.owl.carousel');
+        });
+    }
+    // main search 
+    $('.mob-tab .open-search').click(function () {
+        $('.main-input').trigger('click');
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $('.main-input').click(function () {
+        if ($(this).hasClass('v2')) {
+            $('.main-search').not('.second-state').addClass('first-state fixed')
+        } else {
+            $('.main-search').not('.second-state').addClass('first-state')
+        }
+        if ($(window).width() < 576 && $('.filter-form').length) {
+            $('.filter-form:visible').hide();
+        }
+    });
+    $('.search-page .main-input').click(function () {
+        $('.category-list').find(`[data-id="${$(this).data('id')}"]`).trigger('click');
+        $('.main-search .main-input').val($(this).val());
+    });
+    $('.main-input').on('keydown', function () {
+        setTimeout(() => {
+            if ($(this).val().length > 0) {
+                $('.main-search .search-btn').addClass('active');
+            } else {
+                $('.main-search .search-btn').removeClass('active');
+            }
+        }, 10);
+    });
+    $('.main-search .category-list li').click(function () {
+        $('.main-search').find('form').attr('action', $(this).data('url'));
+        lastOption = $(this).data('option');
+        getRecommendedData($(this).data('id'));
+        setTimeout(() => {
+            $('.main-search input').focus();
+        }, 10);
+    })
+    $('.main-search .category-list.input-list li').click(function () {
+        setTimeout(() => {
+            $('.main-search').removeClass('first-state').addClass('second-state');
+            $('.mob-tab').hide();
+            $('.main-search input').focus();
+        }, 10);
+        $(this).siblings().hide();
+        $(this).show();
+        var thisID = $(this).data('id');
+        $('.search-box .category-list li').show();
+        $('.search-box .category-list').find("[data-id='" + thisID + "']").hide(200);
+    });
+    $('.switch').click(function () {
+        var firstVal = $('.switch-1').val();
+        var secondVal = $('.switch-2').val();
+        $('.switch-1').val(secondVal);
+        $('.switch-2').val(firstVal);
+    });
+    $(document).on('click', '.second-state .input-list li', function () {
+        setTimeout(() => {
+            $('.main-search').removeClass('second-state');
+            $('.main-search').addClass('first-state');
+            $('.mob-tab').show();
+        }, 20);
+    });
+    $('.main-search .search-box .category-list li').click(function () {
+        var thisID = $(this).data('id');
+        $('.main-search .category-list.input-list li').hide();
+        $('.main-search .category-list.input-list').find("[data-id='" + thisID + "']").fadeIn(200);
+        $(this).siblings().show();
+        $(this).hide();
+    });
+    $('.main-search .background').click(function () {
+        $(this).parents('.main-search').removeClass('first-state second-state fixed');
+        $('.mob-tab').show();
+        $(this).parents('.main-search').find('.by-loc').hide();
+        $(this).parents('.main-search').find('.main-input').val('');
+        $('.open-search').removeClass('active');
+        $('.home').addClass('active');
+    });
+    $('.main-search .search-bycat li').click(function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    // main search 
+
+    //darkmode for future in cookie js
+    $('.dark-mode-button .slider').click(function () {
+        $('.dark-mode-button').toggleClass('active');
+        $('body').toggleClass('dark-mode');
+        let mode = $(this).parents('.dark-mode-button').hasClass('active');
+        $('.text.slider').text($('.text.slider').data(mode ? 'dark' : 'light'));
+        cookie.set('dark_mode', (mode ? 1 : 0), 365);
+    });
+    //darkmode
+
+    // button click animation 
+    $('.green-btn').on("mousedown", function () {
+        $(this).addClass('hold-mouse')
+        var x = event.offsetX - 10;
+        var y = event.offsetY - 10;
+        $(this).append('<div class="circle grow" style="left:' + x + 'px;top:' + y + 'px;"></div>')
+        setTimeout(() => {
+            $(this).find('.circle.grow').remove();
+        }, 700);
+    })
+    $('.green-btn').mouseup(function () {
+        $(this).removeClass('hold-mouse');
+    })
+
+    //in user js 
+    $('.add-number').click(function () {
+        var numberBox = $(`<div class="col-xl-4 remove-appended">
+                                <div class="input-form">
+                                    <div class="d-flex align-center">
+                                        <input type="number" placeholder="ჩაწერე">
+                                        <button type="button" class="ml-10 add-green green-btn remove-number">
+                                            <img src="${CONFIG.TWIG_THEME}assets/img/close-white.svg" alt="" class="z-1">
+                                        </button>
+                                    </div>
+                                    <label for="">ტელეფონი</label>
+                                </div>
+                            </div>`);
+        $('.append-number').append(numberBox);
+    });
+    $(document).on('click', '.remove-number', function () {
+        $(this).parents('.remove-appended').remove();
+    });
+    //in user js 
+
+    $('.admin-page .add-steps li').click(function () {
+        tours.tourTabs($(this).data('id'));
+    });
+    $('.admin-page .bg-grey-btn').click(function () {
+        $('.bg-grey-btn').removeClass('active');
+        $(this).toggleClass('active');
+        $('#tour-loc-type').val($(this).data('index'));
+        tours.flow.tourLocType = $(this).data('index');
+        tours.flow.choosenLocations = [];
+        tours.addTourLocs(true);
+    });
+
+    $('.change-content').click(function () {
+        var thisID = $(this).data('id');
+        $('.find-date .type').removeClass('active');
+        $('.find-date').find("[data-id='" + thisID + "']").addClass('active');
+    });
+
+    $('.add-date').click(function () {
+        if ($(this).parent().find('.append .input-form').length == 3) {
+            $(this).hide();
+        }
+        $(this).parent().find('.append').append(
+            `
+            <div class="input-form">
+                <input name="TourDate[]" class="tour-date">
+                <label for="">თარიღი</label>
+            </div>
+            `
+        )
+        setTimeout(() => {
+            $('input.tour-date').daterangepicker({
+                autoUpdateInput: true,
+                autoApply: true,
+                minDate: today,
+                "maxSpan": {
+                    "days": 31
+                },
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+        }, 100);
+    });
+    var today = new Date();
+    var endDatee = new Date();
+    $('input.tour-date').daterangepicker({
+        autoApply: true,
+        autoUpdateInput: false,
+        minDate: endDatee.setDate(endDatee.getDate() + 2),
+        minDate: today.setDate(today.getDate() + 1),
+        "maxSpan": {
+            "days": 31
+        },
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    });
+    $('input.datepicker').datepicker({
+        autoApply: true,
+        autoUpdateInput: false,
+        minDate: today,
+        "maxSpan": {
+            "days": 31
+        },
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    });
+    var age = "";
+    $('input.birthday').datepicker({
+        autoApply: true,
+        autoUpdateInput: false,
+        showDropdowns: true,
+        maxDate: today,
+        yearRange: `1950:${new Date().getFullYear}`,
+        locale: {
+            format: 'DD/MM/YYYY'
+        },
+        changeMonth: true,
+        changeYear: true
+    });
+
+    $('input.birth-date').datepicker({
+        autoApply: true,
+        autoUpdateInput: false,
+        showDropdowns: true,
+        maxDate: today,
+        yearRange: `1950:${new Date().getFullYear}`,
+        locale: {
+            format: 'DD/MM/YYYY'
+        },
+        onSelect: function (value, ui) {
+            var today = new Date(new Date().setFullYear(new Date().getFullYear() - 18));
+            var birthDay = new Date($('input.birth-date').val());
+            if (today > birthDay) {
+                $('.ageLow').removeClass('active');
+            } else {
+                $('.ageLow').addClass('active');
+            }
+            var dateSplit = $('.insurance input.birth-date').val().split('/');
+            $('.insurance input.birth-date').val([dateSplit[1], dateSplit[0], dateSplit[2]].join('/'));
+        },
+        changeMonth: true,
+        changeYear: true
+    })
+    $('.birth-date-low').datepicker({
+        autoApply: true,
+        autoUpdateInput: false,
+        showDropdowns: true,
+        maxDate: new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
+        yearRange: `1950:${new Date().getFullYear}`,
+        locale: {
+            format: 'DD/MM/YYYY'
+        },
+        changeMonth: true,
+        changeYear: true,
+        onSelect: function () {
+            var dateSplit = $('.birth-date-low').val().split('/');
+            $('.birth-date-low').val([dateSplit[1], dateSplit[0], dateSplit[2]].join('/'));
+        }
+    })
+    var days = 0;
+    var newPrice = 0;
+    console.log(1)
+    function priceUpdater() {
+        var price = parseInt($('.full-price').text());
+        $('input.single').each(function () {
+            if ($(this).is(':checked')) {
+                $('.full-price').text(`${price + $(this).data('price')}`);
+                $('.old-price').text(days + $(this).data('oldprice'));
+            }
+        })
+    }
+    $('.insurance .daterange').daterangepicker({
+        autoApply: false,
+        autoUpdateInput: true,
+        minDate: today,
+        endDate: endDatee,
+        startDate: today,
+        "maxSpan": {
+            "days": 365
+        },
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    }).change(function () {
+        var daterange = $('.insurance .daterange').val().split(' - ');
+        var startSplit = daterange[0].split('/');
+        var endSplit = daterange[1].split('/');
+        var start = new Date([startSplit[1], startSplit[0], startSplit[2]].join('/'));
+        var end = new Date([endSplit[1], endSplit[0], endSplit[2]].join('/'));
+        var diff = end - start;
+        days = diff / 1000 / 60 / 60 / 24 + 1;
+        $('.days-count').text(`${days}`);
+        newPrice = parseFloat(days * 0.8).toFixed(2)
+        $('.full-price').text(`${newPrice}`);
+        $('.old-price').text(`${days}`);
+        priceUpdater();
+        if (days <= 3) {
+            $(this).parents('.input-group').addClass('error');
+            $(this).closest('.input-group').find('input[type="hidden"]').val('');
+        } else {
+            $(this).parents('.input-group').removeClass('error');
+            $(this).closest('.input-group').find('input[type="hidden"]').val(days);
+        }
+        $('[name="FromDate"]').val(daterange[0]);
+        $('[name="ToDate"]').val(daterange[1]);
+    })
+
+    $('input.single').click(function () {
+        if ($(this).is(':checked')) {
+            $(this).parents('.input-group').find(`.single`).prop('checked', false);
+            $(this).prop('checked', true);
+        };
+        if ($('.full-price').length) {
+            // $('.full-price').text(`${days}`);
+            $('.full-price').text(`${newPrice}`);
+            priceUpdater();
+        }
+    });
+    $('.insurance form').on('keyup keypress', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+    $('.change').click(function () {
+        $(this).closest('form').slideUp(300, function () {
+            $(this).closest('form').siblings().slideDown(300);
+        });
+    });
+    $('.insurance .finish .next').click(function () {
+        if (!CONFIG.LOG_STATUS) {
+            $('.popup.log-in').addClass('active');
+        } else {
+            var o = $('.insurance .tab:visible');
+            var thisId = $(o).data('id');
+            $(`.insurance .tab[data-id="${thisId}"]`).find(`.input-group [data-error]`).each(function () {
+                if ($(this).val() == '') {
+                    $(this).parents('.input-group').addClass('error');
+                } else {
+                    $(this).parents('.input-group').removeClass('error');
+                }
+                if ($(this).attr('maxlength')) {
+                    if ($(this).attr('maxlength') == $(this).val().length) {
+                        $(this).parents('.input-group').removeClass('error');
+                    } else {
+                        $(this).parents('.input-group').addClass('error');
+                    }
+                }
+                if ($(this).data('id') === 'mob-number') {
+                    if ($(`[data-id="mob-number"]`).val().slice(0, 1) == 5 && $(`[data-id="mob-number"]`).val().length == 9) {
+                        $(`[data-id="mob-number"]`).parents('.input-group').removeClass('error');
+                    } else {
+                        $(`[data-id="mob-number"]`).parents('.input-group').addClass('error');
+                    }
+                }
+                if ($(this).data('id') === 'insurance-mail') {
+                    if (isEmail($(`[data-id="insurance-mail"]`).val())) {
+                        $(`[data-id="insurance-mail"]`).parents('.input-group').removeClass('error');
+                    } else {
+                        $(`[data-id="insurance-mail"]`).parents('.input-group').addClass('error');
+                    }
+                }
+            })
+            if ($(`.insurance .tab[data-id="${thisId}"] .error:visible`).length == 0) {
+                $(`.steps li[data-id="${thisId}"]`).addClass('correct').removeClass('active');
+                $(`.steps li[data-id="${thisId}"]`).next().addClass('active');
+                o.slideUp(400, function () {
+                    o.next().slideDown(500);
+                    thisId = $('.insurance .tab:visible').data('id');
+                });
+
+                if (new Date(new Date().setFullYear(new Date().getFullYear() - 18)) > new Date($(`[data-id="birth-date"]`).val())) {
+                    $('[data-id="insuranceID2"]').val($('[data-id="insuranceID"]').val());
+                    $('[data-id="passId2"]').val($('[data-id="passId"]').val());
+                    $('[data-id="birth-date2"]').val($('[data-id="birth-date"]').val());
+                    $('[data-id="insurance-name2"]').val($('[data-id="insurance-name"]').val());
+                    $('[data-id="insurance-name-en2"]').val($('[data-id="insurance-name-en"]').val());
+                    $('[data-id="insurance-surname2"]').val($('[data-id="insurance-surname"]').val());
+                    $('[data-id="insurance-surname-en2"]').val($('[data-id="insurance-surname-en"]').val());
+                }
+
+                $('.insuranceID').text($(`[data-id="insuranceID"]`).val());
+                $('.insuranceID2').text($(`[data-id="insuranceID2"]`).val());
+                $('.passId').text($(`[data-id="passId"]`).val());
+                $('.passId2').text($(`[data-id="passId2"]`).val());
+                $('.birth-date').text($(`[data-id="birth-date"]`).val());
+                $('.birth-date2').text($(`[data-id="birth-date2"]`).val());
+                $('.insurance-name').text($(`[data-id="insurance-name"]`).val() + ' ' + $(`[data-id="insurance-surname"]`).val());
+                $('.insurance-name2').text($(`[data-id="insurance-name2"]`).val() + ' ' + $(`[data-id="insurance-surname2"]`).val());
+                $('.insurance-name-en').text($(`[data-id="insurance-name-en"]`).val() + ' ' + $(`[data-id="insurance-surname-en"]`).val());
+                $('.insurance-name-en2').text($(`[data-id="insurance-name-en2"]`).val() + ' ' + $(`[data-id="insurance-surname-en2"]`).val());
+                $('.mob-number').text($(`[data-id="mob-number"]`).val());
+                $('.insurance-mail').text($(`[data-id="insurance-mail"]`).val());
+                $('.insurancePrice').text($(`[data-id="insurancePrice"]`).text());
+                $('.insurance-place').text($(`[data-id="insurance-place"]`).val());
+                $('.insurance-period').text($(`[data-id="insurance-period"]`).val());
+            }
+            setTimeout(() => {
+                if ($('.insurance .tab:visible').data('id') == 3) {
+                    $('.finish').addClass('payment-step');
+                    var checked = $('.insurance-form .single:checked').data('id');
+                    $('.insurance-label').each(function () {
+                        if ($(this).data('id') == checked) {
+                            $(this).text('კი / YES');
+                        } else {
+                            $(this).text('არა / NO');
+                        }
+                    });
+                    $('.insurance-label').text('არა / NO');
+                    $(`.insurance-label[data-id="${checked}"]`).text('კი / YES');
+                } else {
+                    $('.finish').removeClass('payment-step');
+                }
+            }, 500);
+            $('.finish').removeClass('first-step');
+        }
+    });
+    $('.insurance .finish .prev').click(function () {
+        var o = $('.insurance .tab:visible');
+        var thisId = $(o).data('id');
+        if (thisId != 1) {
+            $(`.steps li[data-id="${thisId}"]`).removeClass('correct').removeClass('active');
+            $(`.steps li[data-id="${thisId}"]`).prev().addClass('active');
+            o.slideUp(400, function () {
+                o.prev().slideDown(500);
+            });
+        }
+        setTimeout(() => {
+            if ($('.insurance .tab:visible').data('id') == 1) {
+                $('.finish').addClass('first-step');
+            } else {
+                $('.finish').removeClass('first-step');
+            }
+        }, 500);
+        $('.finish').removeClass('payment-step')
+    });
+    $('.payment-popup .green-btn.grey').click(function () {
+        $('.payment-popup').removeClass('active');
+    });
+    $(document).on('click', '.correct', function () {
+        $('.insurance .steps li').removeClass('active');
+        $('.insurance .steps li').nextAll().removeClass('correct');
+        $(this).removeClass('correct').addClass('active');
+        var thisId = $(this).data('id');
+        $('.insurance .tab').slideUp(400, function () {
+            $(`.insurance .tab[data-id="${thisId}"]`).slideDown(500);
+        });
+        $('.finish').removeClass('payment-step');
+        setTimeout(() => {
+            if (thisId == 1) {
+                $('.finish').addClass('first-step');
+            }
+        }, 500);
+    });
+    $('.pay.open-popup').click(function () {
+        $('.payment-popup .days-count').text($('.border-box .days-count').text());
+        $('.payment-popup .final-price b').text($('.full-price').text());
+    })
+
+
+    $('input.tour-date').on('apply.daterangepicker', function (ev, picker) {
+        $('input.tour-date').val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+    });
+
+    $('.search-page .filter-list ul li').click(function () {
+        $(this).toggleClass('active');
+    })
+    $('.weekend-tours .close-btn').click(function () {
+        $(this).parents('.background-lightgrey').slideUp();
+    })
+    $('.data-tab').click(function () {
+        var thisID = $(this).data('id');
+        $('.admin-page').find("[data-tab]").removeClass('active');
+        $('.admin-page').find("[data-tab='" + thisID + "']").addClass('active');
+    });
+    $('.upload .cancel').click(function () {
+        $(this).parents('li').remove();
+    });
+    // popup open
+    $('.visa-support .btn').click(function () {
+        $(this).closest('.open-pop').find('input[type="hidden"]').val($(this).data('id'));
+    });
+    $('.open-popup').click(function () {
+        $(this).closest('.open-pop').find('.popup').addClass('active');
+    })
+    $('.popup .close-btn').click(function () {
+        $(this).parents('.popup').removeClass('active');
+        $('body').removeClass('calend');
+        $('body').find('.daterangepicker').hide();
+    });
+    $(document).mouseup(function (e) {
+        if ($(".popup:not(.order, .not)").hasClass('active')) {
+            var container = $(".popup .inner");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                if (!$(e.target).hasClass('btn-yellow')) {
+                    container.parents('.popup').removeClass('active');
+                }
+            }
+        }
+    });
+    $('.order-btn').click(function () {
+        setTimeout(() => {
+            $('#daterangepicker').trigger('click');
+        }, 400);
+        $('body').addClass('calend');
+    })
+    // daterangepicker
+
+    $('#daterangepicker').on('apply.daterangepicker', function () {
+        $('.popup.order .bottom .input-wrap input').val($(this).val());
+        $('#daterangepicker').trigger('click');
+    })
+
+    $(document).mouseup(function (e) {
+        if ($(".popup.order").hasClass('active')) {
+            var container = $(".daterangepicker");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                $('.daterangepicker').css('display', 'block');
+            }
+        }
+    });
+
+    $('.trigger-date').click(function () {
+        $(this).parents('.datepicker').find('.tour-date').trigger('click');
+    });
+
+    if ($('#slider').length == 1) {
+        var rangeSlider = $('#slider');
+        var currMin = $('[name="PriceFrom"]').val();
+        var currMax = $('[name="PriceTo"]').val();
+        var max = $('[name="PriceTo"]').data('max');
+        rangeSlider.slider({
+            range: true,
+            min: 0,
+            max: max,
+            values: [currMin, currMax],
+            slide: function (event, ui) {
+                $('#minPrice').val('₾ ' + ui.values[0]);
+                $('#maxPrice').val('₾ ' + ui.values[1]);
+
+                $('[name="PriceFrom"]').val(ui.values[0]);
+                $('[name="PriceTo"]').val(ui.values[1]);
+            }
+        });
+        setTimeout(() => {
+            $('#minPrice').val('₾ ' + currMin);
+            $('#maxPrice').val('₾ ' + currMax);
+        }, 1);
+        $('#minPrice').val(rangeSlider.slider('values', 0));
+        $('#maxPrice').val(rangeSlider.slider('values', 1));
+
+        $("#minPrice").change(function () {
+            var minPriceValue = $(this).val().replace(/\D/g, '');
+            if (minPriceValue == '') {
+                minPriceValue = 0;
+            }
+            $(rangeSlider).slider('values', 0, minPriceValue);
+            $('[name="PriceFrom"]').val(minPriceValue);
+        });
+        $("#maxPrice").change(function () {
+            var maxPriceValue = $(this).val().replace(/\D/g, '');
+            if (maxPriceValue == '') {
+                maxPriceValue = 0;
+            }
+            $(rangeSlider).slider('values', 1, maxPriceValue);
+            $('[name="PriceTo"]').val(maxPriceValue);
+        });
+    }
+
+    $('.clean').click(function () {
+        $(this).parents('form')[0].reset();
+    })
+    $('.search-page .filter-btn button').click(function () {
+        $(this).siblings().removeClass('active');
+        $(this).toggleClass('active');
+    })
+    $('.hotel-item .item-select .dropdown').click(function () {
+        $(this).toggleClass('active');
+    })
+    $('.hotel-item .item-select .dropdown .inner span').click(function () {
+        var thisText = $(this).text();
+        $(this).parents('.dropdown').find('.dropdown-value span').text(thisText);
+    })
+    $('.fav-btn').click(function () {
+        $(this).toggleClass('active');
+    })
+    $('.log-in .green-btn').click(function () {
+        setTimeout(() => {
+            $('.input-form').each(function () {
+                if ($(this).find('.input-error-box').length == 1) {
+                    $(this).addClass('input-error');
+                } else {
+                    $(this).removeClass('input-error');
+                }
+            })
+        }, 100);
+    })
+
+    $('#geo-map path').click(function () {
+        $('.region.page').addClass('open');
+        $('.region.page .popup').fadeOut(300);
+        $(`.region.page .popup[data-id="${$(this).data('id')}"]`).fadeIn(300);
+    });
+    $('.popup .close-btn').click(function () {
+        $('.region.page').removeClass('open');
+        $('.region.page .popup').fadeOut(300);
+    });
+    $('.transaction-popup .close-btn').click(function () {
+        $('.transaction-popup').remove();
+    });
+    $(document).mouseup(function (e) {
+        var container = $(".transaction-popup .inner");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.parents('.transaction-popup').remove();
+        }
+    });
+    //emojis
+    // $('.change-icons .selected').click(function(){
+    //     $('.main-search .icons-result').fadeToggle(300);
+    // });
+    //emojis
+
+    // $(function () {
+    //     $(".main-search.first-state .category-list").mousewheel(function (event, delta) {
+    //         this.scrollLeft -= (delta * 500);
+    //         this.scrollRight -= (delta * 500);
+    //         // this.style.transition = '0.1s';
+    //         event.preventDefault();
+    //         this.style.scrollBehavior = 'smooth';
+    //     });
+    // });
+
+    if ($('.drag-slider').length == 1) {
+        const scrollSlider = document.querySelector('.drag-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        scrollSlider.addEventListener('mousedown', () => {
+            scrollSlider.style.scrollBehavior = 'unset';
+        });
+        scrollSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollSlider.classList.add('active');
+            startX = e.pageX - scrollSlider.offsetLeft;
+            scrollLeft = scrollSlider.scrollLeft;
+        });
+        scrollSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollSlider.classList.remove('active');
+        });
+        scrollSlider.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollSlider.classList.remove('active');
+        });
+        scrollSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollSlider.offsetLeft;
+            const distance = (x - startX) * 1.5;
+            scrollSlider.scrollLeft = scrollLeft - distance;
+        });
+    }
+
+    if ($('.main-search .main-input').length) {
+        $('.main-search .main-input').keyup(function (e) {
+            if (additionalData[lastOption] === undefined || additionalData[lastOption] === null) {
+                return false;
+            }
+            if (e.which == 40 || e.which == 38 || e.which == 13) {
+
+            } else {
+
+                $(this).val($(this).val().replace(/^\s*/g, ''));
+
+                if (lastOption == 'tours' || lastOption == 'hotels') {
+                    getLocationsList(additionalData[lastOption], $(this).val());
+                } else if (lastOption == 'transport') {
+                    getCarCategoryList(additionalData[lastOption], $(this).val());
+                }
+            }
+        });
+    }
+    $('.input-group .focus').on('focus', function () {
+        $(this).parents('.input-group').addClass('active');
+    });
+    $('.input-group .focus').on('focusout', function () {
+        if (!$(this).val().length) {
+            $(this).closest('.active').removeClass('active');
+        }
+    });
+
+    if (CONFIG.LANG == 'ka') {
+        $('[name="Keyword"]').geoInput();
+    }
+    $('.geo-input').geoInput();
+    $('.eng-input').uCase();
+    $('.disable-copy').bind('copy paste', function (e) {
+        e.preventDefault();
+    });
+})
+
+function getRecommendedData(id) {
+    $('.recommended').hide();
+    $(`.recommended[data-id="${id}"]`).show();
+
+    if (!$(`.recommended[data-id="${id}"]`).hasClass('filled')) {
+        $(`.recommended[data-id="${id}"]`).addClass('filled');
+        $.post(`${CONFIG.URI}main/getRecommendedData/${lastOption}`, {
+            AbroadStatus: $('#abroad-type-status').data('type')
+        }, function (d) {
+            d = _form.parseJSON(d);
+            if (d.StatusCode == 1) {
+                additionalData[lastOption] = d.Data.AdditionalData;
+                var list = '';
+
+                if (lastOption == 'tours') {
+                    list = getToursList(d.Data.Recommendation);
+                } else if (lastOption == 'hotels') {
+                    list = getHotelsList(d.Data.Recommendation);
+                } else if (lastOption == 'transport') {
+                    list = getTransportList(d.Data.Recommendation);
+                }
+
+                $(`.recommended[data-id="${id}"] ul`).append(list);
+            }
+        });
+    }
+}
+
+function getToursList(d) {
+    var res = '';
+    $.each(d, function (i, data) {
+        var photo = `${CONFIG.URL}uploads/photos/tours1/thumbs/${data.id}_1.jpg?v=${data.photo_ver}`;
+        res += recommendedDataHandler(data.id, photo, data.Title, data.Locations[0].title);
+    });
+
+    return res;
+}
+
+function getTransportList(d) {
+    var res = '';
+    $.each(d, function (i, data) {
+        var photo = `${CONFIG.URL}uploads/photos/transports/thumbs/${data.CarID}_1.jpg?v=${data.photo_ver}`;
+        res += recommendedDataHandler(data.CarID, photo, data.Title, data.CatTitle);
+    });
+
+    return res;
+}
+
+function getHotelsList(d) {
+    var res = '';
+    $.each(d, function (i, data) {
+        var photo = `${CONFIG.URL}uploads/photos/hotels/thumbs/${data.UserID}_1.jpg?v=${data.PhotoVer}`;
+        res += recommendedDataHandler(data.HotelID, photo, data.HotelTitle, data.HotelCatTitle);
+    });
+
+    return res;
+}
+
+function recommendedDataHandler(i, p, t, s) {
+    return `<li>
+                <a href="${CONFIG.URI}${lastOption}/${i}">
+                    <div class="img-container">
+                        <img src="${p}" class="img">
+                    </div>
+                    <div>
+                        <h2>${t}</h2>
+                        <span class="sm-title">
+                            ${s}
+                        </span>
+                    </div>
+                </a>
+            </li>`;
+}
+
+function getLocationsList(d, search) {
+    var res = '';
+
+    $('.by-loc').hide().removeClass('active').empty();
+
+    search = search.replace(/^\s*/g, '');
+
+    if (search != '') {
+        var cnt = 0;
+
+        $.each(d, function (i, data) {
+            if (cnt >= 6) {
+                return false;
+            }
+
+            if (data.title.toLowerCase().match(`${search.toLowerCase()}`)) {
+                res += `<li>
+                            <a href="${CONFIG.URI}${lastOption}/loc/${data.loc_id}">
+                                <div class="img-container">
+                                    <img src="${CONFIG.DEV_TWIG_THEME}assets/img/map-pin.svg" class="img">
+                                </div>
+                                <div>
+                                    <span class="title">${data.title}</span>
+                                </div>
+                            </a>
+                        </li>`;
+                cnt++;
+            }
+        });
+    }
+
+    if (res != '') {
+        $('.by-loc').addClass('active').append(res).show();
+    }
+}
+
+function getCarCategoryList(d, search) {
+    var res = '';
+
+    $('.by-loc').hide().removeClass('active').empty();
+
+    search = search.replace(/^\s*/g, '');
+
+    if (search != '') {
+        var cnt = 0;
+
+        $.each(d, function (i, data) {
+            if (cnt >= 6) {
+                return false;
+            }
+
+            if (data.title.toLowerCase().match(`${search.toLowerCase()}`)) {
+                res += `<li>
+                            <a href="${CONFIG.URI}transport?Category=${data.attr_value_id}">
+                                <div class="img-container">
+                                    <img src="${CONFIG.DEV_TWIG_THEME}assets/img/map-pin.svg" class="img">
+                                </div>
+                                <div>
+                                    <h2>${data.title}</h2>
+                                </div>
+                            </a>
+                        </li>`;
+                cnt++;
+            }
+        });
+    }
+
+    if (res != '') {
+        $('.by-loc').addClass('active').append(res).show();
+    }
+}
+
+function saveOrder(obj) {
+    _form.checkFields(obj, function () {
+        if (_form.response.StatusCode == 1) {
+            jAlert(_form.response.StatusMessage, null, function () {
+                // $('body, html').animate({
+                //     scrollTop: 0
+                // }, 500);
+                window.location.reload()
+            });
+        } else {
+            jAlert(_form.response.StatusMessage);
+        }
+    });
+
+    return false;
+}
+
+function sendValidation(obj) {
+    $('.planeloader').fadeIn(300);
+    _form.checkFields(obj, function () {
+        if (_form.response.StatusCode == 1) {
+            $('#imedil-payment-form')
+                .attr('action', _form.response.Data.PaymentURL)
+                .find('.final-price b').text(_form.response.Data.Amount);
+            setTimeout(() => {
+                $('.planeloader').fadeOut(300);
+                $('.payment-popup').addClass('active');
+            }, 1500);
+        } else {
+            $('.planeloader').fadeOut(300);
+            var alert = '';
+            _form.response.Data.forEach(element => {
+                alert += element.errorMessage + '; ';
+            });
+            jAlert(alert);
+        }
+    });
+
+    return false;
+}

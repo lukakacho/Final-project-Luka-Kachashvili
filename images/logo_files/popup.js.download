@@ -1,0 +1,118 @@
+//popup start
+var popupData = {
+	data: {
+		actProgressID: null,
+		scrollbarSize: getScrollbarWidth(),
+	},
+	tags: {
+		popupBody: '.popup_body',
+		popupContent: '.popup-content',
+	}
+};
+var popup_window_reize 	= new Array();
+function popup(url, dataObj, func, style, closeOnOutClick) {
+	//title = decodeURI(title || '&nbsp;');
+	//title = title.replace(/\+/g,"&nbsp;");
+	var id 		= $('.popup').length;
+	var	height 	= style != null && style.height != null ? 'height:' + style.height + 'px;' : '';
+	form = 
+	'<div class="popup ' + (style != null && style.class != null ? style.class : '') + '" id="' + id + '"'
+	+' style="z-index:' + maxZ() + ';"' + (closeOnOutClick ? ' onClick="closePopup(' + id + ', event);"' : '') + '>'
+		+'<div class="popup_container_block" style="width:' + ($(window).width() - popupData.data.scrollbarSize) + 'px;height:' + ($(window).height() - popupData.data.scrollbarSize) + 'px;">'
+			+'<div class="popup_container" style="max-height:' + ($(window).height() - popupData.data.scrollbarSize) + 'px;' + height + '">'
+				+'<div class="popup_content">'
+					//+'<h3 class="popup_title">'+title+'</h3>'
+					+'<div class="popup_body">'
+						+'<div class="popup_loader">'
+							+'<div class="popup_loader_img"></div>'
+							+'<div class="popup_loader_text">Loading...</div>'
+						+'</div>'
+					+'</div>'
+					+'<a class="popup_close shadow-inset" title="' + lang.Close + '"' + (!closeOnOutClick ? ' onClick="closePopup(' + id + ');"' : '' ) + '><i class="icon-16 close-1-16"></i></a>'
+				+'</div>'
+			+'</div>'
+		+'</div>'
+	+'</div>';
+	//show_popup_under();
+	$('body').append(form);
+	show_popup(id);
+	$('body').addClass('popup_active_body');
+	$.get(url, dataObj, function(data){
+		$('.popup[id='+ id +'] .popup_body').html(data);
+		popup_window_reize[id]();
+		if(typeof func == 'function'){
+			func();
+		}
+	});
+	popup_window_reize[id] = function(){
+		$('.popup[id='+ id +'] .popup_container_block').width($(window).width() - popupData.data.scrollbarSize).height($(window).height() - popupData.data.scrollbarSize);
+		$('.popup[id='+ id +'] .popup_container_block .popup_container').attr('style', 'max-height:' + ($(window).height() - popupData.data.scrollbarSize) + 'px;' + height);
+	}
+	$(window).bind('resize', popup_window_reize[id]);
+	//$('#popup_body').load(url);
+}
+function show_popup(id){
+	$('.popup[id='+id+']').animate({opacity:1},300);
+}
+function hide_popup(id){
+	$('.popup[id='+id+']').remove();
+}
+function close_popup(id){
+	//$(window).unbind('resize',popup_window_reize[id]);
+	var id = id || $('.popup').length-1;
+	$('.popup[id='+id+']').remove();
+	if(!id) $('body').removeClass('popup_active_body');
+	event.preventDefault() || event.stopPropagation();
+	//hide_popup_under(id);
+}
+function closePopup(id, event){
+	if(event != null && ['popup_container_block', 'popup_container', 'popup_close shadow-inset', 'icon-16 close-1-16'].indexOf(event.target.className) == -1){
+		return false;
+	}
+	try{
+		delete popupData.data.actProgressID;
+	} catch(e){}
+	//$(window).unbind('resize',popup_window_reize[id]);
+	var id = id || $('.popup').length - 1;
+	$('.popup[id=' + id + ']').remove();
+	if(!id){
+		$('body').removeClass('popup_active_body');
+	}
+	try {
+		event.preventDefault() || event.stopPropagation();
+	} catch(e){}
+	//hide_popup_under(id);
+}
+function show_popup_under(){
+	var id = $('.popup_under').length;
+	$('body').append('<div class="popup_under" id="' + id + '" style="z-index:' + maxZ() + '"></div>');
+	$('.popup_under[id=' + id + ']').css({ height:getDocHeight(),width:getDocWidth()}).fadeIn(200);
+}
+function hide_popup_under(id){
+	$('.popup_under[id=' + id + ']').remove();
+}
+function getScrollbarWidth() {
+    var outer = document.createElement("div");
+    outer.style.visibility = "hidden";
+    outer.style.width = "100px";
+    outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+    document.body.appendChild(outer);
+
+    var widthNoScroll = outer.offsetWidth;
+    // force scrollbars
+    outer.style.overflow = "scroll";
+
+    // add innerdiv
+    var inner = document.createElement("div");
+    inner.style.width = "100%";
+    outer.appendChild(inner);        
+
+    var widthWithScroll = inner.offsetWidth;
+
+    // remove divs
+    outer.parentNode.removeChild(outer);
+
+    return widthNoScroll - widthWithScroll;
+}
+//popup end
