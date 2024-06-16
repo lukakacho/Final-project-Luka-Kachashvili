@@ -2,6 +2,14 @@ body {
   font-family: "BPG Glaho", sans-serif;
 }
 
+header {
+  position: relative;
+}
+
+header {
+  position: relative;
+}
+
 .header {
   display: flex;
   position: absolute;
@@ -14,21 +22,6 @@ body {
   padding: 0 70px;
 }
 
-.banner {
-  background-image: url("../images1/vashlovani1.jpg");
-  width: 100%;
-  height: 800px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 70px;
-  font-weight: bold;
-}
-
 .div1 {
   display: flex;
   gap: 25px;
@@ -39,6 +32,26 @@ body {
 
 .div1 a {
   color: white;
+}
+
+.headerphoto {
+  width: 100%;
+  position: relative;
+}
+
+.banner {
+  background-image: url("../images1/vashlovani1.jpg");
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 .div1 a:hover {

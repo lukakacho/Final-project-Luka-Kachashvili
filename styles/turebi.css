@@ -116,6 +116,7 @@ body {
 .section2 {
   display: flex;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
 .text {
@@ -123,18 +124,23 @@ body {
   justify-content: space-between;
   color: #455A64;
   line-height: 20px;
+  gap: 190px;
 }
 
 .div {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #546E7A;
 }
 
 .line1 h2 {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .line1 h3 {
   font-size: 16px;
+  font-weight: bold;
 }
 
 
@@ -158,10 +164,19 @@ body {
 
 
 
-
+.line2 {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #EBF5FC;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
 
 .div1 {
   display: flex;
+  padding-bottom: 15px;
 }
 
 .logo {
@@ -170,30 +185,69 @@ body {
   border-radius: 50%;
 }
 
+.logo1 {
+  width: 30px;
+  height: 30px;
+}
 
+.contacts {
+  width: 170px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #D4E1F5;
+  color: #09C688;
+  border-radius: 12px;
+}
 
+.contacts-hover :hover {
+  background-color: #09C688;
+  transition: 0.2s;
+  cursor: pointer;
+  color: white;
+}
 
+.fa-phone {
+  display: flex !important;
+  margin-right: 10px;
+}
 
+.fa-phone :hover {
+  color: white;
+}
 
+.p1 {
+  font-size: 16px;
+  color: #455A64;
+}
 
+.p2 {
+  font-size: 14px;
+  color: #546E7A;
+  margin-left: 56px;
+  padding-bottom: 15px;
+}
 
+.div-1 {
+  padding-bottom: 0px;
+}
 
+.time {
+  display: flex;
+  gap: 30px;
+  font-size: 12px;
+  margin-left: 56px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.time2 {
+  display: flex;
+  gap: 25px;
+  color: #546E7A;
+  margin-left: 56px;
+  font-size: 14px;
+  font-weight: bold;
+}
 
 
 
