@@ -213,8 +213,8 @@ body {
   margin-right: 10px;
 }
 
-.fa-phone :hover {
-  color: white;
+.fa-phone:hover {
+  color: white !important;
 }
 
 .p1 {

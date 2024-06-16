@@ -1,0 +1,300 @@
+/*geo styling goes here*/
+.favorites_page .f_content,
+#footer .r-col .follow_us p,
+#footer .t-up,
+.places_section .content .details .devinne,
+.pano_album .show_photo .content .album_title,
+.adventure-nav .avail .blck-title,
+.top_nav .arroud_me span,
+.p_around_park .dscrb h2,
+.blck_nav .in_box a,
+#search-box ul li,
+#search-box .s_input,
+.ui_container .subBtn,
+.ui_container .subsDeny,
+.ui_sttl,
+.ui_container .authBtn,
+.top_nav .logBtn,
+.guide_cont .downloadables .d_link,
+.guide_cont .em_num  span,
+.park_detail a,
+.see_also .also_parks h3,
+.things_to_see .dscrb a,
+.seasons span,
+.adventure-nav .adv-nav,
+.top_nav .langBtn,
+.places_section .filter label,
+.places_section .filter .leftLabel,
+.places_section .filter .rightLabel,
+.memories_feed.for_ev .comment h4,
+.bottom_nav .alerts,
+.nat_cult .n_nav li,
+.bottom_nav ul li,
+.nav_bar,
+#footer .r-col input,
+.attractionBtn .attr_pass,
+.parks_list .list ul,
+.trips.basic_info .list_info ul li,
+.places_section .content .details .price span.from,
+.places_section .content .details .price span.curr,
+.aLink,
+.trip_dscrb .r_attr .trans_details .box,
+.trip_dscrb .exp_support h3,
+.things_to_see h2,
+.memories ._seeMore,
+.trip_dscrb .r_attr .download a,
+.top_nav .regUser .u_dropdown ul li a,
+.page-404 div a,
+.bottom_nav .alert_box h1,
+.bottom_nav .alert_box h2,
+.bottom_nav .alert_box h3,
+.bottom_nav .alert_box h4,
+.bottom_nav .alert_box h5,
+.bottom_nav .alert_box h6,
+.yllwBtn{
+	font-family: 'ninoMtavruli'!important;
+	font-weight: normal;
+}
+.p_around_park .dscrb a,
+.downloadable,
+.empty_header,
+.aroundmePins,
+.InfoWindow,
+.parkInfoWindow h3,
+.intro_section .seasons button,
+.contact_info,
+.load-more,
+.overview_map .planYourTrip,
+.top_nav .socials .flwUs,
+.icons .adv-i .infoBox,
+.memories_feed .comment h4,
+.user_memory h2,
+.p_around_park h2,
+.park_overview .dscrb .info .circular,
+.park_overview .dscrb .yllwBtn,
+.trips_section .details .trip_row span.devinne,
+#search-box .s_button,
+.ui_ttl_sm, .ui_ttl,
+.ui_container .l_nav ul a,
+.ui_container .rec_pass,
+.ui_container .alternate_login a,
+.recommend .devinne,
+.trips_section .verlagB,
+.trips .verlagB,
+.trips .details .duration,
+.trips .info_box h2,
+.ex-w-title,
+.reviews h2,
+.things_to_see .y-title,
+.planning_section .y-title,
+.slide-loader .title,
+.planning_section .w-title,
+.grn-title,
+.memories .bg.photo .w-title,
+.guide_cont h2,
+.places_section .blck-title,
+.memories_feed h2,
+.inst_photos h2,
+.memories .memories-title,
+.adventure-nav .bg .y-title,
+.park_overview h2,
+.blck_nav .in_box .title,
+.b-title,
+.slogan h2,
+.places_section .content .details .price span.verlagB,
+.intro_section .title,
+.text-danger,
+.favouriteBtn .add, .favouritesBtn .add,
+.m_memory_page .w_new_memory,
+.verlagB{
+	font-family: 'ninoMtavruli'!important;
+	font-weight: bold;
+}
+.bottom_nav .alert_box,
+.rd_btns label,
+.mem_opt select, .birth_d select,
+.reviews .circular,
+.favorites_page .f_sort li,
+.memories_feed p,
+.georgia,
+.info_cont .info_section p,
+.flightInfoWindow,
+.switch,
+.parkInfoWindow,
+.terms_popup,
+#footer .r-col p,
+.direction_window .from_field,
+.guide p,
+.user_memory .text,
+.p_around_park b,
+.p_around_park .dscrb p,
+.reviews .comment .txt,
+.trip_dscrb p,
+.trip_dscrb .dest,
+.alternate_login p,
+.guide_cont .guidelines ul,
+.trip_details .verlagL,
+.trips .details .events span,
+.a_to_b,
+.things_to_see .dscrb p,
+.planning_section .dscrb_cont p,
+.adventure-nav .dscrb p,
+.top_nav .regUser .u_drop .welcome p,
+.memories_feed.for_ev .comment .autor.data span,
+.nat_cult .content p,
+.park_overview .dscrb,
+#footer li a,
+.blck_nav .in_box .txt,
+.parks_list .content h3,
+.parks_list .content p,
+.sortBtn,
+.mappInfoWindows_a,
+.page-404 p,
+.p_around_park .dscrb .devinne,
+.adventure_section .about .text_about p,
+.intro_section p{
+	font-family:'bpgMrgvlovani'!important; 
+}
+
+
+.top_nav .socials .flwUs{
+	font-size: 14px;
+    padding-top: 2px;
+}
+.memories_feed .comment h4{
+	padding: 20px;
+}
+.adventure-nav .adv-nav ul li{
+	font-size: 30px;
+}
+.nav_bar{
+	font-size: 17px;
+}
+.contact_info{
+	font-size: 16px;
+}
+#search-box ul li,
+.alternate_login p,
+.parks_list .list ul{
+	font-size: 15px;
+}
+.places_section .filter .leftLabel,
+.places_section .filter .rightLabel,
+.blck_nav .in_box .title{
+	font-size: 14px;
+}
+#footer .r-col p,
+.overview_map .planYourTrip,
+.memories_feed.for_ev .comment .autor.data span,
+.blck_nav .in_box .txt,
+.t-ex-sort .sorts .sortBtn{
+	font-size: 12px;
+}
+.filter_cont input[type="checkbox"] + label{
+	font-size: 11px;
+}
+.top_nav .regUser .u_drop .welcome p,
+.bottom_nav .alerts,
+#footer li a{
+	font-size: 10px;
+}
+
+.bottom_nav ul li{
+	font-size: 0.8vw;
+}
+/*FONTS*/
+.trips_section .details .trip_row span.devinne{
+	line-height: 28px;
+}
+.bottom_nav .alerts{
+	background-position: 8px center;
+}
+.bottom_nav .alerts .quant{
+	right: 10px;
+}
+.seasons span.winter {
+    background-position-y: -46px;
+}
+.seasons span.autumn {
+    background-position-y: -20px;
+}
+.seasons span.summer {
+    background-position-y: 4px;
+}
+.parks_list .photo-map .mini_map .yllwBtn{
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 14px;
+}
+.ui_container .alternate_login a{
+	line-height: normal;
+	padding-left: 40px;
+	padding-top: 30px;
+	max-width: 255px;
+	background-position-x:10px;
+}
+.ui_container .alternate_login .insta_log .insta{
+	left: 10px;
+}
+.ui_container .authBtn{
+	line-height: 55px;
+}
+
+.ui_container .authBtn{
+    line-height: 53px;
+    width: 206px;
+}
+.things_to_see .dscrb a{
+	line-height: normal;
+}
+/*.hideText{
+    max-height: 140px;
+}*/
+.yllwBtn{
+	padding-top: 11px!important;
+	padding-bottom: 7px!important;
+	font-weight: bold!important;
+}
+.planning_section .dscrb_cont .overflower{
+	max-height: 199px;
+	margin-bottom: 30px;
+}
+.places_section .content .details .devinne,
+.guide_cont .box .txt{
+	font-size: 20px;
+}
+.icons .adv-i .infoBox{
+	line-height: 15px;
+}
+.guide_cont .em_num .e_call{
+	margin-top: -3px;
+	font-family: 'VerlagBold'!important;
+}
+.guide_cont .em_num .verlagB{
+	font-weight: bold;
+}
+
+
+@media (max-width: 1199.98px){
+	.bottom_nav ul li{
+		font-size: 16px;
+	}
+	.adventure-nav .adv-nav ul li{
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 991.98px){
+	.attractionBtn .attr_pass{
+		padding: 15px;
+	}
+	.bottom_nav .alerts .quant{
+		right: 5px;
+	}
+}
+
+@media (max-width: 767.98px){}
+
+
+
+@media (max-width: 575.98px){}

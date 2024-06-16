@@ -76,11 +76,11 @@ header {
 
 .section {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .information {
-  width: 70%;
+  width: 50%;
   margin-top: 100px;
 }
 
@@ -93,6 +93,7 @@ header {
   font-size: 36px;
   font-weight: bold;
   margin-top: 50px;
+  color: #09C688;
 }
 
 .text1,
@@ -103,7 +104,7 @@ header {
   margin-top: 30px;
   line-height: 25px;
   text-indent: 30px;
-  color: #474f59;
+  color: #484f58;
 }
 
 .title1 {
@@ -121,6 +122,62 @@ header {
   background-color: green;
   border: 5px solid hwb(41 17% 39%);
 }
+
+
+.sights li {
+  color: #39bf9e;
+  font-size: 16px;
+}
+
+.routes li {
+  color: #39bf9e;
+  font-size: 16px;
+}
+
+.locations h2 {
+  font-size: 24px;
+  color: #484f58;
+}
+
+.locations {
+  margin-top: 150px;
+}
+
+.sights {
+  margin-bottom: 100px;
+}
+
+.fa-fade {
+  display: flex !important;
+}
+
+.warning {
+  padding-top: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .map {
   margin-top: 50px;

@@ -1,0 +1,899 @@
+@media (min-width: 1199.98px){
+	.favorites_page .f_sort li{
+		font-size: 14px;
+	}
+}
+@media (max-width: 1199.98px){
+	.nat_slider .l_arrw, 
+	.sld_cont .l_arrw{
+		left: -5px;
+	}
+	.nat_slider .r_arrw, 
+	.sld_cont .r_arrw{
+		right: 0;
+	}
+	.adventures-map .height_range{
+		height: 80%;
+	}
+	.trips.basic_info .list_info{
+		width: 30%;
+	}
+	.trips.basic_info .info_container{
+		width: 70%;
+	}
+	.contact_info .f_lex{
+		flex-direction: column;
+	}
+	.contact_info .c-ico{
+		width: 100%;
+	}
+	.slogan h2{
+		font-size: 50px;
+	}
+	.favorites_page .f_sort li{
+		font-size: .9vw;
+	}
+	.ui_container .video_gallery .nm{
+		width: 100%;
+	}
+	.ui_container .video_gallery .authBtn{
+		float: right;
+	}
+	.ui_container .l_nav{
+		width: 100%;
+	}
+	.ui_container .l_nav_ex{
+		width: 30%;
+		min-width: 290px;
+	}
+	.ui_container .content-md,
+	.ui_container .content-lg{
+		width: 60%;
+	}
+	.ui_container .content{
+		width: 50%;
+	}
+	.nat_cult .n_nav{
+		width: 100%;
+		padding-bottom: 0;
+	}
+	.nat_cult .n_nav .switch{
+		margin-bottom: 20px;
+	}
+	.nat_cult .n_nav ul{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 0;
+		flex-wrap: wrap;
+	}	
+	.nat_cult .n_nav li{
+		font-size: 18px;
+	}
+	.nat_cult .content{
+		width: 100%;
+	}
+	.see_also .also_parks .photo{
+		width: 100%;
+		height: 200px;
+	}
+	.bottom_nav ul{
+		position: absolute;
+		z-index: 3;
+		height: 70px;
+		width: 100%;
+		overflow: hidden;
+	}
+	.bottom_nav ul.active{
+		height: auto;
+	}
+	.bottom_nav ul li{
+		float: none;
+		font-size: 16px;
+	}
+	.parks_list .content h2{
+		font-size: 30px;
+	}
+	.parks_list .list{
+		width: 340px;
+		position: absolute;
+		left: -280px;
+		z-index: 2;
+		overflow: hidden;
+	}
+	.parks_list .list.active{
+		left: 0;
+	}
+	.parks_list .list ul li{
+		margin-left: 0px;
+		margin-right: 80px;
+    	font-size: 15px;
+	}
+	.parks_list .content{
+		width: 85%;
+		padding-left: 70px;
+	}
+	.memories .slide-loader{
+		right: 0;
+	}
+	.memories .bg.photo{
+		height: 100vh;
+	}
+	.planning_section .w-title,
+	.memories .bg.photo .w-title{
+		font-size: 30px;
+	}
+	.memories .bg.photo .absolute{
+		padding-top: 200px;
+		width: 100%;
+	}
+	.memories .autor{
+		height: 190px;
+	}
+	.memories .memories-title, 
+	.memories .autor{
+		width: 240px;
+	}
+	.planning_section .slide-loader{
+		right: 0;
+		bottom: 0px;		
+	}
+	.planning_section .y-title{
+		padding-left: 15px;
+	}
+	.planning_section .dscrb_cont{
+		float: none;
+		width: 100%;
+		padding-left: 15px;
+	}
+	.planning_section .photo{
+		float: none;
+		width: 100%;
+		height: 400px;
+	}
+	.planning_section .photo img{
+		object-position: top;
+	}
+	.intro_section .sortBy{
+		width: 100%;
+	}
+	.adventure-nav .adv-nav::after{
+		display: none;
+	}
+	.resBtn{
+		display: block;
+	}
+	.adventure-nav .photos{
+		margin-left: 0;
+	}
+	.adventure-nav .dscrb{
+		width: 80%;
+		padding: 30px 20px;
+	}
+	.adventure-nav .adv-nav{
+		width: 50px;
+	    font-size: 20px;
+	    position: absolute;
+	    top: 0;
+	    right: 0px;
+	    z-index: 2;
+	    min-height: auto;
+	    transition: .2s;
+	    overflow: hidden;
+	    background-color: transparent;
+	}
+	.adventure-nav .adv-nav.active{
+		width: 250px;
+		background-color: #fff;
+	}
+	.adventure-nav .adv-nav ul{
+		margin-left: 50px;
+	}
+	.adventure-nav .adv-nav ul li{
+		padding: 20px 30px 20px 55px;
+	}
+	.adventure-nav .adv-nav.active ul{
+		margin-left: 0;
+	}
+	.intro_section .t-right{
+		margin-right: 0px;
+		text-align: left;
+	}
+	.blck_nav{
+		height: auto;
+	}
+	.blck_nav .in_box{
+		width: 50%;
+		float: none;
+		margin: 0 auto;
+	}
+	#footer .footer-col{
+		width: 100%;
+	}
+}
+@media (max-width: 991.98px){
+	.adventure-nav .adv-nav.active{
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+	}
+	.intro_section.gry{
+		background-color: transparent;
+	}
+	.geo_adventures .adv-nav ul, 
+	.main_adventures_nav .adv-nav ul{
+		box-shadow: none;
+	}
+	.adventure-nav .adv-nav ul li::after{
+		border-image: unset;
+		border-bottom: 2px dotted #ffce00;
+	}
+	.adventure-nav .adv-nav.active .resBtn,
+	.index_bott_map,
+	.adventures-map,
+	.intro_section .seasons, 
+	.intro_section .adventures{
+		display: none;
+	}
+	.park_overview .dscrb{
+		max-height: unset;
+	}
+	.ui_container .subsDeny{
+		width: 206px;
+	}
+	.page-404 .logo{
+		margin-bottom: 40px;
+	}
+	.page-404 div a{
+		margin-top: 40px;
+	}
+	.counter_container{
+		max-width: unset;
+		padding-right: 0;
+		border-right: 0;
+	}
+	.height_range .box .dots .dot{
+		margin: 1px auto;
+	}
+	.pano_album .show_photo{
+		margin-left: 0;
+	}
+	.pano_album .show_photo .content .album_title{
+		left: unset;
+		padding-left: 10px;
+	}
+	.pano_album .show_photo .content .album_title::after{
+		left: 15px;
+	}
+	.pano_album .show_photo .content{
+		padding-left: 60px;
+	}
+	.pano_album .album_nav .my-video,
+	.pano_album .album_nav .photo{
+		margin-bottom: 10px;
+		height: 50px;
+	}
+	.pano_album .album_nav.active{
+		z-index: 10;
+		left: 0;
+		width: 60px;
+		padding: 5px;
+	}
+	.pano_album .album_nav .my-video.selected,
+	.pano_album .album_nav .photo img.selected{
+		border-width: 3px;
+	}
+	.pano_album .album_nav.active .mCSB_inside>.mCSB_container{
+		margin-right: 0;
+	}
+	.favorites_page .f_sort{
+		flex-direction: column;
+		padding: 0;
+	}
+	.favorites_page .f_sort li:first-child,
+	.favorites_page .f_sort li:last-child{
+		margin: 0;
+	}
+	.favorites_page .f_sort li{
+		font-size: 12px;
+		text-align: center;
+	}
+	.guide_cont .box .txt{
+		font-size: 20px;
+	}
+	.places_section .thr-switch{
+		height: 135px;
+		width: 150px;
+	}
+	.places_section .thr-switch .thrd{
+		height: 33.33%;
+		width: 100%;
+	}
+	.nat_cult .content .ex_dscrb.l .txt,
+	.nat_cult .content .ex_dscrb.r .txt{
+		margin: 0;
+	}
+	.bottom_nav .resBtn{
+		top: 20px;
+	}
+	.bottom_nav ul{
+		height: 60px;
+	}
+	.bottom_nav ul li{
+		height: 60px;
+	}
+	.bottom_nav ul li a{
+		line-height: 60px;
+	}
+	.bottom_nav .alerts{
+		height: 60px;
+		width: 140px;
+	}
+	.parks_list{
+		position: relative;
+	}
+	.parks_list .content{
+		width: 100%;
+		padding-bottom: 120px;
+	}
+	.parks_list .photo-map{
+		width: 0;
+		position: static;
+	}
+	.parks_list .photo-map .mini_map{
+		bottom: 0;
+		left: auto;
+		right: 0;
+		width: 200px;
+		height: 120px;
+	}
+	.parks_list .photo-map .mini_map .yllwBtn{
+		padding: 10px 12px;
+	    width: 107px;
+	    font-size: 12px;
+	}
+	.parks_list .photo-map .mini_map.active{
+		width: 100%;
+		z-index: 2;
+	}
+	.t-ex-sort .sorts .sortBtn{
+		width: 50%;
+	}
+	.favouritesBtn .add .txt{
+		display: none;
+	}
+	.favouritesBtn{
+		width: 120px;
+	}
+	.favouritesBtn .add{
+		padding: 0;
+		background-position: center;
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	.p_around_park .favouritesBtn{
+		width: auto;
+	}
+	.p_around_park .favouritesBtn .add{
+		position: static;
+		width: 250px;
+		padding:20px 10px 20px 50px;
+		background-position: 15px center;
+	}
+	.p_around_park .favouritesBtn .add .txt{
+		display: block;
+	}
+	.favouritesBtn .share{
+		width: 60px;
+		height: 60px;
+		background-size: 20px;
+	}
+	.attractionBtn .attr_pass{
+	    padding: 22px 0;
+	    text-align: center;
+	    font-size: 12px;
+	    width: 140px;
+	    height: 60px;
+	}
+	.attractionBtn .attr_pass .tktBtn{
+		width: 60px;
+	    height: 60px;
+	    left: -65px;
+	    background-size: 30px;
+	}
+	.attractionBtn._ex .attr_pass .tktBtn{
+		left: 140px;
+	}
+	.nav_bar .logo_img_fixed,
+	.nav_bar .logo_img{
+		display: none!important;
+	}
+	.nav_bar .res_logo_img{
+		display: block;
+	}
+	.top_nav_cont.fix_nav .nav_bar .res_logo_img{
+		display: none!important;
+	}
+	.top_nav_cont.fix_nav .nav_bar .res_logo_img_fixed{
+		display: block!important;
+	}
+	.nav_bar .searchBtn{
+		float: right;
+		margin-top: 15px;
+		margin-right: 10px;
+	}
+	.hamburger_menu{
+		float: right;
+		position: relative;
+	}
+	.hamburger_menu .hamBtn{
+		display: block;
+		float: right;
+	}
+	.hamburger_menu .res-clear{
+		display: block;
+	}
+	.nav_bar ul{
+		display: none;
+	}
+	.nav_bar ul li{
+		float: none;
+	    padding: 15px 40px;
+	    text-align: right;
+	    font-size: 15px;
+	}
+	.nav_bar ul li a{
+		transition: .2s;
+	}
+	.nav_bar ul li a:hover{
+		color: #fcde13;
+	}
+	.overview_map{
+		margin-left: -15px;
+		height: 500px;
+	}
+	.info_cont .info_section{
+		height: auto;
+		padding-right: 20px;
+	}
+}
+@media (max-width: 767.98px){
+	.slide_bg.res-bg{
+	    background-image: url('../img/res-video.jpg');
+	    background-position: center;
+	}
+	.slide_bg.res-bg .slide_video{
+		display: none!important;
+	}
+	.places_section .ex-margin .box{
+		width: 100%;
+	}
+	.planning_section .dscrb_cont{
+		padding-top: 10px;
+	}
+	.planning_section .w-title{
+		margin-bottom: 15px;
+	}
+	.memories .memories-title, .memories .autor,
+	.intro_section .title,
+	.park_overview h2.verlagB{
+		font-size: 25px;
+	}
+	.intro_section .title{
+		margin-bottom: 20px;
+	}
+	.p_around_park .favouritesBtn .add{
+		position: static;
+		width: 60px;
+		padding:0;
+		background-position: center;
+	}
+	.p_around_park .favouritesBtn .add .txt{
+		display: none;
+	}
+	.direction_window{
+		bottom: -285px;
+	    padding-top: 60px;
+	    left: -370px;
+	    background-position: right top;
+	    background-size: 50px;
+	    transition: .2s;
+	    background-image: url('../img/icons/sttng.png');
+	}
+	.direction_window.active{
+		background-image: none;
+		left: 0;
+		bottom: 0;
+	}
+	.intro_section .seasons button{
+		margin-bottom: 15px;
+	}
+	.parks_list .content .seasons .icons, 
+	.parks_list .content .adv_parks .icons{
+		margin-bottom: 10px;
+	}
+	.parks_list .content h3{
+		margin-bottom: 0;
+	}
+	.parks_list .photo-map .mini_map{
+		display: none;
+	}
+	.adventures-map .height_range{
+		height: 65%;
+	}
+	.ui_container .alternate_login .subsBtn{
+		margin: 0 auto;
+	}
+	.main-site-loader .logo{
+		height: 60px;
+		margin-bottom: 20px;
+	}
+	.main-site-loader .gif{
+		width: 160px;
+	}
+	.empty_header{
+		font-size: 18px;
+	}
+	.trips.basic_info .list_info .listBtn{
+		display: block;
+	}
+	.trips.basic_info .list_info{
+		height: 100%;
+		width: 300px;
+		position: absolute;
+		top: 0;
+		left: -250px;
+		transition: .2s;
+	}
+	.trips.basic_info .list_info.active{
+		left: 0;
+	}
+	.trips.basic_info .list_info ul{
+		padding-right: 50px;
+	}
+	.trips.basic_info .info_container{
+		width: 100%;
+		padding-left: 65px;
+	}
+	.contact_info .f_lex{
+		flex-direction: column;
+	}
+	.trips_section .details .trip_row{
+		padding-bottom: 50px;
+	}
+	.trips_section .details .trip_row span.devinne{
+		margin-bottom: 20px;
+	}
+	.trips_section .details .trip_row span.devinne,
+	.trips_section .details .trip_row span.verlagL, 
+	.trips_section .details .trip_row span.from{
+		width: 100%;
+	}
+	.m_memory_page .m_cont .comment{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.b-title{
+		font-size: 30px;
+	}
+	.ui_container .content-md{
+		width: 100%;
+	}
+	.ui_container .b_rght{
+		padding-right: 0;
+		border-right: 0;
+	}
+	.ui_container .alternate_login .block{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.ui_container .alternate_login p{
+		text-align: center;
+	}
+	.ui_container .alternate_login{
+		width: 100%;
+		padding-left: 0;
+	}
+	.ui_container .content-lg{
+		width: 50%;
+	}
+	.ui_container .content{
+		width: 100%;
+	}
+	.trip_dscrb .r_attr{
+		padding: 0;
+	}
+	.trip_dscrb .r_attr .trans_details,
+	.trip_dscrb .r_attr .trans_details .box{
+		margin: 0;
+		float: none;
+	}
+	.trips_section .favouriteBtn{
+		float: none;
+		display: block;
+	}
+	.trips_section .favouriteBtn .add{
+		float: none;
+		margin: 0 auto;
+		display: block;
+	}
+	.places_section .filter_cont{
+		left: -290px;
+	}
+	.places_section .filter_cont.active{
+		left: 0;
+	}
+	.places_section .filter .cls{
+		display: block;
+	}
+	.places_section .ex-margin{
+		margin-left: 0;
+		margin-top: 60px;
+	}
+	.memories_feed .comment h4{
+		margin-left: 0;
+		font-size: 20px;
+		padding: 0px 5px 10px 5px;
+		margin-top: 20px;
+	}
+	.memories_feed.for_ev .comment h4{
+		margin-top: 0px;
+	}
+	.trips .name,
+	.trips .photo_map .photo,
+	.trips .info_box .details,
+	.trips .info_box .details{
+	    width: 100%;
+	}
+	.trips .photo_map .photo{
+	    float: left;
+		height: 215px;
+	    position: static;
+	}
+	.trips .photo_map .trip_maps{
+		display: none;
+	}
+	.adventure_section .about{
+		height: auto;
+	}
+	.adventure_section .about .photo{
+		width: 100%;
+		opacity: .2;
+	}
+	.adventure_section .about .text_about{
+		margin-left: 0;
+	}
+	.adventure_section .about .text_about p{
+		max-width: 100%;
+	}
+	.see_also .top_title .switch{
+		width: 100%;
+		margin-top: 20px;
+	}
+	.reviews .comment{
+		padding: 100px 0px 0px 0px;
+	}
+	.t-ex-sort .sorts .sortBtn{
+		width: 100%;
+	}
+	.intro_section .sortBy .sortBtn{
+		width: 100%;
+	}
+	.adventure-nav .dscrb{
+		width: 100%;
+	}
+	.adventure-nav .bg{
+		display: none;
+	}
+	#footer ul{
+		text-align: center;
+	}
+	.blck_nav .in_box{
+		width: 100%;
+	}
+	.top_sight_img{
+		display: none;
+	}
+	.top_nav .txt{
+		display: none;
+	}
+	.top_nav .socials{
+		display: none;
+	}
+	.top_nav .arroud_me{
+		padding: 0;
+		background-position: center;
+	}
+	.top_nav .logBtn{
+		background-position: center;
+	}
+	.slogan h2{
+		font-size: 30px;
+	}
+}
+@media (max-width: 575.98px){
+	.w-title{
+		font-size: 25px!important;
+	}
+	.memories .memories-title, .memories .autor,
+	.intro_section .title,
+	.park_overview h2.verlagB,
+	.parks_list .content h2{
+		font-size: 20px;
+	}
+	.intro_section .title{
+		margin-bottom: 15px;
+	}
+	.favorites_page .f_content.active h1,
+	.favorites_page .ui_ttl,
+	.b-title{
+		font-size: 20px;
+	}
+	.blck-title, .ex-w-title, .y-title{
+		font-size: 35px;
+	}
+	.pano_album .show_photo .content .album_title{
+		max-width: 60%;
+		font-size: 35px;
+	}
+	.things_to_see .dscrb a{
+		font-size: 19px;
+	}
+	.things_to_see .y-title{
+		font-size: 22px;
+		text-align: center;
+	}
+	.things_to_see h2:not(.y-title){
+		text-align: center;
+		font-size: 20px;
+	}
+	.things_to_see .photo{
+		margin-right: 0;
+	}
+	.things_to_see .dscrb{
+		padding-left: 0;
+	}
+	.things_to_see .box{
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.parks_list .content .yllwBtn{
+		width: 200px;
+	}
+	.parks_list .content ._scroller{
+		max-height: 200px;
+	}
+	.ui_container .alternate_login a{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.ui_container .subsDeny{
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+	.page-404 .logo{
+		margin-top: 40px;
+		width: 160px;
+		height: 50px;
+	}
+	.layout_404 #bg-layer{
+		background-position: center, center center; 
+	}
+	.top_nav_cont .nav_bar .logo{
+		height: 40px;
+	}
+	.top_section_bg,
+	#top-slider .slide_bg{
+		min-height: 0;
+		height: 450px;
+	}
+	.m_memory_page .ui_ttl{
+		width: 100%;
+		float: none;
+	}
+	.m_memory_page .w_new_memory{
+		float: none;
+	}
+	.mem_opt .chs_file{
+		justify-content: space-between;
+	}
+	.mem_opt .img_placeholder{
+		width: 80%;
+		max-width: none;
+	}
+	.mem_opt .chs_file a{
+		width: 40%;
+		max-width: none;
+	}
+	.top_nav .regUser .u_dropdown ul{
+		width: 200px;
+		left: 0;
+	}
+	.top_nav .regUser .u_dropdown ul li a{
+		font-size: 11px;
+	}
+	.top_nav .regUser .u_drop{
+		width: 50px;
+	}
+	.top_nav .regUser .u_drop .welcome{
+		display: none;
+	}
+	.birth_d select{
+		background-position: right 6px center;
+    	background-size: 15px;
+	}
+	.ui_container .content-lg{
+		width: 100%;
+	}
+	.ui_container .authBtn{
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.ui_container .change_photo .authBtn{
+		float: right;
+	}
+	.places_section .thr-switch{
+		float: none;
+		margin: 0 auto;
+		display: table;
+	}
+	.places_section .content .photo,
+	.memories_feed .m_cont > .photo{
+		position: static;
+		width: 100%;
+	}
+	.memories_feed .m_cont .comment{
+		width: 100%;
+	}
+	.bottom_nav .alert_box{
+		width: 300px;
+	}
+	.parks_list .content .seasons .icons, 
+	.parks_list .content .adv_parks .icons{
+		margin-left: 0;
+	}
+	.parks_list .content .adv_parks{
+		margin-right: 0;
+	}
+	.parks_list .content .yllwBtn{
+		display: block;
+		margin-bottom: 20px;
+		margin-right: 0;
+		margin-left: 10px;
+	}
+	.memories .memories-title, 
+	.memories .autor{
+		width: 100%;
+	}
+	.slide-loader{
+		height: 110px;
+	    display: flex;
+	    flex-direction: column;
+	}
+	.slide-loader a{
+		text-align: right;
+	}
+	.slide-loader .bullets,
+	.slide-loader .crcl{
+		margin: 0;
+	}
+	.adventure-nav .photos .photo{
+		width: 100%;
+	}
+	#footer .r-col input{
+		width: 100%;
+		max-width: 100%;
+	}
+	#footer .r-col button.t-up{
+		margin-left: 0;
+		margin-top: 10px;
+	}
+	#search-box .s_input{
+		font-size: 25px;
+	}
+}

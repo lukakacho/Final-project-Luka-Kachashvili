@@ -1,0 +1,1437 @@
+var gMap = function(selector, callback){
+    this.element = selector;
+    this.params = {};
+    this.callback = callback;
+
+    this.init = function(){
+        this.obtainParams();
+        this.callback(this.element, this.params.lat, this.params.lng);
+    }
+
+    this.obtainParams = function(){
+        this.params.lat = $(this.element).attr('data-lat');
+        this.params.lng = $(this.element).attr('data-lng');
+    }
+    this.init();
+}
+
+var markers = {
+    birdWatching        :  '/main/img/adventure-icons/1.png',
+    mountainClimbing    :  '/main/img/adventure-icons/2.png',
+    monitoringTower     :  '/main/img/adventure-icons/3.png',
+    canyonDiving        :  '/main/img/adventure-icons/4.png',
+    fishing             :  '/main/img/adventure-icons/5.png',
+    horsemanship        :  '/main/img/adventure-icons/6.png',
+    kayak               :  '/main/img/adventure-icons/7.png',
+    motorboat           :  '/main/img/adventure-icons/8.png',
+    hiking              :  '/main/img/adventure-icons/9.png',
+    Sailing             :  '/main/img/adventure-icons/10.png',
+    phantom             :  '/main/img/adventure-icons/11.png',
+    picnic              :  '/main/img/adventure-icons/12.png',
+    safariCar           :  '/main/img/adventure-icons/13.png',
+    safariCar           :  '/main/img/adventure-icons/14.png',
+    snowShoes           :  '/main/img/adventure-icons/15.png',
+    paleoTour           :  '/main/img/adventure-icons/16.png',
+    touristShelter      :  '/main/img/adventure-icons/17.png',
+    bicycleTour         :  '/main/img/adventure-icons/18.png',
+    visitorCenter       :  '/main/img/adventure-icons/19.png',
+    zipLine             :  '/main/img/adventure-icons/20.png',
+};
+
+var sliderAutoplaySpeed = 8000;
+function setCarousels() {
+    window.topCarousel = setBasicCarousel($('#top-slider'), {
+        rArrow: $('.top_sight_img .photo'),
+        autoplay: false,
+        loop: false,
+        rewind: true,
+        mouseDrag: false,
+        autoplayTimeout:sliderAutoplaySpeed,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        }
+    });
+function hideVideoOnMobile(){
+    if ( $(window).width() < 768 ) {
+        topCarousel.find('.slide_video').closest('.slide_bg').addClass('res-bg');
+    } else {
+        topCarousel.find('.slide_video').closest('.slide_bg').removeClass('res-bg');
+    }
+
+    $(window).resize(function() {
+        if ( $(window).width() < 768 ) {
+            topCarousel.find('.slide_video').closest('.slide_bg').addClass('res-bg');
+        } else {
+            if (topCarousel.find('.slide_video').closest('.slide_bg').hasClass('res-bg')) {
+                topCarousel.find('.slide_video').closest('.slide_bg').removeClass('res-bg');
+            }
+        }
+    });
+}
+hideVideoOnMobile();
+
+window.topCarousel.on('changed.owl.carousel', function(event){
+    var actVid = $("#top-slider > .owl-stage-outer > .owl-stage > .owl-item").eq(event.page.index).find('.slider-yt-box');
+    for( var i = 0; i < player.length; i++ ){
+        player[i].pauseVideo();
+    }
+    if( actVid.length > 0 ){
+    	player[actVid.data('id')].playVideo();
+    	player[actVid.data('id')].playVideo();
+        hideDots();
+    }else{
+    	showDots();
+    }
+});
+
+    // topSliderLoader();
+    
+    window.planningSider = setBasicCarousel($('#planning-slider'), { //slider with bullets
+        autoplay: true,
+        mouseDrag: false,
+        loop: true,
+        autoplayTimeout:12000,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        }
+    });
+
+    $('[data-owl="#planning-slider"] .crcl').removeClass('active');
+    setTimeout(function(){
+        $('[data-owl="#planning-slider"] .crcl').eq(0).addClass('active');
+    },1);
+
+    window.memorySlider = setBasicCarousel($('#memories-slider'), { //slider with bullets
+        autoplay: true,
+        mouseDrag: false,
+        loop: true,
+        autoplayTimeout:12000,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        }
+    });
+
+    $('[data-owl="#memories-slider"] .crcl').removeClass('active');
+    setTimeout(function(){
+        $('[data-owl="#memories-slider"] .crcl').eq(0).addClass('active');
+    },1);
+
+    window.innerMemorySlider = setBasicCarousel($('#inner-memories-slider'), { //slider with bullets
+        autoplay: true,
+        mouseDrag: false,
+        loop: true,
+        autoplayTimeout:12000,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        }
+    });
+
+    $('[data-owl="#inner-memories-slider"] .crcl').removeClass('active');
+    setTimeout(function(){
+        $('[data-owl="#inner-memories-slider"] .crcl').eq(0).addClass('active');
+    },1);
+
+    setBasicCarousel($('#places-view-slider'), {
+        autoplay: false,
+        loop: true,
+        mouseDrag:true,
+        responsive: {
+            0: {
+                items: 5,
+            }
+        }
+    });
+    setBasicCarousel($('.adventure-nav .photos'), {
+        lArrow: $('.sld_cont .l_arrw'),
+        rArrow: $('.sld_cont .r_arrw'),
+        autoplay: false,
+        loop: false,
+        mouseDrag:true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            700: {
+                items: 3,
+            }
+        }
+    });
+    setBasicCarousel($('.nat_cult .photo_slider'), {
+        lArrow: $('.nat_slider .l_arrw'),
+    	rArrow: $('.nat_slider .r_arrw'),
+        autoplay: false,
+        loop: false,
+        mouseDrag:true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            700: {
+                items: 3,
+            }
+        }
+    });
+}
+function mainOwlChange(){
+    
+}
+
+function natCultSlide(){
+    var album = $('.nature_photo');
+    var albumBg = $('.nature_bg');
+
+    $('.nat_cult .content .photo.sm').click(function(){
+        album.addClass('active');
+        albumBg.addClass('sh');
+
+        var img = $(this).find('img').attr('src');
+        album.find('img').attr('src',img);
+    });
+    $('.nature_photo .cls').click(function(){
+       album.removeClass('active');
+       albumBg.removeClass('sh');
+    })
+    albumBg.click(function(){
+       $(this).removeClass('sh');
+       album.removeClass('active');
+    });
+}
+
+function fixedNavbar(){
+
+    var staticNav,scroll,minHeight,botNavScroll;
+
+    typeof document.querySelectorAll('.bottom_nav')[0] != 'undefined' ? staticNav =  $('.bottom_nav').offset().top : staticNav = false;
+    var scrollArr = [];
+    var scrollbool = false;
+    $(window).scroll(function(event){
+        scroll = $(window).scrollTop();
+        minHeight = $('.top_nav_cont.fix_nav .nav_bar').innerHeight();
+        
+        if(scroll >= 100){
+            $('.top_nav_cont').addClass('fix_nav');
+        }else{
+            $('.top_nav_cont').removeClass('fix_nav');
+        }
+        if ( ($(window).width() > 1199) && staticNav){
+            botNavScroll = staticNav - $(window).scrollTop();
+            if(botNavScroll <= minHeight){
+                $('.bottom_nav').addClass('static');
+                scrollArr.push($(window).scrollTop());
+                scrollbool = true;
+            }else if(($(window).scrollTop() <= scrollArr[0]) && scrollbool){
+                scrollbool = false;
+                $('.bottom_nav').removeClass('static');
+            }
+        }
+    });
+
+}
+
+function userLeftNav(){
+    $('.ui_container .l_nav ul a.logiBtn').click(function(ev){
+        var attr = $(this).attr('data-show');
+        $('.ui_container .l_nav ul a.logiBtn').removeClass('active');
+        $(this).addClass('active');
+        $('.ui_container .reg_log .ui_ttl').text(attr);
+        $('.ui_container .loginDiv').hide();
+        $('.ui_container .loginDiv[data-show="'+attr+'"]').show();
+    });
+}
+
+function addPost(){
+    $('.rd_btns label').click(function(ev){
+        ev.preventDefault();
+        var attr = $(this).attr('data-show');
+        $('.rd_btns label').removeClass('active');
+        $(this).addClass('active');
+        $('.mem_opt .postBox').removeClass('active');
+        $('.mem_opt .postBox[data-show="'+attr+'"]').addClass('active');
+    });
+
+    $('.addVideo').click(function(ev){
+        ev.preventDefault();
+        $('.add-video-links').append(`
+            <input type="text" name="video_links[]" class="nm pull-left">
+        `);
+    })
+}
+
+function favoriteSort(){
+    $('.favorites_page .f_sort li').click(function(){
+        var attr = $(this).attr('data-id');
+        $('.favorites_page .f_sort li').removeClass('active');
+        $(this).addClass('active');
+        $('.favorites_page .f_content').removeClass('active');
+        $('.favorites_page .f_content[data-id="'+attr+'"]').addClass('active');
+    });
+}
+
+function changePhoto(){
+    $('.ui_container .change_photo .authBtn').click(function(ev){
+        ev.preventDefault();
+        $('.ui_container .change_photo .up_photo').click();
+    });
+
+    $('.mem_opt .chs_file a').click(function(ev){
+        ev.preventDefault();
+        var attr = $(this).attr('data-upload');
+        $('.mem_opt .chs_file input[data-upload="'+attr+'"]').click();
+
+    });
+} 
+
+
+function imgNamePlaeHolder(){
+    $('.mem_opt .chs_file input[type="file"]').change(function() {
+        $('.mem_opt .postBox.active .img_placeholder').html('');
+        $.each(this.files, function() {
+        readURL(this);
+        })
+    });
+    function readURL(file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        $('.mem_opt .postBox.active .img_placeholder').append('<p>'+file.name+'</p>')
+      }
+      reader.readAsDataURL(file);
+    }
+}
+
+function previewFile(){
+   var preview = document.querySelector('.u-avatar'); //selects the query named img
+   var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+   var reader  = new FileReader();
+
+   reader.onloadend = function () {
+       preview.src = reader.result;
+   }
+
+   if (file){
+       reader.readAsDataURL(file); //reads the data as a URL
+   } else {
+       preview.src = "";
+   }
+}
+   
+function photoPicker(){
+    $('.photo_switcher .photo').click(function(){
+        var src = $(this).find('img').attr('src');
+        var title = $(this).attr('data-name');
+        $('.place_view_slider .slider_img img').attr('src', src);
+    });
+
+    $('.pop_img img').click(function(){
+    	var attr = $(this).attr('src');
+		$('.img_pop img').attr('src',attr);
+    	$('.img_pop_bg').addClass('active');
+    	$('.img_pop').fadeIn();
+    });
+    $('.img_pop .cls').click(function(){
+    	$('.img_pop_bg').removeClass('active');
+    	$('.img_pop').fadeOut();
+    });
+    $('.img_pop_bg').click(function(){
+    	$(this).removeClass('active');
+    	$('.img_pop').fadeOut();
+    });
+}
+function setBasicCarousel(elem, param) {
+    var owl = elem.owlCarousel({
+        loop: param.loop,
+        margin: 0,
+        nav: false,
+        mouseDrag: param.mouseDrag,
+        autoplay: param.autoplay,
+        autoplaySpeed: param.autoplaySpeed,
+        autoplayTimeout: param.autoplayTimeout,
+        autoplayHoverPause: param.autoplayHoverPause,
+        responsive: param.responsive,
+    });
+    if (param.lArrow) {
+        param.lArrow.click(function () {
+            owl.trigger('prev.owl.carousel', [300]);
+        });
+    }
+    if (param.rArrow) {
+        param.rArrow.click(function () {
+            owl.trigger('next.owl.carousel');
+        });
+    }
+    return owl;
+}
+
+function extend(){
+    $.fn.extend({
+        gMap : function(callback){
+            $(this).each(function(index,item){
+                var gmp =  new gMap(item, callback);
+            });
+        }
+    });
+}
+
+
+function setScrollBar(){
+    $('.bottom_nav .alert_box .info').mCustomScrollbar({
+        theme:'red-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+    });
+    if($(window).width() > 768){
+        $('.parks_list .list').mCustomScrollbar({
+        	theme:'light-theme',
+            scrollEasing:'linear',
+            scrollInertia:300,
+            autoHideScrollbar: true,
+        });
+    }
+    $('.reviews .comments').mCustomScrollbar({
+        theme:'light-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+    });
+
+    $('.see_also .also_parks').mCustomScrollbar({
+        theme:'dark-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+    });
+    $('.pano_album .album_nav').mCustomScrollbar({
+        scrollEasing:'linear',
+        autoHideScrollbar:true,
+        scrollInertia:300,
+    });
+
+    if($(window).width() > 768){
+        $('.adventure_section .about .text_about').mCustomScrollbar({
+            theme:'light-theme',
+            scrollEasing:'linear',
+            scrollInertia:300,
+        });
+    }
+    if($(window).width() > 991){
+        $('.info_cont .info_section').mCustomScrollbar({
+            scrollEasing:'linear',
+            scrollInertia:300,
+            theme:'light-theme',
+            autoHideScrollbar: true,
+        });
+    }
+    $('.memories_feed.for_buy .comment .autor.data').mCustomScrollbar({
+        scrollEasing:'linear',
+        autoHideScrollbar:true,
+        scrollInertia:300,
+    });
+
+    $('.sortBtn .sort_list').not('.my-parks-sort').mCustomScrollbar({
+        scrollEasing:'linear',
+        autoHideScrollbar:true,
+        scrollInertia:300,
+    });
+    if($(window).width() > 991){
+        $('.park_overview .dscrb').mCustomScrollbar({
+            scrollEasing:'linear',
+            scrollInertia:300,
+            theme:'light-theme',
+            autoHideScrollbar: true,
+        });
+    }
+    $('.main_adventures_nav .adv-nav ul').mCustomScrollbar({
+        theme:'light-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+        autoHideScrollbar: true,
+        scrollbarPosition: 'outside',
+    });
+    $('.geo_adventures .adv-nav ul').mCustomScrollbar({
+        theme:'light-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+        autoHideScrollbar: true,
+        scrollbarPosition: 'outside',
+    });
+    $('.parks_list .content ._scroller').mCustomScrollbar({
+        theme:'light-theme',
+        scrollEasing:'linear',
+        scrollInertia:300,
+        autoHideScrollbar: true,
+        scrollbarPosition: 'outside',
+    });
+}
+
+
+function sortDropdown(){
+   $('.sort_placeholder').click(function(ev){
+        ev.stopPropagation();
+        var selector = $(this).closest('.sortBtn');
+        if(selector.hasClass('open')){
+            selector.removeClass('open');
+        }else{
+            $('.sort_placeholder').each(function(index,item){
+                $(item).closest('.sortBtn').removeClass('open');
+            });
+            selector.addClass('open');
+        }
+    });
+    $('.sort_list li').click(function(){
+        $(this).closest('.sortBtn').find('.sort_placeholder').text($(this).text());
+        $(this).closest('.sortBtn').removeClass('open');
+    });
+    $('body').click(function(){
+        $('.sortBtn').removeClass('open');
+    });
+}
+
+function langSwitch(){
+    $('.langBtn').click(function(){
+        $(this).find('.lang-down').stop().slideToggle(200).css('display','flex');
+    });
+
+    $('.top_nav .regUser').click(function(){
+        $(this).toggleClass('open');
+    });
+}
+
+function datepickers(){
+    $('.datepicker').each(function(index,item){
+        var datepicker = $(item).datepicker();
+        datepicker.on('changeDate', function(){
+            var elem = $(this).parent().parent().find('.sort_label');
+            if(elem.length > 0){
+                var value = datepicker.datepicker('getFormattedDate');
+                elem.text(value);
+            }
+        });
+    })
+}
+
+function switchBtn(){
+    function switchLeft(selector){
+        var clicker = selector.closest('.switch');
+        clicker.find('.active-case').removeClass('active-case');
+        clicker.find('.switch-case.left').addClass('active-case');
+        clicker.find('.activeBg').css('left', '0%');
+    }
+
+    function switchRight(selector){
+        var clicker = selector.closest('.switch');
+        clicker.find('.active-case').removeClass('active-case');
+        clicker.find('.switch-case.right').addClass('active-case');
+        clicker.find('.activeBg').css('left', '50%');
+    }
+
+    $('.switch-case.left').click(function(){
+        switchLeft($(this));
+    });
+
+    $('.switch-case.right').click(function(){
+        switchRight($(this));
+    });
+
+    $('.places_section .thr-switch .thrd').click(function(){
+        $(this).toggleClass('active');
+    });
+
+}
+function parkPanoAlbum(){
+    var firstImg = $('.pano_album .album_nav .photo img').eq(0).attr('src');
+    var firstYoutubeSrc = $('.my-video').find('object').eq(0).attr('data');
+    var firstTitle = $('.pano_album .album_nav .photo img').eq(0).attr('data-title');
+    
+    $('.pano_album .show_photo .content .album_title').html(firstTitle);
+
+    $('.pano_album .show_photo .switch-case').click(function(){
+        var attr = $(this).attr('data-switch');
+        $('.pano_album .album_nav').removeClass('active');
+        $('.pano_album .album_nav[data-switch="'+attr+'"]').addClass('active');
+        $('.pano_album .show_photo .content').removeClass('active');
+        $('.pano_album .show_photo .content[data-switch="'+attr+'"]').addClass('active');
+        $('.content.video.active').html(`<object data='`+firstYoutubeSrc+`' width="100%" height="100%"></object>`)
+    });
+
+    $('.pano_album .album_nav .photo img').eq(0).addClass('selected');
+    $('.pano_album .album_nav .my-video').eq(0).addClass('selected');
+
+
+    $('.pano_album .show_photo .photo img').attr('src',firstImg);
+    
+
+    $('.pano_album .album_nav .photo').click(function(){//photo gallery
+        $('.pano_album .album_nav .photo img').removeClass('selected');
+        $(this).find('img').addClass('selected');
+        var imgSrc = $(this).find('img').attr('src');
+        $('.pano_album .show_photo .photo img').attr('src',imgSrc);
+    	var imgTitle = $(this).find('img').attr('data-title');
+        $('.pano_album .show_photo .content').find('h2').html(imgTitle);
+    });
+
+    $('.pano_album .album_nav .my-video .playBtn').click(function(){//video gallery
+        $('.pano_album .album_nav .my-video').removeClass('selected');
+        $(this).closest('.my-video').addClass('selected');
+        var type = $(this).find('.video-type').html();
+        var src = $('.my-video').find('object').attr('data');
+
+        $('.content.video.active').empty();
+        $('.content.video.active').html(`<object data='`+src+`' width="100%" height="100%"></object>`)
+    });
+
+    // $('.pano_album .album_nav .photo').each(function(index){
+    //     var slideImg = $(this).find('img').attr('src');
+    //     console.log(slideImg)
+
+    // });
+}
+
+function ratingStars(){
+    $('.stars:not([data-ranked]) li').on('mouseover', function(){
+        var onStar = parseInt($(this).data('value'), 10); 
+       
+        $(this).parent().children('li.star').each(function(e){
+            if (e < onStar) {
+                $(this).addClass('hover');
+            } else {
+                $(this).removeClass('hover');
+            }
+        });
+    }).on('mouseout', function(){
+        $(this).parent().children('li.star').each(function(e){
+          $(this).removeClass('hover');
+        });
+    });
+      
+      
+    $('.stars:not([data-ranked]) li').on('click', function(){
+        var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+        var stars = $(this).parent().children('li.star');
+        for (i = 0; i < stars.length; i++) {
+          $(stars[i]).removeClass('selected');
+        }
+        
+        for (i = 0; i < onStar; i++) {
+          $(stars[i]).addClass('selected');
+        }
+    });
+
+    $('.stars[data-ranked]').each(function(){
+        var rank = $(this).attr('data-ranked');
+        $(this).find('li.star').slice(0, parseInt(rank)).addClass('selected');
+    });
+}
+
+function fadeBurger(bool){
+    if(bool){
+        $('.hamburger_menu .hamBtn').addClass('active');
+        $('.nav_bar ul').stop().fadeIn(1);
+    }else{
+        if($(window).width() > 991){
+            
+        }else{
+            $('.hamburger_menu .hamBtn').removeClass('active');
+            $('.nav_bar ul').stop().fadeOut(1);
+        }
+    }
+}
+
+function resAdventureFilter(){
+    var filter = $('.direction_window');
+    
+    if($(window).width() < 768){
+        filter.click(function(e){
+            e.stopPropagation();
+            $(this).addClass('active');
+        });
+        $('body').click(function(){
+            filter.removeClass('active');
+        })
+    }
+}
+
+function fadeSearch(bool){
+    if(bool){
+        $('.nav_bar .searchBtn').addClass('active');
+        $('#search-box').stop().fadeIn('fast');
+        $('#search-box .s_input').focus();
+    }else{
+        $('.nav_bar .searchBtn').removeClass('active');
+        $('#search-box').stop().fadeOut('fast');
+        $('.search-list').hide();
+        $('.my-search-input').val("");
+    }
+}
+function searchBtn(){
+    var searchOpened = false;
+    var navbarOpened = false;
+    var searchField = $('.my-search-input');
+    
+    function closeDiv(){
+        $('.nav_bar').removeClass('active');
+        $('.nav_bar.gray').removeClass('active');
+        searchOpened = !searchOpened;
+        navbarOpened = false;
+        fadeSearch(searchOpened);
+        fadeBurger(navbarOpened);
+        $('#search-box .center').removeClass('o-null');
+    }
+    var navGray = $('.nav_bar.gray').outerHeight(); 
+    var marginer = $('.nav_bar.gray ul').outerHeight();
+    $('.nav_bar .searchBtn').click(function(){
+        closeDiv();
+    });
+    $('#search-box .bg').click(function(){
+        closeDiv();
+    });
+
+    $('.hamburger_menu .hamBtn').click(function(){
+        $('.nav_bar').toggleClass('active');
+        $('.nav_bar.gray').toggleClass('active');
+        navbarOpened = !navbarOpened;
+        searchOpened = false;
+        fadeSearch(searchOpened);
+        fadeBurger(navbarOpened);
+    });
+    
+}
+
+function colorChange(){
+    $('.direction_window .radio_container').click(function(){
+        $('.direction_window .radio_container').removeClass('active');
+        $(this).addClass('active');
+    });
+}
+
+var counter = -1;
+
+
+function sliderButtonClicker(){
+    // $('.top_sight_img .photo').click();
+}
+var mySliderInterval = setInterval(sliderButtonClicker,sliderAutoplaySpeed);
+
+function dotLoader(clear){
+    var dot = $('.loaderDotCont .dot');
+
+    function fillDot(){
+        dot.eq(counter).fadeIn(200);
+
+        if(counter >=34){
+            counter = -1;
+            dot.hide();
+            clearInterval(mySliderInterval);
+            mySliderInterval = setInterval(sliderButtonClicker,sliderAutoplaySpeed);
+        } else{
+            counter++;
+        }
+    }
+    dotInterval = setInterval(fillDot, sliderAutoplaySpeed / 36);
+}
+
+
+
+
+
+
+function topSliderCounterBtn(){
+    dotLoader();
+    function convertIndex(index){
+        return 
+    }
+
+    var paginationContainer = $('.top-pagination');
+    $('#top-slider .owl-item').not('.cloned').each(function(key){
+        var className = key == 0 ? "active" : "";
+        var padded = (key+1).toString().padStart(2,0);
+        paginationContainer.append('<span class="count block '+className+'" data-jump="'+key+'">'+padded+'</span>');
+    });
+
+    $('.top-pagination .count').click(function(){
+        $('.top-pagination .count').removeClass('active');
+        $(this).addClass('active');
+        var jumpTo = $(this).attr('data-jump');
+        window.topCarousel.trigger('to.owl.carousel', jumpTo);
+    });
+    function changeOwlButtonImg(){
+        var active = $('.owl-item.active').index() + 1;
+        // var src = $('.owl-item').eq(active+1).find('.photo img').attr('src');
+        // $('.top_sight_img .photo img').attr('src', src);
+    };
+    var slideTimeout;
+
+
+    window.topCarousel.on('changed.owl.carousel', function(event) {
+        // topSliderLoader();
+        counter = 34;
+        clearTimeout(slideTimeout);
+        changeOwlButtonImg();
+        $('.count.block').removeClass('active');
+        $('.count.block[data-jump="'+event.page.index+'"]').addClass('active');
+
+        var tumbnail = '';
+        var src;
+
+        if( (event.page.index + 1) == event.page.count ){
+             if( typeof $('#top-slider .owl-item').eq(event.page.index).find('.photo > img').get(0) != 'undefined' ){
+             	slideTimeout = setTimeout(function(){
+	                window.topCarousel.trigger('to.owl.carousel', 0);
+	            },sliderAutoplaySpeed);
+             }
+
+            if( typeof $('#top-slider .owl-item').eq(0).find('.photo > img').get(0) == 'undefined' ){
+                tumbnail = $('#top-slider .owl-item').eq(0).find(' .slide_video iframe').data('id');
+                src = 'https://img.youtube.com/vi/'+tumbnail+'/maxresdefault.jpg';
+
+            }else{
+	            
+            	src = $('#top-slider .owl-item').eq(0).find('img').attr('src');
+            }
+        }else{
+
+            if( typeof $('#top-slider .owl-item').eq(event.page.index).find('.photo > img').get(0) != 'undefined' ){
+                slideTimeout = setTimeout(function(){
+                    window.topCarousel.trigger('next.owl.carousel');
+                },sliderAutoplaySpeed);
+             }
+
+            if( typeof $('#top-slider .owl-item').eq(event.page.index+1).find('.photo > img').get(0) == 'undefined' ){
+                tumbnail = $('#top-slider .owl-item').eq(event.page.index+1).find(' .slide_video iframe').data('id');
+                src = 'https://img.youtube.com/vi/'+tumbnail+'/0.jpg';
+            }else{
+            	src = $('#top-slider .owl-item').eq(event.page.index+1).find('img').attr('src');
+            }
+        }
+        $('.top_sight_img .photo img').attr('src', src);
+        // $('.top_sight_img .photo').html('<img src="'+src+'"/>');
+    });
+
+
+
+    if($('.top-pagination .count').length <=1){
+        $('.top-pagination .count').hide();
+        $('.top_sight_img').hide();
+    }
+}
+
+
+function adventureShow(){
+    $('.adventure-nav .adv-nav ul li').click(function(){
+        var attr = $(this).attr('data-show');
+        $('.adventure-nav .dscrb').removeClass('active');
+        $('.adventure-nav .dscrb[data-show='+attr+']').addClass('active');
+    });
+}
+function natCultShow(){
+    $('.nat_cult .n_nav li').eq(0).addClass('active');
+    $('.nat_cult .content').eq(0).addClass('active');
+    $('.nat_cult .n_nav li').click(function(){
+        var attr = $(this).attr('data-show');
+        $('.nat_cult .n_nav li').removeClass('active');
+        $(this).addClass('active');
+        $('.nat_cult .content').removeClass('active');
+        $('.nat_cult .content[data-show='+attr+']').addClass('active');
+    });
+}
+
+function parkShow(){
+    var list = $('.parks_list .list ul li'); 
+
+
+
+    list.eq(0).addClass('active');
+    $('.parks_list .content_cont').eq(0).addClass('active');
+    list.click(function(){
+        var attr = $(this).attr('data-show');
+        list.removeClass('active');
+        $(this).addClass('active');
+        $('.parks_list .content_cont').removeClass('active');
+        $('.parks_list .content_cont[data-show='+attr+']').addClass('active');
+
+
+        // $('.parks_list .list ul li').unbind( "click" );
+        // $('.parks_list .list ul li.active').click(function(){
+
+        //     var myLink = $('.parks_list .content_cont.active').find('._link').attr('href');
+        //     window.location.href = myLink;
+        // });
+
+    });
+
+    var last = null;
+    $('.parks_list .list ul li').on('click', function(){
+        var current = $(this).index();
+        if(current == last){
+            var showId = $(this).attr('data-show');
+            var href = $('.content_cont[data-show='+showId+']').find('._link').attr('href'); 
+            window.location.href = href;
+        }
+        last = $(this).index();
+    });
+
+}
+
+
+function adventureNav(){
+    $('.adventure-nav .adv-nav ul li').click(function(){
+        $('.adventure-nav .adv-nav ul li').removeClass('active')
+        $(this).addClass('active');
+    });
+    function list(){
+	    if($(window).width()<=991){
+	        $('.adventure-nav .adv-nav').addClass('active');
+	        $('.adventure-nav .adv-nav ul li').click(function(){
+	            $('.adventure-nav .adv-nav').removeClass('active');
+	        });
+	    }
+    }
+    list();
+    $(window).resize(function(){
+    	list();
+    })
+}
+
+function fourBullets(){ //add slider ID
+    setLoadingEventsForSlider('#planning-slider');
+    setLoadingEventsForSlider('#memories-slider');
+    setLoadingEventsForSlider('#inner-memories-slider');
+}
+
+function setLoadingEventsForSlider(slider){
+    var carousel = $(slider).owlCarousel();
+
+    $('[data-owl="'+slider+'"]')
+    .find('.crcl').click(function(){
+        $('[data-owl="'+slider+'"]').find('.crcl').removeClass('active');
+        $(this).addClass('active');
+        var index = $(this).index();
+        carousel.trigger('to.owl.carousel', index);
+    });
+
+    carousel.on('changed.owl.carousel', function(e){//add bullet slider animations
+        $(slider+' .w-title').removeClass('animated bounceInRight');
+        setTimeout(function(){
+            $(slider+' .w-title').addClass('animated bounceInRight');
+        },1);
+        $(slider+' .user_avatar').removeClass('animated bounceInDown');
+        setTimeout(function(){
+            $(slider+' .user_avatar').addClass('animated bounceInDown');
+        },1);
+
+        $('[data-owl="'+slider+'"]')
+        .find('.crcl').removeClass('active');
+
+        setTimeout(function(){
+            $('[data-owl="'+slider+'"]')
+            .find('.crcl').eq(e.page.index)
+            .addClass('active');
+        },1);
+    });
+}
+
+function descrbShow(){
+	$('.park_overview .dscrb .season_info p').click(function(){
+		$(this).closest('.season_info').find('.block.wk').slideToggle();
+	});
+	$('.park_overview .dscrb .tkt_info p').click(function(){
+		$(this).closest('.tkt_info').find('.block.prc').slideToggle();
+	});
+}
+
+function resBtn(){
+    $('.adv-nav .resBtn').click(function(){
+        $(this).toggleClass('active');
+        $('.adventure-nav .adv-nav').toggleClass('active');
+        $('.adventure-nav .adv-nav ul li').click(function(){
+            $('.adventure-nav .adv-nav').removeClass('active');
+            $('.adv-nav .resBtn').removeClass('active');
+        });
+    });
+
+    $('.parks_list .resBtn').click(function(){
+        $(this).toggleClass('active');
+        $('.parks_list .list').toggleClass('active');
+        $('.parks_list .list ul li').click(function(){
+            $('.parks_list .resBtn').removeClass('active');
+            $('.parks_list .list').removeClass('active');
+        });
+    });
+
+    $('.bottom_nav .resBtn').click(function(){
+        $(this).toggleClass('active');
+        $('.bottom_nav ul').toggleClass('active');
+        $('.bottom_nav .alert_box').hide();
+    });
+}
+
+function aroundFilterBtn(){
+    $('.places_section .filter .cls').click(function(){
+        $('.places_section .filter_cont').toggleClass('active');
+    });
+}
+
+function filterRange(){
+    $('.nstSlider').nstSlider({
+        "crossable_handles": false,
+        "left_grip_selector": ".leftGrip",
+        "right_grip_selector": ".rightGrip",
+        "value_bar_selector": ".bar",
+        "value_changed_callback": function(cause, leftValue, rightValue) {
+            $(this).parent().find('.leftLabel span').text(leftValue);
+            $(this).parent().find('.rightLabel span').text(rightValue);
+        }
+    });
+}
+
+function alertBox(){
+    var count = $('.alert_box .info .data').length;
+    if(count > 0){
+        $('.bottom_nav .alerts .quant').text(count);
+        $('.bottom_nav .alerts').click(function(){
+            $('.bottom_nav .alert_box').fadeToggle(100);
+            $('.bottom_nav .resBtn').removeClass('active');
+            $('.bottom_nav ul').removeClass('active');
+        });
+    } 
+    if(count >=10){
+        $('.bottom_nav .alerts .quant').text('10+');
+    }
+}
+
+function termsPopup(){
+    $('.termPopup').click(function(e){
+        e.preventDefault();
+        $('.termsBg').addClass('active');
+        $('.terms_popup').fadeIn();
+    });
+    $('.terms_popup .cls').click(function(){
+        $('.termsBg').removeClass('active');
+        $('.terms_popup').fadeOut();
+    });
+    $('.termsBg').click(function(){
+        $(this).removeClass('active');
+        $('.terms_popup').fadeOut();
+    });
+}
+
+
+function summerNote(){
+    $('.summernote').summernote({
+        toolbar:[
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ],
+        height: 400,
+        disableDragAndDrop: true
+
+    });
+        $('.note-statusbar').hide(); 
+        
+}
+
+function miniMapBtn(){
+    $('.mini_map .yllwBtn').click(function(ev){
+        ev.preventDefault();
+        $('.parks_list .photo-map .mini_map').addClass('active');
+        $(this).hide(); 
+        $('.mini_map .cls').show(); 
+    });
+    $('.mini_map .cls').click(function(){
+        $('.parks_list .photo-map .mini_map').removeClass('active');
+        $('.mini_map .yllwBtn').show();
+        $(this).hide();
+    });
+    $('body').click(function(){
+        $('.parks_list .photo-map .mini_map').removeClass('active');
+        $('.mini_map .yllwBtn').show();
+        $('.mini_map .cls').hide();
+    });
+    $('.parks_list .photo-map .mini_map').click(function(e){
+        e.stopPropagation();
+    });
+    $('.parks_list .list ul li').click(function(){
+        $('.parks_list .photo-map .mini_map').removeClass('active');
+        $('.mini_map .cls').hide();
+    });
+}
+
+function valueCounter(){
+    (function($) {
+  "use strict";
+
+function customQuantity() {
+    jQuery(
+      '<span class="mns">-</span><span class="pls">+</span>'
+    ).insertAfter(".buy_tkt_cont .val_count input");
+    jQuery(".buy_tkt_cont .val_count").each(function() {
+      var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnPls = spinner.find(".pls"),
+        btnMns = spinner.find(".mns"),
+        min = input.attr("min"),
+        max = input.attr("max"),
+        valOfAmout = input.val(),
+        newVal = 0;
+
+      btnPls.on("click", function() {
+        var oldValue = parseFloat(input.val());
+
+        if (oldValue >= max) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+      btnMns.on("click", function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+    });
+  }
+  customQuantity();
+})(jQuery);
+}
+
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+
+function languageChange(){
+        
+    $('.language-selector a').click(function(ev){
+        ev.preventDefault();
+        var serial = {path: $(this).attr('data-path'), lang: $(this).attr('data-lang')};
+        $.ajax({
+            url: '/changeLanguage',
+            method: 'GET',
+            data:serial,
+            success:function(res){
+                window.location.href = '/'+res;
+            }
+        });
+    });
+
+    $('.disabled').click(function(ev){
+        ev.preventDefault();
+    });
+}
+
+function alertBeforeDelete(){
+    $('.delete-alert').click(function(){
+        if(!confirm('Are you sure ? '))
+            return;
+
+        var target = $(this).attr('delete-id');
+        window.location.href = target;
+    });
+}
+
+function favouriteControll(favouriteLink){
+    $('.favourite-controller').click(function(ev){
+        ev.preventDefault();
+        var link = favouriteLink;
+        var status = link.split('/');
+        $.ajax({
+            url: link,
+            method: 'get',
+            success:function(res){
+                if(res == 1){
+                    status[status.length-1] = 0;
+                    status = status.join('/');
+                    favouriteLink = status;
+                    $('.favourite-controller').attr('href', status); 
+                    $('.favourite-controller').addClass('active'); 
+                }else if(res == 0){
+                    status[status.length-1] = 1;
+                    status = status.join('/');
+                    favouriteLink = status;
+                    $('.favourite-controller').attr('href', status); 
+                    $('.favourite-controller').removeClass('active');
+                }
+            }
+        });
+    });
+}
+
+function redirectToSubsPage(){
+    $('.main-subscription-btn').click(function(ev){
+        ev.preventDefault();
+        var value = $('.main-subscription-input').val();
+        var lang = $('.main-subscription-lang').val();
+
+        window.location.href = '/'+lang+'/user/subscribe/'+value;
+    });
+}
+function basicInfoContainer(){
+    var selector = $('.trips.basic_info .info_container');
+    selector.eq(0).addClass('shown');
+    $('.trips.basic_info .list_info ul li').click(function(){
+        var attr = $(this).attr('data-show');
+        $('.trips.basic_info .list_info ul li').removeClass('active')
+        $(this).addClass('active');
+        selector.removeClass('shown');
+        $('.trips.basic_info .info_container[data-show="'+attr+'"]').addClass('shown')
+    });
+    $('.trips.basic_info .list_info .listBtn').click(function(ev){
+        ev.stopPropagation();
+        $(this).toggleClass('active');
+        $('.trips.basic_info .list_info').toggleClass('active');
+    });
+    $('body').click(function(){
+        $('.trips.basic_info .list_info').removeClass('active');
+        $('.trips.basic_info .list_info .listBtn').removeClass('active');
+    });
+}
+
+var yt=false,video,videoL,player = [];
+function sliderVideo(){
+    yt = true;
+    video = $('.yt-box');
+    videoL = video.length;
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+}
+function onYouTubeIframeAPIReady() {
+    if(!yt){
+        return false;
+    }
+    for( var i = 0; i < videoL; i++ ){
+        player[i] = new YT.Player(video.get(i), {
+            width: '100%',
+            height: $(window).height(),
+            fitToBackground: false,
+            playerVars: {
+                'autoplay': 0,
+                'controls': 0,
+                'autohide': 1,
+                'showinfo': 0,
+                'loop': 1,
+                'mute': 1,
+                'modestbranding': 1,
+                'rel':0,
+                'wmode' : 'transparent',
+                'origin': 'https://nationalparks.ge',
+                "playerID": i
+            },
+            videoId: video.eq(i).data('id'),
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        $('.slider-yt-box').eq(i).attr('data-id',i);
+        $('.vidControls .pause').eq(i).attr('data-id',i);
+        $('.vidControls .pause').get(i).addEventListener('click',function(){
+
+
+            if( (player[$(this).data('id')].getPlayerState() == '5') || (player[$(this).data('id')].getPlayerState() == '2') || (player[$(this).data('id')].getPlayerState() == '0') ){
+                player[$(this).data('id')].playVideo();
+                $(this).removeClass('active');
+            }else{
+                player[$(this).data('id')].pauseVideo();
+                $(this).addClass('active');
+            }
+        });
+
+
+        $('.vidControls .mute').eq(i).attr('data-id',i);
+        $('.vidControls .mute').get(i).addEventListener('click',function(){
+
+            if(player[$(this).data('id')].isMuted()){
+                player[$(this).data('id')].unMute();
+                $(this).addClass('active');
+            }else{
+                player[$(this).data('id')].mute();
+                $(this).removeClass('active');
+            }
+        });
+    }
+}
+function hideDots(){
+	$('.loaderDotCont').css({ 'display': 'none' });
+}
+function showDots(){
+	counter = 34;
+	$('.loaderDotCont').css({ 'display': 'block' });
+}
+function vidRescale(){
+
+    var w = $('#top-slider').width(),
+    h = $('#top-slider').height();
+
+    for(var i = 0; i < player.length; i++){
+        if (w/h > 16/9){
+            player[i].setSize(w, w/16*9);
+            $('.yt-box').css({'left': '0px'});
+        } else {
+            player[i].setSize(h/9*16, h);
+            $('.yt-box').css({'left': -($('.yt-box').outerWidth()-w)/2});
+        }
+    }
+
+}
+$(window).on('load resize', function(){
+    if(!yt){
+        return false;
+    }
+    vidRescale();
+});
+function onPlayerReady(event){
+    var ind = $("#top-slider > .owl-stage-outer > .owl-stage > .owl-item").eq(0).find('.slider-yt-box');
+
+    if( ind.length > 0 ){
+    	window.topCarousel.trigger('stop.owl.autoplay');
+    	hideDots();
+        player[ind.data('id')].playVideo();
+    }
+
+}
+function onPlayerStateChange(event){
+	// console.log(  );
+	var indexSl = $('.owl-carousel .owl-item.active').index();
+	var slLength = $('.owl-carousel .owl-item').length;
+	var vidKey = event.target.b.b.playerVars.playerID;
+	
+	if( player[vidKey].getPlayerState() == '0' ){
+		if( (indexSl + 1) == slLength ){
+			window.topCarousel.trigger('to.owl.carousel',0);
+		}else{
+			window.topCarousel.trigger('next.owl.carousel');
+		}
+	}
+
+}
+
+var chatlang = {
+	"en": {
+		"title": "Email Us",
+		"enter_info": "Contact Information",
+		"name": "First Name",
+		"email": "Email",
+		"question": "Enter your Question",
+		"SendButton": "Send Email"
+	},
+	"ka": {
+		"title": "მოგვწერეთ",
+		"enter_info": "საკონტაქტო ინფორმაცია",
+		"name": "სახელი",
+		"email": "ელ.ფოსტა",
+		"question": "დაწერეთ შეკითხვა",
+		"SendButton": "შეკითხვის გაგზავნა"
+	},
+	"ru": {
+		"title": "ЧАТ",
+		"enter_info":"Контактная информация",
+		"name": "имя",
+		"email": "Эл. адрес",
+		"question": "Введите свой вопрос",
+		"SendButton": "Отправить"
+	}
+};
+
+function chatLAngChange(){
+    var lang = location.pathname.split("/")[1];
+    $( "#PureChatWidget span:contains('Email Us')" ).get(0).innerText = chatlang[lang].title;
+    $( "#PureChatWidget p:contains('Email us for')" ).get(0).innerText = chatlang[lang].enter_info;
+    $( "#PureChatWidget input[placeholder='First Name']" ).eq(0).attr("placeholder",chatlang[lang].name);
+    $( "#PureChatWidget input[placeholder='Email']" ).eq(0).attr("placeholder",chatlang[lang].email);
+    $( "#PureChatWidget textarea[placeholder='Enter your Question']" ).eq(0).attr("placeholder",chatlang[lang].question);
+    $( "#PureChatWidget input[value='Send Email']" ).eq(0).attr("value",chatlang[lang].SendButton);
+    $( "#PureChatWidget span:contains('Powered by')" ).eq(0).parent().remove();
+}
+
+function tumbnailss(){
+
+    var src = '';
+            
+
+    if( typeof $('#top-slider .owl-item').eq(1).find('.photo > img').get(0) != 'undefined' ){
+        src = $('#top-slider .owl-item').eq(1).find('img').attr('src');
+    }else if( typeof $('#top-slider .owl-item').eq(1).find(' .slide_video iframe') != 'undefined' ){
+        tumbnail = $('#top-slider .owl-item').eq(1).find(' .slide_video iframe').data('id');
+        src = 'https://img.youtube.com/vi/'+tumbnail+'/0.jpg';
+    }
+
+    $('.top_sight_img .photo img').attr('src', src);
+
+}
+// tumbnailss();
+
+window.addEventListener("load",function(){
+	var interval = setInterval(function(){
+		if( typeof $( "#PureChatWidget span:contains('Email Us')" ) != 'undefined' ){
+			clearInterval(interval);
+            
+			setTimeout(function(){
+				if( $('#PureChatWidget').hasClass('purechat-widget-expanded') ){
+					chatLAngChange();
+				}
+				$('#PureChatWidget div[data-trigger="expand"]').on('click',function(){
+                    setTimeout(function(){
+						chatLAngChange();
+					},1000);
+				});
+			},2000);
+		}	
+	},100);
+
+
+    tumbnailss();
+
+
+});
+
+
+
+extend();
+$(function(){
+    fixedNavbar();
+    // setCarousels();
+    // userLeftNav();
+    // addPost();
+    // favoriteSort();
+    // changePhoto();
+    // photoPicker();
+    // fourBullets();
+    // headerFontSize();
+    // setScrollBar();
+    // switchBtn();
+    // miniMapBtn();
+    // parkPanoAlbum();
+    // ratingStars();
+    // sortDropdown();
+    // datepickers();
+    langSwitch();
+    searchBtn();
+    // topSliderCounterBtn();
+    // resBtn();
+    // filterRange();
+    // aroundFilterBtn();
+    // alertBox();
+    // valueCounter();
+    descrbShow();
+    languageChange();
+    redirectToSubsPage();
+    sliderVideo();
+});
+
+
+
