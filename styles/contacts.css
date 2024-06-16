@@ -14,10 +14,27 @@ body {
   padding: 0 70px;
 }
 
+.banner {
+  background-image: url("../images1/vashlovani1.jpg");
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+}
+
 .div1 {
   display: flex;
   gap: 25px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .div1 a {
@@ -37,6 +54,11 @@ body {
 
 .fa-solid {
   display: none !important;
+}
+
+.flag {
+  width: 100px;
+  height: 60px;
 }
 
 .container {
@@ -224,6 +246,12 @@ textarea {
 .img3 {
   width: 400px;
   height: 350px;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 130px;
 }
 
 .footer {
