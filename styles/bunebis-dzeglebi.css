@@ -69,3 +69,97 @@ header {
     width: 100px;
     height: 60px;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 800px;
+  height: 1000px;
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.card h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.card p {
+  text-indent: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
