@@ -121,6 +121,14 @@ header {
   margin-top: 20px;
 }
 
+.map {
+  display: flex;
+  justify-content: center;
+}
+
+.map iframe {
+  width: 100%;
+}
 
 
 
