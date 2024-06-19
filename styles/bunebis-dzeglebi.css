@@ -90,9 +90,9 @@ header {
 
 .card {
   width: 800px;
-  height: 1000px;
   display: flex;
   margin-bottom: 100px;
+  border: 2px solid #39bf9e;
 }
 
 .card h2 {
@@ -126,10 +126,8 @@ header {
 
 
 .bootstrap {
-  width: 100%;
   display: flex;
   justify-content: center;
-  height: 500px;
   margin-top: 30px;
   margin-bottom: 50px;
 }

@@ -141,6 +141,7 @@ header {
 
 .locations {
   margin-top: 160px;
+  width: 730px;
 }
 
 .sights {
@@ -194,9 +195,15 @@ header {
   color: #39bf9e;
 }
 
+.sights a :hover {
+  color: #ffae00;
+  font-weight: bold;
+}
 
-
-
+.routes a :hover {
+  color: #ffae00;
+  font-weight: bold;
+}
 
 
 
