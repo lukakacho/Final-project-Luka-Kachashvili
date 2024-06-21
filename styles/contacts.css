@@ -266,12 +266,17 @@ textarea {
   margin-bottom: 130px;
 }
 
+footer {
+  padding: auto;
+}
+
 .footer {
   width: 100%;
   height: 400px;
   background-color: rgba(1, 110, 1, 0.726);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .footer1 {
@@ -306,6 +311,65 @@ textarea {
   display: flex;
   justify-content: space-around;
   font-size: 20px;
-  padding: 106px 0;
   color: rgba(186, 255, 82, 0.664);
+}
+
+.row1 {
+  display: flex;
+  flex-direction: column;
+  color: rgba(186, 255, 82, 0.664);
+  gap: 20px;
+}
+
+.row1 a {
+  color: rgba(186, 255, 82, 0.664);
+}
+
+
+.line a:hover {
+  color: #ffae00;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.line p:hover {
+  cursor: pointer;
+  color: #ffae00;
+}
+
+.social {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.row3 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.row3 a {
+    color: rgba(186, 255, 82, 0.664);
+}
+
+.line h3 {
+  color: #00ff43;
+  font-weight: 900;
+}
+
+.row1,
+.row2,
+.row3 {
+  width: 500px;
+}
+
+.row4 h4{
+  color: #10ff009c;
 }
