@@ -190,10 +190,12 @@ header {
 
 .sights a{
   color: #39bf9e;
+  text-decoration: none;
 }
 
 .routes a {
   color: #39bf9e;
+  text-decoration: none;
 }
 
 .sights a :hover {
