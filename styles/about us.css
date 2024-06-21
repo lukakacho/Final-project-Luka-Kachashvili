@@ -89,8 +89,8 @@ header {
 
   .information {
     width: 60%;
-    border: green;
-   
+    border: 1px green solid;
+    background-color: rgba(186, 255, 82, 0.664);
   }
 
   .header1 {
@@ -98,12 +98,15 @@ header {
     font-weight: bold;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
   }
 
   .text1 {
     font-size: 20px;
     margin-top: 30px;
     line-height: 30px;
+    font-weight: 500;
+    text-indent: 30px;
   }
 
 
