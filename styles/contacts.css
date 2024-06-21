@@ -341,9 +341,6 @@ footer {
   gap: 30px;
 }
 
-.line p:hover {
-  color: #ffae00;
-}
 
 .social {
   width: 30px;

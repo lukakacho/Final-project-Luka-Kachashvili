@@ -103,6 +103,7 @@ header {
   .text1 {
     font-size: 20px;
     margin-top: 30px;
+    line-height: 30px;
   }
 
 
@@ -220,10 +221,7 @@ header {
     flex-direction: column;
     gap: 30px;
   }
-  
-  .line p:hover {
-    color: #ffae00;
-  }
+
   
   .social {
     width: 30px;
