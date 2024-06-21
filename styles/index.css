@@ -32,6 +32,7 @@ header {
 
 .div1 a {
   color: white;
+  text-decoration: none;
 }
 
 .headerphoto {
@@ -356,6 +357,7 @@ footer {
 
 .row1 a {
   color: rgba(186, 255, 82, 0.664);
+  text-decoration: none;
 }
 
 
@@ -372,7 +374,6 @@ footer {
 }
 
 .line p:hover {
-  cursor: pointer;
   color: #ffae00;
 }
 
@@ -390,6 +391,7 @@ footer {
 
 .row3 a {
     color: rgba(186, 255, 82, 0.664);
+    text-decoration: none;
 }
 
 .line h3 {
