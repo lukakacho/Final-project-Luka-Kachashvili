@@ -47,7 +47,7 @@ header {
   height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
