@@ -98,6 +98,7 @@ header {
     width: 60%;
     border: 1px green solid;
     background-color: rgba(186, 255, 82, 0.664);
+    border-radius: 5px;
   }
 
   .header1 {
@@ -110,10 +111,11 @@ header {
 
   .text1 {
     font-size: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     line-height: 30px;
     font-weight: 500;
     text-indent: 30px;
+    padding: 10px 10px;
   }
 
 
