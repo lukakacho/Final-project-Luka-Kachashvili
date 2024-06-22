@@ -98,8 +98,8 @@
 }
 .flag-1 {
     display: inline-block;
-    height: 30px;
-    width: 60px;
+    height: 40px;
+    width: 70px;
     margin-left: 20px;
 }
 .bars {
@@ -167,6 +167,7 @@
     .footer {
         height: 500px;
     }
+    
 
 }
 
