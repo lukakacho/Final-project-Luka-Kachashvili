@@ -68,6 +68,7 @@
 }
 .fa-bars {
     display: inline-block !important;
+    color: #10ff009c !important;
 }
 .header {
     padding: 0 50px;
@@ -94,6 +95,15 @@
 }
 .line p {
     font-size: 18px;
+}
+.flag-1 {
+    display: inline-block;
+    height: 30px;
+    width: 60px;
+    margin-left: 20px;
+}
+.bars {
+    display: flex;
 }
 }
 
