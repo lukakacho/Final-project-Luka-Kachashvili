@@ -64,7 +64,7 @@
     display: none;
 }
 .banner {
-    font-size: 40px;
+    font-size: 45px;
 }
 .fa-bars {
     display: inline-block !important;
@@ -90,7 +90,7 @@
 
 @media only screen and (max-width: 800px) {
     .banner {
-        font-size: 30px;
+        font-size: 40px;
     }
     .header {
         padding: 0 40px;
@@ -125,12 +125,12 @@
     }
 
     .line {
-        gap: 50px;
+        gap: 70px;
     }
 
     .row2,
     .row4 {
-        margin-top: 50px;
+        margin-top: 70px;
     }
     .header {
         padding: 0 30px;
@@ -145,12 +145,15 @@
     .text1 {
         font-size: 14px;
     }
+    .banner {
+        font-size: 35px;
+    }
 
 }
 
 @media only screen and (max-width: 500px) {
     .banner {
-        font-size: 20px;
+        font-size: 25px;
     }
     .header {
         padding: 0 20px;
