@@ -79,6 +79,13 @@
     font-size: 16px;
     line-height: 25px;
 }
+.nplogo {
+    width: 55px;
+    height: 55px;
+}
+.ft1 p {
+    font-size: 23px;
+}
 }
 
 @media only screen and (max-width: 800px) {
@@ -95,6 +102,14 @@
     .information {
         width: 90%;
     }
+    .nplogo {
+        width: 50px;
+        height: 50px;
+    }
+    .ft1 p {
+        font-size: 20px;
+    }
+    
 }
 
 @media only screen and (max-width: 700px) {
@@ -150,5 +165,12 @@
     .text1 {
         font-size: 12px;
         line-height: 20px;
+    }
+    .nplogo {
+        width: 40px;
+        height: 40px;
+    }
+    .ft1 p {
+        font-size: 18px;
     }
 }
