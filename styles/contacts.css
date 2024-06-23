@@ -239,6 +239,8 @@ textarea {
 
 .header2 {
   padding-top: 74px;
+  display: flex;
+  justify-content: center;
 }
 
 .photo {
