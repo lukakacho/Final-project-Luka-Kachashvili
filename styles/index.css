@@ -265,18 +265,18 @@ header {
 }
 
 .d-block {
-  height: 800px;
+  height: 100vh;
   width: 100%;
   border: 20px solid rgb(4, 39, 4);
 }
 
 .carousel {
-  width: 70%;
+  width: 90%;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 }
 
 
