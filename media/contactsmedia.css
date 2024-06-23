@@ -247,7 +247,7 @@
   }
 
   .contact2 {
-    font-size: 20px;
+    font-size: 18px;
     width: 300px;
     line-height: 30px;
   }
@@ -311,6 +311,9 @@
   }
   .line h4 {
     font-size: 14px;
+  }
+  .banner {
+    font-size: 23px;
   }
 }
 
