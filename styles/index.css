@@ -75,6 +75,15 @@ header {
   height: 60px;
 }
 
+.flag-1 {
+  display: none;
+}
+.bars {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
 .section {
   display: flex;
   justify-content: space-around;

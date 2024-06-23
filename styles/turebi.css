@@ -75,6 +75,15 @@ body {
     height: 60px;
   }
 
+  .flag-1 {
+    display: none;
+  }
+  .bars {
+    display: flex;
+    align-items: center;
+    display: none;
+  }
+
 
 
 
@@ -97,6 +106,11 @@ body {
   gap: 10px;
   margin-left: 10px;
   width: 500px;
+}
+
+.img {
+  width: 937px;
+  height: 760px;
 }
 
 .img img {
@@ -125,7 +139,8 @@ body {
   justify-content: space-between;
   color: #455A64;
   line-height: 20px;
-  gap: 190px;
+  ;
+  width: 80%;
 }
 
 .div {

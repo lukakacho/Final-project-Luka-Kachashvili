@@ -1,0 +1,340 @@
+@media only screen and (max-width: 1400px) {
+  .photos img {
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 30px;
+    width: 700px;
+    height: 500px;
+  }
+
+  .photos {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left_side {
+    margin-bottom: 40px;
+  }
+
+  .text {
+    width: 650px;
+  }
+
+  .first {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  .footer {
+    height: 600px;
+  }
+  .row1,
+  .row3 {
+    margin-right: 100px;
+  }
+  .line1,
+  .line2 {
+    justify-content: space-between;
+  }
+  .banner {
+    font-size: 50px;
+  }
+  .header {
+    padding: 0 60px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .text {
+    width: 500px;
+  }
+
+  .map iframe {
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 1092px) {
+  .input {
+    flex-direction: column;
+  }
+
+  .text {
+    margin-bottom: 40px;
+    width: 700px;
+    height: 250px;
+  }
+
+  .text1 {
+    margin-left: 0%;
+    height: 50px;
+    width: 500px;
+  }
+  .contact2 {
+    font-size: 35px;
+    width: 430px;
+  }
+
+  .first {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .row1,
+  .row3 {
+    margin-right: 0px;
+  }
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    width: 200px;
+  }
+  .line1,
+  .line2 {
+    width: 80%;
+  }
+  .div1 {
+    display: none;
+  }
+  .banner {
+    font-size: 45px;
+  }
+  .fa-bars {
+    display: inline-block !important;
+  }
+  .header {
+    padding: 0 50px;
+  }
+  .nplogo {
+    width: 55px;
+    height: 55px;
+  }
+  .ft1 p {
+    font-size: 23px;
+  }
+  .line h3 {
+    font-size: 20px;
+  }
+  .line a {
+    font-size: 18px;
+  }
+  .line p {
+    font-size: 18px;
+  }
+  .flag-1 {
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    margin-right: 20px;
+  }
+  .bars {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 935px) {
+  .photos img {
+    width: 450px;
+    height: 300px;
+  }
+
+  .main-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    gap: 30px;
+  }
+
+  .text {
+    width: 500px;
+    height: 300px;
+  }
+
+  .text1 {
+    width: 400px;
+  }
+
+  .contact1 {
+    font-size: 16px;
+  }
+
+  .contact2 {
+    font-size: 30px;
+    width: 370px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .banner {
+    font-size: 40px;
+  }
+  .header {
+    padding: 0 40px;
+  }
+  .tbc {
+    width: 60px;
+    height: 60px;
+  }
+  .nplogo {
+    width: 50px;
+    height: 50px;
+  }
+  .ft1 p {
+    font-size: 20px;
+  }
+
+  .photos img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .text {
+    width: 400px;
+  }
+
+  .navs {
+    width: 300px;
+    padding-bottom: 30px;
+  }
+
+  .map iframe {
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .line1,
+  .line2 {
+    width: 100%;
+  }
+  .line {
+    gap: 50px;
+  }
+  .header {
+    padding: 0 30px;
+  }
+  .tbc {
+    width: 50px;
+    height: 50px;
+  }
+  .banner {
+    font-size: 35px;
+  }
+  .line h3 {
+    font-size: 18px;
+  }
+  .line a {
+    font-size: 16px;
+  }
+  .line p {
+    font-size: 16px;
+  }
+  .footer {
+    height: 500px;
+  }
+
+  .contact1 {
+    font-size: 12px;
+  }
+
+  .contact2 {
+    font-size: 20px;
+    width: 300px;
+    line-height: 30px;
+  }
+
+  .first {
+    width: 200px;
+  }
+  .text {
+    height: 150px;
+    width: 300px;
+  }
+
+  .text1 {
+    height: 30px;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .banner {
+    font-size: 25px;
+  }
+  .header {
+    padding: 0 20px;
+  }
+  .nplogo {
+    width: 40px;
+    height: 40px;
+  }
+  .ft1 p {
+    font-size: 18px;
+  }
+  .line h4 {
+    font-size: 18px;
+  }
+
+  .map iframe {
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .line h4 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .line h3 {
+    font-size: 16px;
+  }
+  .line a {
+    font-size: 14px;
+  }
+  .line p {
+    font-size: 14px;
+  }
+  .line h4 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .line1,
+  .line2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer {
+    height: 800px;
+  }
+  .row2,
+  .row4 {
+    margin-top: 50px;
+  }
+  .line1,
+  .line2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    width: 155px;
+  }
+}

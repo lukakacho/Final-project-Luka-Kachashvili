@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+@media only screen and (max-width: 1300px) {
+    .line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+    }
+    .footer {
+      height: 600px;
+    }
+  .row1,
+  .row3{
+      margin-right: 100px;
+  }
+  .line1,
+  .line2 {
+      justify-content: space-between;
+  }
+  .banner {
+      font-size: 50px;
+  }
+  .header {
+      padding: 0 60px;
+  }
+  }
+  
+  
+  
+  
+  
+  
+  
+  @media only screen and (max-width: 1000px) {
+  .row1,
+  .row3 {
+      margin-right: 0px;
+  }
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+      width: 200px;
+  }
+  .line1, 
+  .line2 {
+      width: 80%;
+  }
+  .div1 {
+      display: none;
+  }
+  .banner {
+      font-size: 45px;
+  }
+  .fa-bars {
+      display: inline-block !important;
+  }
+  .header {
+      padding: 0 50px;
+  }
+  .nplogo {
+      width: 55px;
+      height: 55px;
+  }
+  .ft1 p {
+      font-size: 23px;
+  }
+  .line h3 {
+      font-size: 20px;
+  }
+  .line a {
+      font-size: 18px;
+  }
+  .line p {
+      font-size: 18px;
+  }
+  .flag-1 {
+      display: inline-block;
+      height: 30px;
+      width: 50px;
+      margin-right: 20px;
+  }
+  .bars {
+      display: flex;
+  }
+  }
+  
+  @media only screen and (max-width: 800px) {
+      .banner {
+          font-size: 40px;
+      }
+      .header {
+          padding: 0 40px;
+      }
+      .tbc {
+          width: 60px;
+          height: 60px;
+      }
+      .nplogo {
+          width: 50px;
+          height: 50px;
+      }
+      .ft1 p {
+          font-size: 20px;
+      }
+      
+  }
+  
+  @media only screen and (max-width: 700px) {
+      .line1,
+      .line2 {
+          width: 100%;
+      }
+      .line {
+          gap: 50px;
+      }
+      .header {
+          padding: 0 30px;
+      }
+      .tbc {
+          width: 50px;
+          height: 50px;
+      }
+      .banner {
+          font-size: 35px;
+      }
+      .line h3 {
+          font-size: 18px;
+      }
+      .line a {
+          font-size: 16px;
+      }
+      .line p {
+          font-size: 16px;
+      }
+      .footer {
+          height: 500px;
+      }
+      
+  
+  }
+  
+  @media only screen and (max-width: 500px) {
+      .banner {
+          font-size: 25px;
+      }
+      .header {
+          padding: 0 20px;
+      }
+      .nplogo {
+          width: 40px;
+          height: 40px;
+      }
+      .ft1 p {
+          font-size: 18px;
+      }
+      .line h4 {
+          font-size: 18px;
+      }
+  }
+  
+  @media only screen and (max-width: 450px) {
+      .line h4 {
+          font-size: 16px;
+      }
+  }
+  
+  
+  @media only screen and (max-width: 400px) {
+      .line h3 {
+          font-size: 16px;
+      }
+      .line a {
+          font-size: 14px;
+      }
+      .line p {
+          font-size: 14px;
+      }
+      .line h4 {
+          font-size: 14px;
+      }
+  }
+  
+  @media only screen and (max-width: 350px) {
+      .line1,
+      .line2 {
+          display: flex;
+          flex-direction: column;
+      }
+      .footer {
+          height: 800px;
+      }
+      .row2,
+      .row4 {
+          margin-top: 50px;
+      }
+      .line1,
+      .line2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .row1,
+      .row2,
+      .row3,
+      .row4 {
+          width: 155px;
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
