@@ -20,10 +20,6 @@
   .text {
     width: 650px;
   }
-
-  .first {
-    width: 400px;
-  }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -52,6 +48,9 @@
   }
   .contact2 {
     width: 646px;
+  }
+  .first {
+    width: 758px;
   }
 }
 
@@ -85,9 +84,7 @@
     font-size: 35px;
   }
 
-  .first {
-    width: 350px;
-  }
+ 
 }
 
 @media only screen and (max-width: 1000px) {
@@ -256,7 +253,7 @@
   }
 
   .first {
-    width: 200px;
+    width: 410px;
   }
   .text {
     height: 150px;
@@ -289,6 +286,10 @@
 
   .map iframe {
     height: 400px;
+  }
+
+  .first {
+    width: 280px;
   }
 }
 
