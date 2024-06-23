@@ -1,3 +1,65 @@
+@media only screen and (max-width: 1700px) {
+    .information {
+        width: 40%;
+    }
+    .header1 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .header1, .header2, .header3, .header4 {
+        font-size: 28px;
+    }
+}
+
+
+@media only screen and (max-width: 1600px) {
+    .header1, .header2, .header3, .header4 {
+        font-size: 26px;
+    }
+    .text1, .text2, .text3, .text4 {
+        font-size: 18px;
+    }
+    .d-block {
+        height: 700px;
+    }
+    .bootstrap {
+        height: 790px;
+    }
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .information {
+        width: 70%;
+    }
+    .locations {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sights,
+    .routes,
+    .warning {
+        width: 650px;
+    }
+   
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 1300px) {
@@ -24,6 +86,21 @@
   .header {
       padding: 0 60px;
   }
+  .title h2 {
+    font-size: 40px;
+  }
+  .title1 h2 {
+    font-size: 40px;
+  }
+  .location iframe {
+    height: 800px;
+  }
+  .d-block {
+    height: 600px;
+}
+.bootstrap {
+    height: 680px;
+}
   }
   
   
@@ -84,6 +161,21 @@
   .bars {
       display: flex;
   }
+  .title h2 {
+    font-size: 30px;
+  }
+  .title1 h2 {
+    font-size: 30px;
+  }
+  .location iframe {
+    height: 700px;
+  }
+  .d-block {
+    height: 500px;
+}
+.bootstrap {
+    height: 570px;
+}
   }
   
   @media only screen and (max-width: 800px) {
@@ -104,7 +196,47 @@
       .ft1 p {
           font-size: 20px;
       }
-      
+      .header1, .header2, .header3, .header4 {
+        font-size: 22px;
+    }
+    .text1, .text2, .text3, .text4 {
+        font-size: 16px;
+    }
+      .sights,
+      .routes,
+      .warning,
+      .locations {
+          width: 600px;
+      }
+      .locations h2 {
+        font-size: 20px;
+      }
+      .locations li {
+        font-size: 14px;
+      }
+      .locations h3 {
+        font-size: 22px;
+      }
+      .locations h4 {
+        font-size: 20px;
+      }
+
+      .location iframe {
+        height: 600px;
+      }
+
+      .d-block {
+        height: 400px;
+    }
+
+    .bootstrap {
+        height: 460px;
+    }
+
+
+
+
+
   }
   
   @media only screen and (max-width: 700px) {
@@ -123,7 +255,7 @@
           height: 50px;
       }
       .banner {
-          font-size: 35px;
+          font-size: 28px;
       }
       .line h3 {
           font-size: 18px;
@@ -135,15 +267,31 @@
           font-size: 16px;
       }
       .footer {
-          height: 500px;
+          height: 550px;
       }
-      
-  
+      .header1, .header2, .header3, .header4 {
+        font-size: 20px;
+    }
+      .title h2 {
+        font-size: 20px;
+      }
+      .title1 h2 {
+        font-size: 20px;
+      }
+      .location iframe {
+        height: 500px;
+      }
+      .d-block {
+        height: 300px;
+    }
+    .bootstrap {
+        height: 350px;
+    }
   }
   
   @media only screen and (max-width: 500px) {
       .banner {
-          font-size: 25px;
+          font-size: 20px;
       }
       .header {
           padding: 0 20px;
@@ -158,11 +306,29 @@
       .line h4 {
           font-size: 18px;
       }
+      .location iframe {
+        height: 400px;
+      }
+      .d-block {
+        height: 200px;
+    }
+    .title h2 {
+        font-size: 18px;
+      }
+      .title1 h2 {
+        font-size: 18px;
+      }
   }
   
   @media only screen and (max-width: 450px) {
       .line h4 {
           font-size: 16px;
+      }
+      .title h2 {
+        font-size: 16px;
+      }
+      .title1 h2 {
+        font-size: 16px;
       }
   }
   
@@ -181,7 +347,7 @@
           font-size: 14px;
       }
       .banner {
-        font-size: 23px;
+        font-size: 18px;
       }
   }
   
