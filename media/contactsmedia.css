@@ -50,6 +50,9 @@
   .header {
     padding: 0 60px;
   }
+  .contact2 {
+    width: 646px;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -80,7 +83,6 @@
   }
   .contact2 {
     font-size: 35px;
-    width: 430px;
   }
 
   .first {
@@ -171,7 +173,6 @@
 
   .contact2 {
     font-size: 30px;
-    width: 370px;
   }
 }
 
@@ -336,5 +337,10 @@
   .row3,
   .row4 {
     width: 155px;
+  }
+
+  .contact2 {
+    display: flex;
+    justify-content: center;
   }
 }

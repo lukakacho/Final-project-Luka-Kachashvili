@@ -98,7 +98,7 @@ header {
   font-weight: 400px;
   line-height: 56.35px;
   text-transform: capitalize;
-  width: 800px;
+  width: 965px;
 }
 
 .input {
@@ -239,8 +239,6 @@ textarea {
 
 .header2 {
   padding-top: 74px;
-  display: flex;
-  justify-content: center;
 }
 
 .photo {
