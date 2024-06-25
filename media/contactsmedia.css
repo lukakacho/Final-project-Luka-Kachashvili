@@ -169,7 +169,8 @@
   }
 
   .contact2 {
-    font-size: 30px;
+    font-size: 28px;
+    width: 574px;
   }
 }
 
@@ -209,6 +210,9 @@
   .map iframe {
     height: 500px;
   }
+  .banner {
+    height: 700px;
+}
 }
 
 @media only screen and (max-width: 700px) {
@@ -264,6 +268,9 @@
     height: 30px;
     width: 300px;
   }
+  .banner {
+    height: 600px;
+}
 }
 
 @media only screen and (max-width: 500px) {
@@ -291,12 +298,18 @@
   .first {
     width: 280px;
   }
+  .banner {
+    height: 500px;
+}
 }
 
 @media only screen and (max-width: 450px) {
   .line h4 {
     font-size: 16px;
   }
+  .banner {
+    height: 400px;
+}
 }
 
 @media only screen and (max-width: 400px) {

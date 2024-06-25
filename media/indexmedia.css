@@ -270,6 +270,9 @@
     margin-top: 40px;
     margin-bottom: 150px;
 }
+.banner {
+    height: 700px;
+}
 
   }
   
@@ -338,6 +341,9 @@
     .carousel-control-prev {
       margin-bottom: 90px;
     }
+    .banner {
+        height: 600px;
+    }
 }
 
   
@@ -404,6 +410,9 @@
 .carousel-control-prev {
   margin-bottom: 60px;
 }
+.banner {
+    height: 500px;
+}
   }
  
   
@@ -439,6 +448,9 @@
 }
 .sights {
     margin-bottom: 40px;
+}
+.banner {
+    height: 400px;
 }
   }
   
