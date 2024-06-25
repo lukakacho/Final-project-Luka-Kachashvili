@@ -1,6 +1,28 @@
+@media only screen and (max-width: 1600px) {
+  .img1 {
+    width: 700px;
+    height: 600px;
+  }
+  .img2 {
+    width: 450px;
+    height: 295px;
+  }
+  .photo {
+    width: 450px;
+}
+  .section1 h1{
+    font-size: 40px;
+  }
+  .line-1 {
+    width: 600px;
+  }
+}
 
-
-
+@media only screen and (max-width: 1400px) {
+    .text {
+        width: 90%;
+    }
+}
 
 
 
@@ -29,10 +51,37 @@
   .header {
       padding: 0 60px;
   }
+  .line-1 {
+    width: 500px;
+  }
+
+  .img1 {
+    width: 600px;
+    height: 500px;
+  }
+  .img2 {
+    width: 350px;
+    height: 245px;
+  }
+.photo {
+    width: 350px;
+}
+.section1 h1 {
+    font-size: 30px;
+}
+
   }
   
-  
-  
+  @media only screen and (max-width: 1200px) {
+    .text {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+    .line-2 {
+        margin-top: 50px;
+    }
+  }
   
   
   
@@ -52,7 +101,7 @@
   .line2 {
       width: 80%;
   }
-  .div1 {
+  .div11 {
       display: none;
   }
   .banner {
@@ -88,6 +137,26 @@
   }
   .bars {
       display: flex;
+  }
+  .photos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .img1 {
+    width: 600px;
+    height: 450px;
+  }
+  .img2 {
+    width: 600px;
+    height: 450px;
+  }
+  .photo {
+    width: 600px;
+    margin-left: 0px;
+    gap: 5px;
+  }
+  .section1 h1 {
+    font-size: 20px;
   }
   }
   
@@ -130,7 +199,8 @@
           height: 50px;
       }
       .banner {
-          font-size: 35px;
+          font-size: 30px;
+          height: 600px;
       }
       .line h3 {
           font-size: 18px;
@@ -144,12 +214,64 @@
       .footer {
           height: 500px;
       }
-      .banner {
-        height: 600px;
-    }
-  
+      .img1 {
+        width: 500px;
+        height: 380px;
+      }
+      .img2 {
+        width: 500px;
+        height: 380px;
+      }
+      .photo {
+        width: 500px;
+      }
   }
-  
+  @media only screen and (max-width: 600px) {
+    .img1 {
+        width: 400px;
+        height: 280px;
+      }
+      .img2 {
+        width: 400px;
+        height: 280px;
+      }
+      .photo {
+        width: 400px;
+      }
+    .section1 h1 {
+        font-size: 16px;
+    }
+    .line-1 {
+        width: 400px;
+    }
+    .line-2 {
+        width: 400px;
+    }
+    .div1 p {
+        font-size: 14px;
+        width: 100px;
+    }
+    .p2 {
+        font-size: 12px;
+    }
+    .time {
+        font-size: 12px;
+    }
+    .time2 {
+        font-size: 12px;
+        gap: 33px;
+    }
+    .p1 {
+        font-size: 14px;
+    }
+  }
+
+
+
+
+
+
+
   @media only screen and (max-width: 500px) {
       .banner {
           font-size: 25px;
@@ -178,7 +300,51 @@
       }
       .banner {
         height: 400px;
+        font-size: 20px;
     }
+    .line-1 {
+        width: 300px;
+    }
+    .line-2 {
+        width: 340px;
+        height: 200px;
+    }
+    .div1 {
+        gap: 10px;
+    }
+    .div1 p {
+        font-size: 12px;
+        width: 80px;
+    }
+    .p1 {
+        font-size: 12px;
+    }
+    .p2 {
+        margin-left: 40px;
+    }
+    .div-1 {
+        gap: 10px;
+    }
+    .time {
+        margin-left: 40px;
+    }
+    .time2 {
+        margin-left: 40px;
+    }
+    .img1 {
+        width: 300px;
+        height: 200px;
+      }
+      .img2 {
+        width: 300px;
+        height: 200px;
+      }
+      .photo {
+        width: 300px;
+      }
+      .section1 h1 {
+        font-size: 13px;
+      }
   }
   
   

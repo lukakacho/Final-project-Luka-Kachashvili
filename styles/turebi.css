@@ -22,7 +22,7 @@ body {
     padding: 0 70px;
   }
   
-  .div1 {
+  .div11 {
     display: flex;
     gap: 25px;
     font-weight: bold;
@@ -30,7 +30,7 @@ body {
     align-items: center;
   }
   
-  .div1 a {
+  .div11 a {
     color: white;
     text-decoration: none;
   }
@@ -55,7 +55,7 @@ body {
     font-weight: bold;
   }
   
-  .div1 a:hover {
+  .div11 a:hover {
     color: #ffae00;
     cursor: pointer;
   }
@@ -89,15 +89,16 @@ body {
 
 
 
-
 .section {
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding-top: 50px;
 }
 
 .photos {
- display: flex;
+  display: flex;
+  justify-content: center;
+  width: 90%;
 }
 
 .photo {
@@ -129,18 +130,17 @@ body {
 }
 
 .section2 {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 100px;
+ display: flex;
+ justify-content: center;
+ padding-top: 50px;
 }
-
 .text {
+  width: 80%;
   display: flex;
   justify-content: space-between;
   color: #455A64;
   line-height: 20px;
-  ;
-  width: 80%;
+  padding-bottom: 150px;
 }
 
 .div {
@@ -184,9 +184,13 @@ body {
   align-items: center; 
 }
 
-.div1 {
+.div1, .div-1 {
   display: flex;
   padding-bottom: 15px;
+  display: flex;
+  gap: 25px;
+  font-weight: bold;
+  align-items: center;
 }
 
 .logo {
