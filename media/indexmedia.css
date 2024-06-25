@@ -1,99 +1,91 @@
 @media only screen and (max-width: 1700px) {
-    .information {
-        width: 40%;
-    }
-    .header1 {
-        font-size: 30px;
-    }
+  .information {
+    width: 40%;
+  }
+  .header1 {
+    font-size: 30px;
+  }
 }
-
 
 @media only screen and (max-width: 1600px) {
-    .header1, .header2, .header3, .header4 {
-        font-size: 26px;
-    }
-    .text1, .text2, .text3, .text4 {
-        font-size: 18px;
-    }
+  .header1,
+  .header2,
+  .header3,
+  .header4 {
+    font-size: 26px;
+  }
+  .text1,
+  .text2,
+  .text3,
+  .text4 {
+    font-size: 18px;
+  }
 }
-
-
 
 @media only screen and (min-width: 1400px) {
-    .d-block {
-        height: 900px;
-    }
-    .bootstrap {
-        height: 1000px;
-        margin-top: 90px;
-    }
+  .d-block {
+    height: 900px;
+  }
+  .bootstrap {
+    height: 1000px;
+    margin-top: 90px;
+  }
 }
-
 
 @media only screen and (max-width: 1400px) {
-    .section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .information {
-        width: 70%;
-    }
-    .locations {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .sights,
-    .routes,
-    .warning {
-        width: 650px;
-    }
-    .d-block {
-        height: 800px;
-    }
-    .bootstrap {
-        height: 890px;
-        margin-top: 90px;
-    }
-    .carousel-control-next,
-    .carousel-control-prev {
-      margin-bottom: 130px;
-    }
-    
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .information {
+    width: 70%;
+  }
+  .locations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sights,
+  .routes,
+  .warning {
+    width: 650px;
+  }
+  .d-block {
+    height: 800px;
+  }
+  .bootstrap {
+    height: 890px;
+    margin-top: 90px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    margin-bottom: 130px;
+  }
 }
 
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 1300px) {
-    .line {
-      display: flex;
-      flex-direction: column;
-      gap: 80px;
-    }
-    .footer {
-      height: 700px;
-    }
+  .line {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+  .footer {
+    height: 700px;
+  }
   .row1,
-  .row3{
-      margin-right: 100px;
+  .row3 {
+    margin-right: 100px;
   }
   .line1,
   .line2 {
-      justify-content: space-between;
+    justify-content: space-between;
   }
   .banner {
-      font-size: 50px;
+    font-size: 50px;
   }
   .header {
-      padding: 0 60px;
+    padding: 0 60px;
   }
   .title h2 {
     font-size: 40px;
@@ -106,83 +98,77 @@
   }
   .d-block {
     height: 800px;
-}
-.bootstrap {
+  }
+  .bootstrap {
     height: 890px;
-}
-.d-block {
+  }
+  .d-block {
     height: 700px;
-}
-.bootstrap {
+  }
+  .bootstrap {
     height: 780px;
     margin-top: 70px;
-}
-.title {
-    margin: 90px auto;
-}
-.carousel-control-next,
-.carousel-control-prev {
-  margin-bottom: 110px;
-}
   }
-  
-  
-  
-  
-  
-  
-  
-  @media only screen and (max-width: 1000px) {
+  .title {
+    margin: 90px auto;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    margin-bottom: 110px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .row1,
   .row3 {
-      margin-right: 0px;
+    margin-right: 0px;
   }
   .row1,
   .row2,
   .row3,
   .row4 {
-      width: 200px;
+    width: 200px;
   }
-  .line1, 
+  .line1,
   .line2 {
-      width: 80%;
+    width: 80%;
   }
   .div1 {
-      display: none;
+    display: none;
   }
   .banner {
-      font-size: 45px;
+    font-size: 45px;
   }
   .fa-bars {
-      display: inline-block !important;
+    display: inline-block !important;
   }
   .header {
-      padding: 0 50px;
+    padding: 0 50px;
   }
   .nplogo {
-      width: 55px;
-      height: 55px;
+    width: 55px;
+    height: 55px;
   }
   .ft1 p {
-      font-size: 23px;
+    font-size: 23px;
   }
   .line h3 {
-      font-size: 20px;
+    font-size: 20px;
   }
   .line a {
-      font-size: 18px;
+    font-size: 18px;
   }
   .line p {
-      font-size: 18px;
+    font-size: 18px;
   }
   .flag-1 {
-      display: inline-block;
-      height: 30px;
-      width: 50px;
-      margin-right: 20px;
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    margin-right: 20px;
   }
   .bars {
-      display: flex;
+    display: flex;
   }
   .title h2 {
     font-size: 30px;
@@ -195,325 +181,329 @@
   }
   .d-block {
     height: 600px;
-}
-.bootstrap {
+  }
+  .bootstrap {
     height: 670px;
     margin-top: 50px;
-}
-.title {
-    margin: 80px auto;
-}
-.line {
-    align-items: center;
-}
   }
-  
-  @media only screen and (max-width: 800px) {
-      .banner {
-          font-size: 40px;
-      }
-      .header {
-          padding: 0 40px;
-      }
-      .tbc {
-          width: 60px;
-          height: 60px;
-      }
-      .nplogo {
-          width: 50px;
-          height: 50px;
-      }
-      .ft1 p {
-          font-size: 20px;
-      }
-      .header1, .header2, .header3, .header4 {
-        font-size: 22px;
-    }
-    .text1, .text2, .text3, .text4 {
-        font-size: 16px;
-    }
-      .sights,
-      .routes,
-      .warning,
-      .locations {
-          width: 600px;
-      }
-      .locations h2 {
-        font-size: 20px;
-      }
-      .locations li {
-        font-size: 14px;
-      }
-      .locations h3 {
-        font-size: 22px;
-      }
-      .locations h4 {
-        font-size: 20px;
-      }
+  .title {
+    margin: 80px auto;
+  }
+  .line {
+    align-items: center;
+  }
+}
 
-      .location iframe {
-        height: 600px;
-      }
-      .d-block {
-        height: 500px;
-    }
-    .bootstrap {
-        height: 560px;
-        margin-top: 30px;
-    }
+@media only screen and (max-width: 800px) {
+  .banner {
+    font-size: 40px;
+  }
+  .header {
+    padding: 0 40px;
+  }
+  .tbc {
+    width: 60px;
+    height: 60px;
+  }
+  .nplogo {
+    width: 50px;
+    height: 50px;
+  }
+  .ft1 p {
+    font-size: 20px;
+  }
+  .header1,
+  .header2,
+  .header3,
+  .header4 {
+    font-size: 22px;
+  }
+  .text1,
+  .text2,
+  .text3,
+  .text4 {
+    font-size: 16px;
+  }
+  .sights,
+  .routes,
+  .warning,
+  .locations {
+    width: 600px;
+  }
+  .locations h2 {
+    font-size: 20px;
+  }
+  .locations li {
+    font-size: 14px;
+  }
+  .locations h3 {
+    font-size: 22px;
+  }
+  .locations h4 {
+    font-size: 20px;
+  }
 
-    .title {
-        margin: 70px auto;
-    }
+  .location iframe {
+    height: 600px;
+  }
+  .d-block {
+    height: 500px;
+  }
+  .bootstrap {
+    height: 560px;
+    margin-top: 30px;
+  }
 
-.map {
+  .title {
+    margin: 70px auto;
+  }
+
+  .map {
     margin-top: 40px;
     margin-bottom: 150px;
-}
-.banner {
+  }
+  .banner {
     height: 700px;
-}
-
   }
-  
-  @media only screen and (max-width: 700px) {
-      .line1,
-      .line2 {
-          width: 100%;
-      }
-      .line {
-          gap: 50px;
-      }
-      .header {
-          padding: 0 30px;
-      }
-      .tbc {
-          width: 50px;
-          height: 50px;
-      }
-      .banner {
-          font-size: 28px;
-      }
-      .line h3 {
-          font-size: 18px;
-      }
-      .line a {
-          font-size: 16px;
-      }
-      .line p {
-          font-size: 16px;
-      }
-      .footer {
-          height: 600px;
-      }
-      .header1, .header2, .header3, .header4 {
-        font-size: 20px;
-    }
-      .title h2 {
-        font-size: 20px;
-      }
-      .title1 h2 {
-        font-size: 20px;
-      }
-      .location iframe {
-        height: 500px;
-      }
-      .d-block {
-        height: 400px;
-    }
-    .bootstrap {
-        height: 450px;
-        margin-top: 10px;
-    }
-    .title {
-        margin: 60px auto;
-    }
-    .sights,
-    .routes,
-    .warning,
-    .locations {
-        width: 400px;
-    }
-    .sights {
-        margin-bottom: 80px;
-    }
-    .carousel-control-next,
-    .carousel-control-prev {
-      margin-bottom: 90px;
-    }
-    .banner {
-        height: 600px;
-    }
 }
 
-  
-  @media only screen and (max-width: 500px) {
-      .banner {
-          font-size: 20px;
-      }
-      .header {
-          padding: 0 20px;
-      }
-      .nplogo {
-          width: 40px;
-          height: 40px;
-      }
-      .ft1 p {
-          font-size: 18px;
-      }
-      .line h4 {
-          font-size: 18px;
-      }
-      .location iframe {
-        height: 400px;
-      }
-   
-    .title h2 {
-        font-size: 18px;
-      }
-      .title1 h2 {
-        font-size: 18px;
-      }
-      .d-block {
-        height: 300px;
-    }
-    .bootstrap {
-        height: 340px;
-        margin-top: 0px;
-    }
-    .title {
-        margin: 50px auto;
-    }
-    .map {
-        margin-top: 30px;
-        margin-bottom: 100px;
-    }
-    .locations h2 {
-        font-size: 18px;
-      }
-      .locations h3 {
-        font-size: 20px;
-      }
-      .locations h4 {
-        font-size: 18px;
-      }
-      .sights,
-.routes,
-.warning,
-.locations {
-    width: 340px;
-}
-.sights {
-    margin-bottom: 60px;
-}
-.carousel-control-next,
-.carousel-control-prev {
-  margin-bottom: 60px;
-}
-.banner {
+@media only screen and (max-width: 700px) {
+  .line1,
+  .line2 {
+    width: 100%;
+  }
+  .line {
+    gap: 50px;
+  }
+  .header {
+    padding: 0 30px;
+  }
+  .tbc {
+    width: 50px;
+    height: 50px;
+  }
+  .banner {
+    font-size: 28px;
+  }
+  .line h3 {
+    font-size: 18px;
+  }
+  .line a {
+    font-size: 16px;
+  }
+  .line p {
+    font-size: 16px;
+  }
+  .footer {
+    height: 600px;
+  }
+  .header1,
+  .header2,
+  .header3,
+  .header4 {
+    font-size: 20px;
+  }
+  .title h2 {
+    font-size: 20px;
+  }
+  .title1 h2 {
+    font-size: 20px;
+  }
+  .location iframe {
     height: 500px;
-}
   }
- 
-  
-  
-  @media only screen and (max-width: 450px) {
-      .line h4 {
-          font-size: 16px;
-      }
-      .title h2 {
-        font-size: 16px;
-      }
-      .title1 h2 {
-        font-size: 16px;
-      }
-      .d-block {
-        height: 250px;
-    }
-    .bootstrap {
-        height: 300px;
-    }
-.title {
-    margin: 40px auto;
+  .d-block {
+    height: 400px;
+  }
+  .bootstrap {
+    height: 450px;
+    margin-top: 10px;
+  }
+  .title {
+    margin: 60px auto;
+  }
+  .sights,
+  .routes,
+  .warning,
+  .locations {
+    width: 400px;
+  }
+  .sights {
+    margin-bottom: 80px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    margin-bottom: 90px;
+  }
+  .banner {
+    height: 600px;
+  }
 }
-.map {
+
+@media only screen and (max-width: 500px) {
+  .banner {
+    font-size: 20px;
+  }
+  .header {
+    padding: 0 20px;
+  }
+  .nplogo {
+    width: 40px;
+    height: 40px;
+  }
+  .ft1 p {
+    font-size: 18px;
+  }
+  .line h4 {
+    font-size: 18px;
+  }
+  .location iframe {
+    height: 400px;
+  }
+
+  .title h2 {
+    font-size: 18px;
+  }
+  .title1 h2 {
+    font-size: 18px;
+  }
+  .d-block {
+    height: 300px;
+  }
+  .bootstrap {
+    height: 340px;
+    margin-top: 0px;
+  }
+  .title {
+    margin: 50px auto;
+  }
+  .map {
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+  .locations h2 {
+    font-size: 18px;
+  }
+  .locations h3 {
+    font-size: 20px;
+  }
+  .locations h4 {
+    font-size: 18px;
+  }
+  .sights,
+  .routes,
+  .warning,
+  .locations {
+    width: 340px;
+  }
+  .sights {
+    margin-bottom: 60px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    margin-bottom: 60px;
+  }
+  .banner {
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .line h4 {
+    font-size: 16px;
+  }
+  .title h2 {
+    font-size: 16px;
+  }
+  .title1 h2 {
+    font-size: 16px;
+  }
+  .d-block {
+    height: 250px;
+  }
+  .bootstrap {
+    height: 300px;
+  }
+  .title {
+    margin: 40px auto;
+  }
+  .map {
     margin-top: 20px;
     margin-bottom: 50px;
-}
-.sights,
-.routes,
-.warning,
-.locations {
+  }
+  .sights,
+  .routes,
+  .warning,
+  .locations {
     width: 340px;
-}
-.sights {
+  }
+  .sights {
     margin-bottom: 40px;
-}
-.banner {
+  }
+  .banner {
     height: 400px;
+  }
 }
+
+@media only screen and (max-width: 400px) {
+  .line h3 {
+    font-size: 16px;
   }
-  
-  
-  @media only screen and (max-width: 400px) {
-      .line h3 {
-          font-size: 16px;
-      }
-      .line a {
-          font-size: 14px;
-      }
-      .line p {
-          font-size: 14px;
-      }
-      .line h4 {
-          font-size: 14px;
-      }
-      .banner {
-        font-size: 18px;
-      }
-      .title {
-        margin: 30px auto;
-      }
-      .title h2 {
-        font-size: 14px;
-      }
-      .title1 h2 {
-        font-size: 14px;
-      }
-      .sights,
-      .routes,
-      .warning,
-      .locations {
-          width: 300px;
-      }
+  .line a {
+    font-size: 14px;
   }
-  
-  @media only screen and (max-width: 350px) {
-      .line1,
-      .line2 {
-          display: flex;
-          flex-direction: column;
-      }
-      .footer {
-          height: 900px;
-      }
-      .row2,
-      .row4 {
-          margin-top: 50px;
-      }
-      .line1,
-      .line2 {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-      .row1,
-      .row2,
-      .row3,
-      .row4 {
-          width: 155px;
-      }
-      .map {
-        margin-top: 15px;
-    }
+  .line p {
+    font-size: 14px;
   }
+  .line h4 {
+    font-size: 14px;
+  }
+  .banner {
+    font-size: 18px;
+  }
+  .title {
+    margin: 30px auto;
+  }
+  .title h2 {
+    font-size: 14px;
+  }
+  .title1 h2 {
+    font-size: 14px;
+  }
+  .sights,
+  .routes,
+  .warning,
+  .locations {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .line1,
+  .line2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer {
+    height: 900px;
+  }
+  .row2,
+  .row4 {
+    margin-top: 50px;
+  }
+  .line1,
+  .line2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    width: 155px;
+  }
+  .map {
+    margin-top: 15px;
+  }
+}

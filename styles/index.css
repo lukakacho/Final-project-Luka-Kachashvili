@@ -103,7 +103,7 @@ header {
   font-size: 36px;
   font-weight: bold;
   margin-top: 50px;
-  color: #09C688;
+  color: #09c688;
 }
 
 .text1,
@@ -132,7 +132,6 @@ header {
   background-color: green;
   border: 5px solid hwb(41 17% 39%);
 }
-
 
 .sights li {
   color: #39bf9e;
@@ -185,7 +184,7 @@ header {
 
 .fa-triangle-exclamation {
   margin-bottom: 20px;
-} 
+}
 
 .prohibition-logo {
   display: flex;
@@ -198,7 +197,7 @@ header {
   margin-right: 10px;
 }
 
-.sights a{
+.sights a {
   color: #39bf9e;
   text-decoration: none;
 }
@@ -217,17 +216,6 @@ header {
   color: #ffae00;
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .map {
   margin-top: 50px;
@@ -279,13 +267,11 @@ header {
   margin-bottom: 150px;
 }
 
-
-
 $carousel-control-color: $white;
 $carousel-control-width: 15%;
 $carousel-control-opacity: 0.5;
 $carousel-control-hover-opacity: 0.9;
-$carousel-control-transition:        opacity .15s ease;
+$carousel-control-transition: opacity 0.15s ease;
 
 $carousel-indicator-width: 30px;
 $carousel-indicator-height: 3px;
@@ -369,7 +355,6 @@ footer {
   text-decoration: none;
 }
 
-
 .line a:hover {
   color: #ffae00;
   cursor: pointer;
@@ -381,7 +366,6 @@ footer {
   flex-direction: column;
   gap: 30px;
 }
-
 
 .social {
   width: 30px;
@@ -396,8 +380,8 @@ footer {
 }
 
 .row3 a {
-    color: rgba(186, 255, 82, 0.664);
-    text-decoration: none;
+  color: rgba(186, 255, 82, 0.664);
+  text-decoration: none;
 }
 
 .line h3 {
@@ -412,7 +396,7 @@ footer {
   width: 300px;
 }
 
-.row4 h4{
+.row4 h4 {
   color: #10ff009c;
 }
 

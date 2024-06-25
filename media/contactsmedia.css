@@ -83,8 +83,6 @@
   .contact2 {
     font-size: 35px;
   }
-
- 
 }
 
 @media only screen and (max-width: 1000px) {
@@ -212,7 +210,7 @@
   }
   .banner {
     height: 700px;
-}
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -270,7 +268,7 @@
   }
   .banner {
     height: 600px;
-}
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -300,7 +298,7 @@
   }
   .banner {
     height: 500px;
-}
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -309,7 +307,7 @@
   }
   .banner {
     height: 400px;
-}
+  }
 }
 
 @media only screen and (max-width: 400px) {
