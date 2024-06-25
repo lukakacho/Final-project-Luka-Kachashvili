@@ -1,210 +1,350 @@
+@media only screen and (max-width: 1700px) {
+  .banner {
+    font-size: 45px;
+  }
+  .photo {
+    width: 300px;
+    height: 240px;
+  }
+  .card h2 {
+    font-size: 30px;
+  }
+  .card {
+    width: 700px;
+  }
+  .map iframe {
+    height: 400px;
+  }
+}
 
+@media only screen and (max-width: 1500px) {
+  .banner {
+    font-size: 40px;
+  }
+  .photo {
+    width: 250px;
+    height: 200px;
+  }
+  .card h2 {
+    font-size: 28px;
+  }
+  .card {
+    width: 600px;
+  }
+  .map iframe {
+    height: 350px;
+  }
+}
 
 @media only screen and (max-width: 1300px) {
-    .line {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 80px;
-    }
-    .footer {
-      height: 600px;
-    }
+  .line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  .footer {
+    height: 600px;
+  }
   .row1,
-  .row3{
-      margin-right: 100px;
+  .row3 {
+    margin-right: 100px;
   }
   .line1,
   .line2 {
-      justify-content: space-between;
+    justify-content: space-between;
   }
   .banner {
-      font-size: 50px;
+    font-size: 35px;
   }
   .header {
-      padding: 0 60px;
+    padding: 0 60px;
   }
+  .photo {
+    width: 200px;
+    height: 160px;
   }
-  
-  
-  
-  
-  
-  
-  
-  @media only screen and (max-width: 1000px) {
+  .card h2 {
+    font-size: 26px;
+  }
+  .card {
+    width: 500px;
+  }
+  .map iframe {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .banner {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo {
+    width: 350px;
+    height: 280px;
+  }
+  .card h2 {
+    font-size: 32px;
+  }
+  .card {
+    width: 800px;
+  }
+  .map iframe {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .row1,
   .row3 {
-      margin-right: 0px;
+    margin-right: 0px;
   }
   .row1,
   .row2,
   .row3,
   .row4 {
-      width: 200px;
+    width: 200px;
   }
-  .line1, 
+  .line1,
   .line2 {
-      width: 80%;
+    width: 80%;
   }
   .div1 {
-      display: none;
+    display: none;
   }
   .banner {
-      font-size: 45px;
+    font-size: 25px;
   }
   .fa-bars {
-      display: inline-block !important;
+    display: inline-block !important;
   }
   .header {
-      padding: 0 50px;
+    padding: 0 50px;
   }
   .nplogo {
-      width: 55px;
-      height: 55px;
+    width: 55px;
+    height: 55px;
   }
   .ft1 p {
-      font-size: 23px;
+    font-size: 23px;
   }
   .line h3 {
-      font-size: 20px;
+    font-size: 20px;
   }
   .line a {
-      font-size: 18px;
+    font-size: 18px;
   }
   .line p {
-      font-size: 18px;
+    font-size: 18px;
   }
   .flag-1 {
-      display: inline-block;
-      height: 30px;
-      width: 50px;
-      margin-right: 20px;
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    margin-right: 20px;
   }
   .bars {
-      display: flex;
+    display: flex;
   }
+}
+
+@media only screen and (max-width: 900px) {
+    .photo {
+        width: 300px;
+        height: 240px;
+      }
+      .card h2 {
+        font-size: 30px;
+      }
+      .card {
+        width: 700px;
+      }
+      .map iframe {
+        height: 400px;
+      }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .banner {
+    font-size: 20px;
   }
-  
-  @media only screen and (max-width: 800px) {
-      .banner {
-          font-size: 40px;
-      }
-      .header {
-          padding: 0 40px;
-      }
-      .tbc {
-          width: 60px;
-          height: 60px;
-      }
-      .nplogo {
-          width: 50px;
-          height: 50px;
-      }
-      .ft1 p {
-          font-size: 20px;
-      }
-      
+  .header {
+    padding: 0 40px;
   }
-  
-  @media only screen and (max-width: 700px) {
-      .line1,
-      .line2 {
-          width: 100%;
-      }
-      .line {
-          gap: 50px;
-      }
-      .header {
-          padding: 0 30px;
-      }
-      .tbc {
-          width: 50px;
-          height: 50px;
-      }
-      .banner {
-          font-size: 35px;
-      }
-      .line h3 {
-          font-size: 18px;
-      }
-      .line a {
-          font-size: 16px;
-      }
-      .line p {
-          font-size: 16px;
-      }
-      .footer {
-          height: 500px;
-      }
-      
-  
+  .tbc {
+    width: 60px;
+    height: 60px;
   }
-  
-  @media only screen and (max-width: 500px) {
-      .banner {
-          font-size: 25px;
-      }
-      .header {
-          padding: 0 20px;
-      }
-      .nplogo {
-          width: 40px;
-          height: 40px;
-      }
-      .ft1 p {
-          font-size: 18px;
-      }
-      .line h4 {
-          font-size: 18px;
-      }
+  .nplogo {
+    width: 50px;
+    height: 50px;
   }
-  
-  @media only screen and (max-width: 450px) {
-      .line h4 {
-          font-size: 16px;
-      }
+  .ft1 p {
+    font-size: 20px;
   }
-  
-  
-  @media only screen and (max-width: 400px) {
-      .line h3 {
-          font-size: 16px;
-      }
-      .line a {
-          font-size: 14px;
-      }
-      .line p {
-          font-size: 14px;
-      }
-      .line h4 {
-          font-size: 14px;
-      }
+  .photo {
+    width: 250px;
+    height: 200px;
   }
-  
-  @media only screen and (max-width: 350px) {
-      .line1,
-      .line2 {
-          display: flex;
-          flex-direction: column;
-      }
-      .footer {
-          height: 800px;
-      }
-      .row2,
-      .row4 {
-          margin-top: 50px;
-      }
-      .line1,
-      .line2 {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-      .row1,
-      .row2,
-      .row3,
-      .row4 {
-          width: 155px;
-      }
+  .card h2 {
+    font-size: 28px;
   }
+  .card {
+    width: 600px;
+  }
+  .map iframe {
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .line1,
+  .line2 {
+    width: 100%;
+  }
+  .line {
+    gap: 50px;
+  }
+  .header {
+    padding: 0 30px;
+  }
+  .tbc {
+    width: 50px;
+    height: 50px;
+  }
+  .banner {
+    font-size: 18px;
+  }
+  .line h3 {
+    font-size: 18px;
+  }
+  .line a {
+    font-size: 16px;
+  }
+  .line p {
+    font-size: 16px;
+  }
+  .footer {
+    height: 500px;
+  }
+  .photo {
+    width: 200px;
+    height: 160px;
+  }
+  .card h2 {
+    font-size: 26px;
+  }
+  .card {
+    width: 500px;
+  }
+  .map iframe {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    font-size: 16px;
+  }
+  .photo {
+    width: 150px;
+    height: 120px;
+  }
+  .card h2 {
+    font-size: 24px;
+  }
+  .card {
+    width: 400px;
+  }
+  .map iframe {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .banner {
+    font-size: 14px;
+  }
+  .header {
+    padding: 0 20px;
+  }
+  .nplogo {
+    width: 40px;
+    height: 40px;
+  }
+  .ft1 p {
+    font-size: 18px;
+  }
+  .line h4 {
+    font-size: 18px;
+  }
+  .photo {
+    width: 120px;
+    height: 100px;
+  }
+  .card h2 {
+    font-size: 22px;
+  }
+  .card {
+    width: 300px;
+  }
+  .map iframe {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .line h4 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .line h3 {
+    font-size: 16px;
+  }
+  .line a {
+    font-size: 14px;
+  }
+  .line p {
+    font-size: 14px;
+  }
+  .line h4 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .line1,
+  .line2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer {
+    height: 800px;
+  }
+  .row2,
+  .row4 {
+    margin-top: 50px;
+  }
+  .line1,
+  .line2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    width: 155px;
+  }
+}
