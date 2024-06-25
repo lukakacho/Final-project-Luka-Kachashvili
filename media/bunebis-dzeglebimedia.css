@@ -259,13 +259,16 @@
     height: 120px;
   }
   .card h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
   .card {
     width: 400px;
   }
   .map iframe {
     height: 250px;
+  }
+  .card p {
+    font-size: 16px;
   }
 }
 
@@ -291,13 +294,16 @@
     height: 100px;
   }
   .card h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .card {
     width: 300px;
   }
   .map iframe {
     height: 200px;
+  }
+  .card p {
+    font-size: 14px;
   }
 }
 
